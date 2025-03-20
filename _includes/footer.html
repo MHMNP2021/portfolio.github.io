@@ -1,0 +1,19 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-col">
+            <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}</p>
+        </div>
+        <div class="footer-col">
+            <ul class="social-links">
+                {% if site.github_username %}
+                <li>
+                    <a href="https://github.com/{{ site.github_username }}">
+                        GitHub
+                    </a>
+                </li>
+                {% endif %}
+                <!-- Add more social links as needed -->
+            </ul>
+        </div>
+    </div>
+</footer>
