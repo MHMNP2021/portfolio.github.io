@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Data Analysis Techniques | M Nethmina Perera</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="description" content="Exploring modern approaches to data analysis and how they can be applied in financial contexts.">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="blog-post-single">
+            <div class="container">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span class="post-date">March 20, 2023</span>
+                        <div class="post-tags">
+                            <span class="tag">blog</span>
+                            <span class="tag">data-science</span>
+                        </div>
+                    </div>
+                    <h1>Advanced Data Analysis Techniques</h1>
+                </div>
+                
+                <div class="post-featured-image">
+                    <img src="../assets/images/blog1.jpg" alt="Data Analysis Techniques">
+                </div>
+                
+                <div class="post-content">
+                    <p>In today's data-driven world, the ability to extract meaningful insights from complex datasets is more valuable than ever. This blog post explores advanced data analysis techniques that can help financial analysts and data scientists uncover deeper insights and make more informed decisions.</p>
+                    
+                    <h2>1. Time Series Analysis</h2>
+                    <p>Time series analysis is essential for understanding patterns and trends in financial data over time. Advanced techniques like ARIMA (Autoregressive Integrated Moving Average) and Prophet can help forecast future values based on historical data.</p>
+                    
+                    <p>Key components of time series analysis include:</p>
+                    <ul>
+                        <li>Trend analysis</li>
+                        <li>Seasonal decomposition</li>
+                        <li>Autocorrelation</li>
+                        <li>Moving averages</li>
+                    </ul>
+                    
+                    <h2>2. Machine Learning for Anomaly Detection</h2>
+                    <p>Anomaly detection is crucial in financial analysis for identifying fraudulent transactions, market irregularities, or other unusual patterns. Machine learning algorithms like Isolation Forest and One-Class SVM can automatically detect outliers in large datasets.</p>
+                    
+                    <p>Example Python code for anomaly detection:</p>
+                    <pre><code>
+from sklearn.ensemble import IsolationForest
+
+# Initialize the model
+model = IsolationForest(contamination=0.05)
+
+# Fit the model
+model.fit(financial_data)
+
+# Predict anomalies (1 for normal, -1 for anomalies)
+predictions = model.predict(financial_data)
+                    </code></pre>
+                    
+                    <h2>3. Natural Language Processing for Financial News</h2>
+                    <p>Natural Language Processing (NLP) can be used to analyze financial news, reports, and social media to gauge market sentiment and predict market movements. Techniques like sentiment analysis and named entity recognition can extract valuable insights from text data.</p>
+                    
+                    <h2>Conclusion</h2>
+                    <p>Advanced data analysis techniques are transforming the field of financial analysis. By combining traditional statistical methods with modern machine learning approaches, analysts can uncover deeper insights and make more accurate predictions.</p>
+                    
+                    <p>In future posts, we'll explore specific applications of these techniques in real-world financial scenarios.</p>
+                </div>
+                
+                <div class="post-navigation">
+                    <div class="prev-post">
+                        <a href="../blog.html">&larr; Back to Blog</a>
+                    </div>
+                    <div class="next-post">
+                        <a href="python-for-finance.html">Next Post: Python for Financial Analysis &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="../index.html#projects">Projects</a></li>
+                        <li><a href="../index.html#skills">Skills</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="latest-posts">
+                    <h3>Latest Blog Posts</h3>
+                    <ul>
+                        <li><a href="data-analysis-techniques.html">Advanced Data Analysis Techniques</a></li>
+                        <li><a href="python-for-finance.html">Python for Financial Analysis</a></li>
+                        <li><a href="career-in-data-science.html">Building a Career in Data Science</a></li>
+                    </ul>
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy; 2023 M Nethmina Perera. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../script.js"></script>
+</body>
+</html>
+
