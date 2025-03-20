@@ -1,0 +1,255 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header and navigation */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+/* Main content sections */
+main {
+  min-height: calc(100vh - 120px);
+  padding: 2rem 0;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 4rem 0;
+  background-color: #e9ecef;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Projects grid */
+.projects-grid,
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card,
+.post-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover,
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Blog posts */
+.blog-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.blog-post {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-meta {
+  color: #6c757d;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.post-tags {
+  margin-bottom: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e9ecef;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0069d9;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  background-color: #343a40;
+  color: #fff;
+}
+
+/* Post content */
+.post-content {
+  line-height: 1.8;
+}
+
+.post-content h2,
+.post-content h3 {
+  margin-top: 2rem;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.post-content blockquote {
+  border-left: 4px solid #007bff;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #6c757d;
+  margin: 1rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .projects-grid,
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 0.5rem 0;
+  }
+}
+
