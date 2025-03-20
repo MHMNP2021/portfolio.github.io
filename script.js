@@ -299,94 +299,54 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  // Contact form validation and submission
+   // Contact Form Validation and Submission
   const contactForm = document.getElementById("contactForm")
+  const formMessage = document.getElementById("formMessage")
 
   if (contactForm) {
-    // Add error message elements
-    const formGroups = contactForm.querySelectorAll(".form-group")
-    formGroups.forEach((group) => {
-      const input = group.querySelector("input, textarea")
-      if (input) {
-        const errorMessage = document.createElement("div")
-        errorMessage.className = "error-message"
-        errorMessage.textContent = `Please enter a valid ${input.getAttribute("name")}`
-        group.appendChild(errorMessage)
-      }
-    })
+    contactForm.addEventListener("submit", (e) => {
+      // Form will be handled by Formspree, but we can still do client-side validation
+      const name = document.getElementById("name").value.trim()
+      const email = document.getElementById("email").value.trim()
+      const subject = document.getElementById("subject").value.trim()
+      const message = document.getElementById("message").value.trim()
 
-    // Add success message
-    const formSuccess = document.createElement("div")
-    formSuccess.className = "form-success"
-    formSuccess.textContent = "Thank you for your message! I will get back to you soon."
-    contactForm.insertBefore(formSuccess, contactForm.firstChild)
-
-    // Form validation
-    const validateInput = (input) => {
-      const group = input.closest(".form-group")
-
-      if (input.value.trim() === "") {
-        group.classList.add("error")
-        return false
-      }
-
-      if (input.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
-        group.classList.add("error")
-        return false
-      }
-
-      group.classList.remove("error")
-      return true
-    }
-
-    // Input validation on blur
-    contactForm.querySelectorAll("input, textarea").forEach((input) => {
-      input.addEventListener("blur", function () {
-        validateInput(this)
-      })
-
-      input.addEventListener("input", function () {
-        if (this.value.trim() !== "") {
-          this.closest(".form-group").classList.remove("error")
-        }
-      })
-    })
-
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault()
-
-      // Validate all inputs
-      let isValid = true
-      this.querySelectorAll("input, textarea").forEach((input) => {
-        if (!validateInput(input)) {
-          isValid = false
-        }
-      })
-
-      if (!isValid) {
+      // Basic validation
+      if (name === "" || email === "" || subject === "" || message === "") {
+        e.preventDefault()
+        showFormMessage("Please fill in all fields", "error")
         return
       }
 
-      // Simulate form submission
-      const submitButton = this.querySelector('button[type="submit"]')
-      const originalText = submitButton.textContent
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(email)) {
+        e.preventDefault()
+        showFormMessage("Please enter a valid email address", "error")
+        return
+      }
 
-      submitButton.disabled = true
-      submitButton.textContent = "Sending..."
-
-      // Simulate API call
-      setTimeout(() => {
-        formSuccess.classList.add("show")
-        contactForm.reset()
-        submitButton.disabled = false
-        submitButton.textContent = originalText
-
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-          formSuccess.classList.remove("show")
-        }, 5000)
-      }, 1500)
+      // If validation passes, form will submit to Formspree
+      // We'll show a temporary "Sending..." message
+      showFormMessage("Sending your message...", "pending")
     })
+  }
+
+  // Show form message
+  function showFormMessage(message, type) {
+    if (formMessage) {
+      formMessage.textContent = message
+      formMessage.className = "form-message"
+      formMessage.classList.add(type)
+      formMessage.style.display = "block"
+
+      if (type !== "pending") {
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          formMessage.style.display = "none"
+        }, 5000)
+      }
+    }
   }
 
   // Animate skill bars when in viewport
