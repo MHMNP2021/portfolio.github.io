@@ -1,0 +1,59 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Web Developer & Designer</p>
+    </div>
+</section>
+
+<section id="latest-posts" class="section">
+    <div class="section-inner">
+        <h2 class="section-title">Latest Blog Posts</h2>
+        
+        <ul class="post-list">
+            {% for post in site.posts limit:3 %}
+            <li class="post-item">
+                <h3>
+                    <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h3>
+                <p class="post-meta">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">
+                        {{ post.date | date: "%B %-d, %Y" }}
+                    </time>
+                </p>
+                <div class="post-excerpt">
+                    {{ post.excerpt }}
+                </div>
+                <a href="{{ post.url | relative_url }}" class="read-more">Read more &rarr;</a>
+            </li>
+            {% endfor %}
+        </ul>
+        
+        <a href="{{ '/blog.html' | relative_url }}" class="btn">View All Posts</a>
+    </div>
+</section>
+
+<section id="projects" class="section">
+    <div class="section-inner">
+        <h2 class="section-title">Projects</h2>
+        <!-- Add your projects here -->
+    </div>
+</section>
+
+<section id="about" class="section">
+    <div class="section-inner">
+        <h2 class="section-title">About Me</h2>
+        <!-- Add your about information here -->
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <div class="section-inner">
+        <h2 class="section-title">Contact</h2>
+        <!-- Add your contact information here -->
+    </div>
+</section>
