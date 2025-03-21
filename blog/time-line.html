@@ -230,16 +230,21 @@
             transform: translateY(-50%);
         }
         
-        .timeline-content {
-            padding: 30px;
-            background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+       .timeline-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space evenly */
+    width: 600px; /* Increase the width */
+    min-height: 300px; /* Set a minimum height */
+    padding: 30px; /* Adjust padding if needed */
+    margin: 20px auto; /* Center the box */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
         
         .timeline-content::before {
             content: '';
@@ -273,12 +278,13 @@
         }
         
         .timeline-content h3 {
-            margin-top: 0;
-            color: var(--text-color);
-            font-size: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
+    margin-top: 0;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+    text-align: center;
+}
         
         .timeline-content h3::after {
             content: '';
@@ -301,25 +307,34 @@
         }
         
         .timeline-content p {
-            margin-bottom: 15px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-        
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: justify;
+}
+
+        @media screen and (min-width: 1200px) {
+    .timeline-content {
+        width: 800px;
+        min-height: 350px;
+    }
+}
         .timeline-image-container {
-            position: relative;
-            margin: 15px 0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
+    position: relative;
+    margin: 15px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
         
-        .timeline-image {
-            width: 100%;
-            display: block;
-            transition: all 0.5s ease;
-            transform: scale(1.01);
-        }
+       .timeline-image {
+    width: 100%;
+    display: block;
+    transition: all 0.5s ease;
+    transform: scale(1.01);
+}
         
         .timeline-content:hover .timeline-image {
             transform: scale(1.05);
