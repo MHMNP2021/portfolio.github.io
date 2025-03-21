@@ -7,12 +7,43 @@
     <link rel="stylesheet" href="../style.css">
     <meta name="description" content="An interactive timeline showcasing the key milestones and chapters of my life journey">
     <style>
+        :root {
+            --primary-color: #4361ee;
+            --primary-color-light: #6780fa;
+            --secondary-color: #7209b7;
+            --accent-color: #3a0ca3;
+            --success-color: #4CAF50;
+            --info-color: #2196F3;
+            --warning-color: #FF9800;
+            --purple-color: #9C27B0;
+            --danger-color: #F44336;
+            --text-color: #333;
+            --text-secondary: #666;
+            --card-bg: #f8f9fa;
+            --card-bg-light: #ffffff;
+            --background-color: #fff;
+            --timeline-width: 6px;
+            --dot-size: 30px;
+            --transition-speed: 0.3s;
+        }
+        
+        .dark {
+            --text-color: #e0e0e0;
+            --text-secondary: #aaaaaa;
+            --card-bg: #1e1e2d;
+            --card-bg-light: #2a2a3a;
+            --card-bg-dark: #1e1e2d;
+            --background-color: #121212;
+            --background-color-dark: #121212;
+        }
+        
         /* Timeline Container */
         .timeline-container {
             position: relative;
             max-width: 1400px;
             margin: 60px auto;
             padding: 20px 0;
+            overflow: hidden;
         }
         
         /* Timeline Phases Navigation */
@@ -31,17 +62,36 @@
             min-width: 150px;
             text-align: center;
             padding: 15px 10px;
-            background: linear-gradient(135deg, var(--card-bg, #f8f9fa) 0%, var(--card-bg-light, #ffffff) 100%);
-            border-radius: 8px;
+            background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-bg-light) 100%);
+            border-radius: 12px;
             margin: 0 5px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
             cursor: pointer;
             border-bottom: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-phase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(67, 97, 238, 0.05) 100%);
+            transform: translateY(100%);
+            transition: transform var(--transition-speed) ease;
+            z-index: -1;
+        }
+        
+        .timeline-phase:hover::before {
+            transform: translateY(0);
         }
         
         .timeline-phase.active {
-            border-bottom: 3px solid var(--primary-color, #4361ee);
+            border-bottom: 3px solid var(--primary-color);
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
@@ -54,36 +104,62 @@
         .timeline-phase h3 {
             margin: 0;
             font-size: 1.1rem;
-            color: var(--text-color, #333);
+            color: var(--text-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .timeline-phase h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width var(--transition-speed) ease;
+        }
+        
+        .timeline-phase:hover h3::after,
+        .timeline-phase.active h3::after {
+            width: 100%;
         }
         
         .timeline-phase span {
             font-size: 0.85rem;
-            color: var(--text-secondary, #666);
+            color: var(--text-secondary);
             display: block;
             margin-top: 5px;
+            transition: color var(--transition-speed) ease;
+        }
+        
+        .timeline-phase:hover span,
+        .timeline-phase.active span {
+            color: var(--primary-color);
         }
         
         /* Main Timeline */
         .timeline {
             position: relative;
             padding: 40px 0;
+            margin: 0 auto;
         }
         
         .timeline::after {
             content: '';
             position: absolute;
-            width: 6px;
+            width: var(--timeline-width);
             background: linear-gradient(to bottom, 
-                var(--primary-color, #4361ee) 0%, 
-                var(--accent-color, #3a0ca3) 50%, 
-                var(--secondary-color, #7209b7) 100%);
+                var(--primary-color) 0%, 
+                var(--accent-color) 50%, 
+                var(--secondary-color) 100%);
             top: 0;
             bottom: 0;
             left: 50%;
-            margin-left: -3px;
+            margin-left: calc(var(--timeline-width) / -2);
             border-radius: 6px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1;
         }
         
         /* Timeline Items */
@@ -95,7 +171,8 @@
             margin-bottom: 60px;
             opacity: 0;
             transform: translateY(20px);
-            transition: all 0.6s ease;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2;
         }
         
         .timeline-item.visible {
@@ -106,44 +183,89 @@
         /* Timeline Dots */
         .timeline-dot {
             position: absolute;
-            width: 30px;
-            height: 30px;
+            width: var(--dot-size);
+            height: var(--dot-size);
             right: -15px;
             top: 15px;
             border-radius: 50%;
-            z-index: 2;
-            background: var(--background-color, #fff);
-            border: 5px solid var(--primary-color, #4361ee);
+            z-index: 3;
+            background: var(--background-color);
+            border: 5px solid var(--primary-color);
             box-shadow: 0 0 0 5px rgba(67, 97, 238, 0.2);
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
         
-        .timeline-dot:hover, .timeline-dot.active {
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease;
+        }
+        
+        .timeline-dot:hover::before,
+        .timeline-dot.active::before {
+            opacity: 1;
+        }
+        
+        .timeline-dot:hover, 
+        .timeline-dot.active {
             transform: scale(1.2);
             box-shadow: 0 0 0 8px rgba(67, 97, 238, 0.2);
         }
         
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(0);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .timeline-dot.active::after {
+            transform: scale(1.5);
+            opacity: 0;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+        
         .timeline-item.education .timeline-dot {
-            border-color: #4CAF50;
+            border-color: var(--success-color);
             background-color: rgba(76, 175, 80, 0.1);
         }
         
         .timeline-item.career .timeline-dot {
-            border-color: #2196F3;
+            border-color: var(--info-color);
             background-color: rgba(33, 150, 243, 0.1);
         }
         
         .timeline-item.personal .timeline-dot {
-            border-color: #FF9800;
+            border-color: var(--warning-color);
             background-color: rgba(255, 152, 0, 0.1);
         }
         
         .timeline-item.achievement .timeline-dot {
-            border-color: #9C27B0;
+            border-color: var(--purple-color);
             background-color: rgba(156, 39, 176, 0.1);
         }
         
@@ -154,11 +276,17 @@
             height: 24px;
             right: -12px;
             top: 18px;
-            z-index: 3;
-            color: var(--background-color, #fff);
+            z-index: 4;
+            color: var(--background-color);
             text-align: center;
             line-height: 24px;
             font-size: 12px;
+            transition: transform var(--transition-speed) ease;
+        }
+        
+        .timeline-dot:hover + .timeline-icon,
+        .timeline-dot.active + .timeline-icon {
+            transform: scale(1.2);
         }
         
         .right .timeline-icon {
@@ -191,14 +319,21 @@
         /* Timeline Date */
         .timeline-date {
             display: inline-block;
-            padding: 5px 15px;
-            background: linear-gradient(135deg, var(--primary-color, #4361ee) 0%, var(--primary-color-light, #6780fa) 100%);
+            padding: 8px 18px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-light) 100%);
             color: white;
-            border-radius: 20px;
+            border-radius: 30px;
             font-weight: bold;
             margin-bottom: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             position: relative;
+            transition: all var(--transition-speed) ease;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:hover .timeline-date {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
         
         .timeline-date::after {
@@ -211,7 +346,7 @@
         
         .left .timeline-date::after {
             border-width: 8px 0 8px 8px;
-            border-color: transparent transparent transparent var(--primary-color, #4361ee);
+            border-color: transparent transparent transparent var(--primary-color);
             right: -8px;
             top: 50%;
             transform: translateY(-50%);
@@ -219,10 +354,58 @@
         
         .right .timeline-date::after {
             border-width: 8px 8px 8px 0;
-            border-color: transparent var(--primary-color, #4361ee) transparent transparent;
+            border-color: transparent var(--primary-color) transparent transparent;
             left: -8px;
             top: 50%;
             transform: translateY(-50%);
+        }
+        
+        .timeline-item.education .timeline-date {
+            background: linear-gradient(135deg, var(--success-color) 0%, #8BC34A 100%);
+        }
+        
+        .timeline-item.career .timeline-date {
+            background: linear-gradient(135deg, var(--info-color) 0%, #03A9F4 100%);
+        }
+        
+        .timeline-item.personal .timeline-date {
+            background: linear-gradient(135deg, var(--warning-color) 0%, #FFC107 100%);
+        }
+        
+        .timeline-item.achievement .timeline-date {
+            background: linear-gradient(135deg, var(--purple-color) 0%, #E040FB 100%);
+        }
+        
+        .timeline-item.education .timeline-date::after {
+            border-color: transparent transparent transparent var(--success-color);
+        }
+        
+        .timeline-item.career .timeline-date::after {
+            border-color: transparent transparent transparent var(--info-color);
+        }
+        
+        .timeline-item.personal .timeline-date::after {
+            border-color: transparent transparent transparent var(--warning-color);
+        }
+        
+        .timeline-item.achievement .timeline-date::after {
+            border-color: transparent transparent transparent var(--purple-color);
+        }
+        
+        .right.timeline-item.education .timeline-date::after {
+            border-color: transparent var(--success-color) transparent transparent;
+        }
+        
+        .right.timeline-item.career .timeline-date::after {
+            border-color: transparent var(--info-color) transparent transparent;
+        }
+        
+        .right.timeline-item.personal .timeline-date::after {
+            border-color: transparent var(--warning-color) transparent transparent;
+        }
+        
+        .right.timeline-item.achievement .timeline-date::after {
+            border-color: transparent var(--purple-color) transparent transparent;
         }
         
         /* Timeline Content */
@@ -234,15 +417,16 @@
             min-height: 250px;
             padding: 30px;
             margin: 20px auto;
-            border-radius: 12px;
+            border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.5s ease;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            background-color: var(--card-bg, #f8f9fa);
+            background-color: var(--card-bg);
             opacity: 0;
             transform: translateY(20px);
+            z-index: 5;
         }
         
         .timeline-content.active {
@@ -258,36 +442,48 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--primary-color, #4361ee) 0%, var(--accent-color, #3a0ca3) 100%);
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            z-index: 1;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(67, 97, 238, 0.05) 0%, transparent 70%);
+            z-index: -1;
         }
         
         .timeline-content.education::before {
-            background: linear-gradient(90deg, #4CAF50 0%, #8BC34A 100%);
+            background: linear-gradient(90deg, var(--success-color) 0%, #8BC34A 100%);
         }
         
         .timeline-content.career::before {
-            background: linear-gradient(90deg, #2196F3 0%, #03A9F4 100%);
+            background: linear-gradient(90deg, var(--info-color) 0%, #03A9F4 100%);
         }
         
         .timeline-content.personal::before {
-            background: linear-gradient(90deg, #FF9800 0%, #FFC107 100%);
+            background: linear-gradient(90deg, var(--warning-color) 0%, #FFC107 100%);
         }
         
         .timeline-content.achievement::before {
-            background: linear-gradient(90deg, #9C27B0 0%, #E040FB 100%);
+            background: linear-gradient(90deg, var(--purple-color) 0%, #E040FB 100%);
         }
         
         .timeline-content:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.01);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
         
         .timeline-content h3 {
             margin-top: 0;
-            color: var(--text-color, #333);
-            font-size: 1.5rem;
+            color: var(--text-color);
+            font-size: 1.8rem;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             text-align: center;
         }
         
@@ -297,28 +493,52 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px;
+            width: 60px;
             height: 3px;
-            background: var(--primary-color, #4361ee);
+            background: var(--primary-color);
             border-radius: 3px;
+        }
+        
+        .timeline-content.education h3::after {
+            background: var(--success-color);
+        }
+        
+        .timeline-content.career h3::after {
+            background: var(--info-color);
+        }
+        
+        .timeline-content.personal h3::after {
+            background: var(--warning-color);
+        }
+        
+        .timeline-content.achievement h3::after {
+            background: var(--purple-color);
         }
         
         .timeline-content p {
             margin-bottom: 15px;
-            color: var(--text-secondary, #666);
-            line-height: 1.6;
+            color: var(--text-secondary);
+            line-height: 1.8;
             text-align: justify;
+            font-size: 1.05rem;
         }
         
         /* Timeline Image */
         .timeline-image-container {
             position: relative;
-            margin: 15px auto;
-            border-radius: 8px;
+            margin: 20px auto;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-height: 300px;
+            max-height: 350px;
+            transform: translateY(0);
+            transition: all var(--transition-speed) ease;
+        }
+        
+        .timeline-content:hover .timeline-image-container {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
         
         .timeline-image {
@@ -326,7 +546,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: all 0.5s ease;
+            transition: all 0.8s ease;
             transform: scale(1.01);
         }
         
@@ -341,10 +561,11 @@
             right: 0;
             background: rgba(0, 0, 0, 0.7);
             color: white;
-            padding: 8px 15px;
-            font-size: 0.85rem;
+            padding: 12px 20px;
+            font-size: 0.9rem;
             transform: translateY(100%);
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
+            backdrop-filter: blur(5px);
         }
         
         .timeline-content:hover .timeline-image-caption {
@@ -355,65 +576,115 @@
         .timeline-tags {
             display: flex;
             flex-wrap: wrap;
-            margin-top: 15px;
-            gap: 8px;
+            margin-top: 20px;
+            gap: 10px;
         }
         
         .timeline-tag {
-            padding: 5px 12px;
+            padding: 6px 14px;
             background: rgba(67, 97, 238, 0.1);
-            color: var(--primary-color, #4361ee);
-            border-radius: 20px;
-            font-size: 0.8rem;
+            color: var(--primary-color);
+            border-radius: 30px;
+            font-size: 0.85rem;
             font-weight: 500;
+            transition: all var(--transition-speed) ease;
+            cursor: default;
+        }
+        
+        .timeline-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
         }
         
         .timeline-tag.education {
             background: rgba(76, 175, 80, 0.1);
-            color: #4CAF50;
+            color: var(--success-color);
         }
         
         .timeline-tag.career {
             background: rgba(33, 150, 243, 0.1);
-            color: #2196F3;
+            color: var(--info-color);
         }
         
         .timeline-tag.personal {
             background: rgba(255, 152, 0, 0.1);
-            color: #FF9800;
+            color: var(--warning-color);
         }
         
         .timeline-tag.achievement {
             background: rgba(156, 39, 176, 0.1);
-            color: #9C27B0;
+            color: var(--purple-color);
         }
         
         /* Timeline Milestone */
         .timeline-milestone {
             position: relative;
-            margin-top: 20px;
-            padding: 15px;
+            margin-top: 25px;
+            padding: 18px;
             background: rgba(58, 12, 163, 0.05);
-            border-left: 4px solid var(--accent-color, #3a0ca3);
-            border-radius: 0 8px 8px 0;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 0 12px 12px 0;
+            transition: all var(--transition-speed) ease;
+        }
+        
+        .timeline-content:hover .timeline-milestone {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         }
         
         .timeline-milestone h4 {
-            margin: 0 0 5px 0;
-            color: var(--accent-color, #3a0ca3);
-            font-size: 1rem;
+            margin: 0 0 8px 0;
+            color: var(--accent-color);
+            font-size: 1.1rem;
         }
         
         .timeline-milestone p {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+        }
+        
+        .timeline-content.education .timeline-milestone {
+            border-color: var(--success-color);
+            background: rgba(76, 175, 80, 0.05);
+        }
+        
+        .timeline-content.career .timeline-milestone {
+            border-color: var(--info-color);
+            background: rgba(33, 150, 243, 0.05);
+        }
+        
+        .timeline-content.personal .timeline-milestone {
+            border-color: var(--warning-color);
+            background: rgba(255, 152, 0, 0.05);
+        }
+        
+        .timeline-content.achievement .timeline-milestone {
+            border-color: var(--purple-color);
+            background: rgba(156, 39, 176, 0.05);
+        }
+        
+        .timeline-content.education .timeline-milestone h4 {
+            color: var(--success-color);
+        }
+        
+        .timeline-content.career .timeline-milestone h4 {
+            color: var(--info-color);
+        }
+        
+        .timeline-content.personal .timeline-milestone h4 {
+            color: var(--warning-color);
+        }
+        
+        .timeline-content.achievement .timeline-milestone h4 {
+            color: var(--purple-color);
         }
         
         /* Timeline Emotions */
         .timeline-emotions {
             display: flex;
-            margin-top: 15px;
+            margin-top: 20px;
             justify-content: flex-end;
+            gap: 10px;
         }
         
         .left .timeline-emotions {
@@ -425,37 +696,59 @@
         }
         
         .emotion-icon {
-            width: 30px;
-            height: 30px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-left: 8px;
-            background: var(--card-bg-light, #fff);
-            color: var(--text-secondary, #666);
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            background: var(--card-bg-light);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            transition: all var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .emotion-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease;
+        }
+        
+        .emotion-icon:hover::before,
+        .emotion-icon.active::before {
+            opacity: 1;
         }
         
         .emotion-icon:hover {
+            transform: scale(1.2) rotate(5deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .emotion-icon.active {
             transform: scale(1.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .emotion-icon.happy {
             background: rgba(76, 175, 80, 0.1);
-            color: #4CAF50;
+            color: var(--success-color);
         }
         
         .emotion-icon.challenging {
             background: rgba(244, 67, 54, 0.1);
-            color: #F44336;
+            color: var(--danger-color);
         }
         
         .emotion-icon.exciting {
             background: rgba(255, 152, 0, 0.1);
-            color: #FF9800;
+            color: var(--warning-color);
         }
         
         /* Timeline Progress */
@@ -471,9 +764,34 @@
         
         .timeline-progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary-color, #4361ee) 0%, var(--accent-color, #3a0ca3) 100%);
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
             width: 0;
-            transition: width 1s ease;
+            transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
         }
         
         /* Timeline Navigation */
@@ -486,25 +804,211 @@
         }
         
         .timeline-nav-btn {
-            padding: 10px 20px;
-            background: var(--card-bg, #f8f9fa);
+            padding: 12px 24px;
+            background: var(--card-bg);
             border: none;
             border-radius: 30px;
-            color: var(--text-color, #333);
+            color: var(--text-color);
             cursor: pointer;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(67, 97, 238, 0.05) 100%);
+            transform: translateY(100%);
+            transition: transform var(--transition-speed) ease;
+            z-index: 0;
+        }
+        
+        .timeline-nav-btn:hover::before {
+            transform: translateY(0);
+        }
+        
+        .timeline-nav-btn i {
+            position: relative;
+            z-index: 1;
+            transition: transform var(--transition-speed) ease;
+        }
+        
+        .timeline-nav-btn span {
+            position: relative;
+            z-index: 1;
         }
         
         .timeline-nav-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-            background: var(--primary-color, #4361ee);
+            color: var(--primary-color);
+        }
+        
+        .timeline-nav-btn:hover i {
+            transform: translateX(-3px);
+        }
+        
+        .timeline-nav-btn:hover i.right-icon {
+            transform: translateX(3px);
+        }
+        
+        .timeline-nav-btn#allBtn:hover {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
             color: white;
+        }
+        
+        /* Year label for dots */
+        .year-label {
+            position: absolute;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: var(--text-secondary);
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 3px 8px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2px);
+        }
+        
+        .dark .year-label {
+            background: rgba(30, 30, 45, 0.8);
+            color: #aaa;
+        }
+        
+        .timeline-dot:hover .year-label {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-5px);
+        }
+        
+        /* Topic preview on dot hover */
+        .topic-preview {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0;
+            transition: all var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(3px);
+        }
+        
+        .timeline-dot:hover .topic-preview {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        /* Animation for content reveal */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .timeline-content.active {
+            animation: fadeInUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        
+        /* 3D Tilt Effect */
+        .timeline-content {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .tilt-effect {
+            transition: transform 0.1s ease;
+            transform: rotateX(0) rotateY(0);
+        }
+        
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 100;
+        }
+        
+        .scroll-indicator.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-indicator:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Confetti animation for achievements */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-color);
+            opacity: 0;
+            z-index: -1;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
         }
         
         /* Responsive Timeline */
@@ -573,6 +1077,20 @@
                 left: 0;
                 transform: none;
             }
+            
+            .timeline-content {
+                padding: 20px;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.5rem;
+                text-align: left;
+            }
+            
+            .timeline-content h3::after {
+                left: 0;
+                transform: none;
+            }
         }
         
         /* Dark mode adjustments */
@@ -602,60 +1120,50 @@
             color: var(--text-color-dark, #e0e0e0);
         }
         
-        /* Year label for dots */
-        .year-label {
+        /* Loading animation */
+        .timeline-loader {
             position: absolute;
-            font-size: 0.7rem;
-            font-weight: bold;
-            color: var(--text-secondary, #666);
-            top: -20px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(67, 97, 238, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s infinite linear;
+            display: none;
         }
         
-        .timeline-dot:hover .year-label {
-            opacity: 1;
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
         }
         
-        /* Topic preview on dot hover */
-        .topic-preview {
+        .timeline-loader.active {
+            display: block;
+        }
+        
+        /* Tooltip styles */
+        .tooltip {
             position: absolute;
             background: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 5px 10px;
             border-radius: 4px;
             font-size: 0.8rem;
-            white-space: nowrap;
-            z-index: 10;
-            pointer-events: none;
+            z-index: 100;
             opacity: 0;
             transition: opacity 0.3s ease;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
+            pointer-events: none;
         }
         
-        .timeline-dot:hover .topic-preview {
+        .tooltip.visible {
             opacity: 1;
-        }
-        
-        /* Animation for content reveal */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .timeline-content.active {
-            animation: fadeInUp 0.5s ease forwards;
         }
     </style>
 </head>
@@ -721,6 +1229,8 @@
                             </div>
                         </div>
                         
+                        <div class="timeline-loader" id="timelineLoader"></div>
+                        
                         <div class="timeline">
                             <!-- Present Day -->
                             <div class="timeline-item left personal" data-phase="personal">
@@ -732,7 +1242,7 @@
                                     <i class="fa-solid fa-hourglass-half"></i>
                                 </div>
                                 <div class="timeline-date">2025</div>
-                                <div class="timeline-content personal" id="content-2025">
+                                <div class="timeline-content personal tilt-effect" id="content-2025">
                                     <h3>Present Day</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/present-day.jpg" alt="Present Day" class="timeline-image">
@@ -772,7 +1282,7 @@
                                     <i class="fa-solid fa-chart-line"></i>
                                 </div>
                                 <div class="timeline-date">2024</div>
-                                <div class="timeline-content career" id="content-2024">
+                                <div class="timeline-content career tilt-effect" id="content-2024">
                                     <h3>Professional Growth</h3>
                                     <p>Expanded my skill set by learning [New Skill/Technology], opening new opportunities in my career path. This continuous learning approach has helped me stay current in my field and take on more challenging responsibilities.</p>
                                     
@@ -799,7 +1309,7 @@
                                     <i class="fa-solid fa-laptop-code"></i>
                                 </div>
                                 <div class="timeline-date">2023</div>
-                                <div class="timeline-content personal" id="content-2023">
+                                <div class="timeline-content personal tilt-effect" id="content-2023">
                                     <h3>Portfolio Website Launch</h3>
                                     <p>Created and launched my personal portfolio website to showcase my projects and professional journey. This platform serves as a digital representation of my skills, experiences, and achievements.</p>
                                     
@@ -829,7 +1339,7 @@
                                     <i class="fa-solid fa-briefcase"></i>
                                 </div>
                                 <div class="timeline-date">2022</div>
-                                <div class="timeline-content career" id="content-2022">
+                                <div class="timeline-content career tilt-effect" id="content-2022">
                                     <h3>Career Launch</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/first-job.jpg" alt="First Job" class="timeline-image">
@@ -868,7 +1378,7 @@
                                     <i class="fa-solid fa-award"></i>
                                 </div>
                                 <div class="timeline-date">2021</div>
-                                <div class="timeline-content achievement" id="content-2021">
+                                <div class="timeline-content achievement tilt-effect" id="content-2021">
                                     <h3>University Graduation</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/university-graduation.jpg" alt="University Graduation" class="timeline-image">
@@ -908,7 +1418,7 @@
                                     <i class="fa-solid fa-briefcase"></i>
                                 </div>
                                 <div class="timeline-date">2020</div>
-                                <div class="timeline-content career" id="content-2020">
+                                <div class="timeline-content career tilt-effect" id="content-2020">
                                     <h3>First Professional Experience</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/internship.jpg" alt="Internship" class="timeline-image">
@@ -947,7 +1457,7 @@
                                     <i class="fa-solid fa-search"></i>
                                 </div>
                                 <div class="timeline-date">2019</div>
-                                <div class="timeline-content achievement" id="content-2019">
+                                <div class="timeline-content achievement tilt-effect" id="content-2019">
                                     <h3>First Research Project</h3>
                                     <p>Conducted my first research on e-banking service quality, which later became a published paper. This project allowed me to apply theoretical knowledge to real-world problems and develop my analytical skills.</p>
                                     
@@ -978,7 +1488,7 @@
                                     <i class="fa-solid fa-university"></i>
                                 </div>
                                 <div class="timeline-date">2017</div>
-                                <div class="timeline-content education" id="content-2017">
+                                <div class="timeline-content education tilt-effect" id="content-2017">
                                     <h3>University of Ruhuna</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/university.jpg" alt="University of Ruhuna" class="timeline-image">
@@ -1017,7 +1527,7 @@
                                     <i class="fa-solid fa-user-graduate"></i>
                                 </div>
                                 <div class="timeline-date">2016</div>
-                                <div class="timeline-content achievement" id="content-2016">
+                                <div class="timeline-content achievement tilt-effect" id="content-2016">
                                     <h3>High School Graduation</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/graduation-high-school.jpg" alt="High School Graduation" class="timeline-image">
@@ -1056,7 +1566,7 @@
                                     <i class="fa-solid fa-code"></i>
                                 </div>
                                 <div class="timeline-date">2013</div>
-                                <div class="timeline-content education" id="content-2013">
+                                <div class="timeline-content education tilt-effect" id="content-2013">
                                     <h3>First Line of Code</h3>
                                     <p>Wrote my first program in BASIC, marking the beginning of my journey into the world of programming. This moment ignited my passion for coding and problem-solving through technology.</p>
                                     
@@ -1091,7 +1601,7 @@
                                     <i class="fa-solid fa-graduation-cap"></i>
                                 </div>
                                 <div class="timeline-date">2010</div>
-                                <div class="timeline-content education" id="content-2010">
+                                <div class="timeline-content education tilt-effect" id="content-2010">
                                     <h3>Secondary Education</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/secondary-school.jpg" alt="Secondary School" class="timeline-image">
@@ -1123,7 +1633,7 @@
                                     <i class="fa-solid fa-trophy"></i>
                                 </div>
                                 <div class="timeline-date">2008</div>
-                                <div class="timeline-content achievement" id="content-2008">
+                                <div class="timeline-content achievement tilt-effect" id="content-2008">
                                     <h3>First Academic Achievement</h3>
                                     <p>Won my first mathematics competition, sparking my interest in numbers and analytical thinking. This achievement boosted my confidence and revealed my aptitude for quantitative subjects.</p>
                                     
@@ -1153,7 +1663,7 @@
                                     <i class="fa-solid fa-school"></i>
                                 </div>
                                 <div class="timeline-date">2003</div>
-                                <div class="timeline-content education" id="content-2003">
+                                <div class="timeline-content education tilt-effect" id="content-2003">
                                     <h3>First Day of School</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/first-day-school.jpg" alt="First Day of School" class="timeline-image">
@@ -1192,7 +1702,7 @@
                                     <i class="fa-solid fa-shoe-prints"></i>
                                 </div>
                                 <div class="timeline-date">2000</div>
-                                <div class="timeline-content personal" id="content-2000">
+                                <div class="timeline-content personal tilt-effect" id="content-2000">
                                     <h3>First Steps & Words</h3>
                                     <p>Took my first steps and spoke my first words, beginning my journey of exploration and communication. These fundamental milestones set the foundation for all future growth.</p>
                                     
@@ -1219,7 +1729,7 @@
                                     <i class="fa-solid fa-baby"></i>
                                 </div>
                                 <div class="timeline-date">1998</div>
-                                <div class="timeline-content personal" id="content-1998">
+                                <div class="timeline-content personal tilt-effect" id="content-1998">
                                     <h3>The Beginning of My Story</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/birth.jpg" alt="Baby Photo" class="timeline-image">
@@ -1251,13 +1761,13 @@
                         
                         <div class="timeline-navigation">
                             <button class="timeline-nav-btn" id="prevBtn">
-                                <i class="fa-solid fa-arrow-left"></i> Previous
+                                <i class="fa-solid fa-arrow-left"></i> <span>Previous</span>
                             </button>
                             <button class="timeline-nav-btn" id="allBtn">
-                                View All
+                                <span>View All</span>
                             </button>
                             <button class="timeline-nav-btn" id="nextBtn">
-                                Next <i class="fa-solid fa-arrow-right"></i>
+                                <span>Next</span> <i class="fa-solid fa-arrow-right right-icon"></i>
                             </button>
                         </div>
                     </div>
@@ -1317,6 +1827,14 @@
     <div class="theme-toggle">
         <i class="fa-solid fa-moon"></i>
     </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+
+    <!-- Tooltip Container -->
+    <div class="tooltip" id="tooltip"></div>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -1335,28 +1853,42 @@
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const allBtn = document.getElementById('allBtn');
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const timelineLoader = document.getElementById('timelineLoader');
+            const tooltip = document.getElementById('tooltip');
             
             // Initialize
             let currentIndex = 0;
             let activePhase = 'early-years';
             let activeContent = null;
             
+            // Show loading animation
+            timelineLoader.classList.add('active');
+            
             // Show timeline items with animation
             function showTimelineItems() {
+                // Hide loader
+                setTimeout(() => {
+                    timelineLoader.classList.remove('active');
+                }, 800);
+                
                 timelineItems.forEach((item, index) => {
                     setTimeout(() => {
                         item.classList.add('visible');
-                    }, index * 200);
+                    }, 800 + (index * 100));
                 });
                 
                 // Update progress bar
                 setTimeout(() => {
                     progressBar.style.width = '100%';
-                }, 500);
+                }, 1000);
             }
             
             // Filter timeline items by phase
             function filterByPhase(phase) {
+                // Show loader
+                timelineLoader.classList.add('active');
+                
                 activePhase = phase;
                 
                 // Hide all content
@@ -1378,23 +1910,34 @@
                     }
                 });
                 
-                // Show/hide timeline items
-                timelineItems.forEach(item => {
-                    if (phase === 'all' || item.getAttribute('data-phase') === phase) {
-                        item.style.display = 'block';
-                        setTimeout(() => {
-                            item.classList.add('visible');
-                        }, 100);
-                    } else {
-                        item.classList.remove('visible');
-                        setTimeout(() => {
-                            item.style.display = 'none';
-                        }, 500);
-                    }
-                });
+                // Show/hide timeline items with delay for loader
+                setTimeout(() => {
+                    timelineItems.forEach(item => {
+                        if (phase === 'all' || item.getAttribute('data-phase') === phase) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.classList.add('visible');
+                            }, 100);
+                        } else {
+                            item.classList.remove('visible');
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 500);
+                        }
+                    });
+                    
+                    // Hide loader
+                    timelineLoader.classList.remove('active');
+                }, 500);
                 
                 // Reset active content
                 activeContent = null;
+                
+                // Reset progress bar with animation
+                progressBar.style.width = '0';
+                setTimeout(() => {
+                    progressBar.style.width = '100%';
+                }, 800);
             }
             
             // Navigate through timeline items
@@ -1451,7 +1994,12 @@
                     if (content.classList.contains('active')) {
                         activeContent = content;
                         
-                        // Scroll to content
+                        // Create confetti effect for achievements
+                        if (content.classList.contains('achievement')) {
+                            createConfetti(content);
+                        }
+                        
+                        // Scroll to content with smooth animation
                         setTimeout(() => {
                             content.scrollIntoView({
                                 behavior: 'smooth',
@@ -1464,17 +2012,113 @@
                 }
             }
             
+            // Create confetti effect for achievements
+            function createConfetti(element) {
+                const colors = ['#4361ee', '#3a0ca3', '#7209b7', '#f72585', '#4cc9f0'];
+                const confettiCount = 50;
+                
+                for (let i = 0; i < confettiCount; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.width = `${Math.random() * 10 + 5}px`;
+                    confetti.style.height = `${Math.random() * 10 + 5}px`;
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    confetti.style.animation = `confetti-fall ${Math.random() * 3 + 2}s linear forwards`;
+                    confetti.style.animationDelay = `${Math.random() * 0.5}s`;
+                    
+                    element.appendChild(confetti);
+                    
+                    // Remove confetti after animation
+                    setTimeout(() => {
+                        if (element.contains(confetti)) {
+                            element.removeChild(confetti);
+                        }
+                    }, 5000);
+                }
+            }
+            
+            // 3D Tilt Effect
+            function handleTiltEffect(e, element) {
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const tiltX = (y - centerY) / 20;
+                const tiltY = (centerX - x) / 20;
+                
+                element.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+            }
+            
+            function resetTilt(element) {
+                element.style.transform = 'rotateX(0) rotateY(0)';
+            }
+            
+            // Apply tilt effect to active content
+            document.addEventListener('mousemove', function(e) {
+                if (activeContent) {
+                    handleTiltEffect(e, activeContent);
+                }
+            });
+            
+            // Reset tilt when mouse leaves
+            timelineContents.forEach(content => {
+                content.addEventListener('mouseleave', function() {
+                    resetTilt(this);
+                });
+            });
+            
+            // Show tooltip on hover
+            function showTooltip(element, text) {
+                tooltip.textContent = text;
+                tooltip.classList.add('visible');
+                
+                const rect = element.getBoundingClientRect();
+                tooltip.style.top = `${rect.top - 30}px`;
+                tooltip.style.left = `${rect.left + rect.width / 2}px`;
+                tooltip.style.transform = 'translateX(-50%)';
+            }
+            
+            function hideTooltip() {
+                tooltip.classList.remove('visible');
+            }
+            
             // Event Listeners
             phaseButtons.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const phase = this.getAttribute('data-phase');
                     filterByPhase(phase);
                     currentIndex = 0;
-                    progressBar.style.width = '0';
-                    setTimeout(() => {
-                        progressBar.style.width = '100%';
-                    }, 300);
                 });
+                
+                // Add tooltip to phase buttons
+                btn.addEventListener('mouseenter', function() {
+                    const phase = this.getAttribute('data-phase');
+                    let tooltipText = '';
+                    
+                    switch(phase) {
+                        case 'early-years':
+                            tooltipText = 'My childhood and early development';
+                            break;
+                        case 'education':
+                            tooltipText = 'My academic journey';
+                            break;
+                        case 'career':
+                            tooltipText = 'My professional experiences';
+                            break;
+                        case 'personal':
+                            tooltipText = 'Personal growth and milestones';
+                            break;
+                    }
+                    
+                    showTooltip(this, tooltipText);
+                });
+                
+                btn.addEventListener('mouseleave', hideTooltip);
             });
             
             timelineDots.forEach(dot => {
@@ -1503,6 +2147,23 @@
                         }, 1000);
                     }
                 });
+                
+                // Add tooltip to emotion icons
+                icon.addEventListener('mouseenter', function() {
+                    let tooltipText = '';
+                    
+                    if (this.classList.contains('happy')) {
+                        tooltipText = 'Happy Memory';
+                    } else if (this.classList.contains('challenging')) {
+                        tooltipText = 'Challenging Experience';
+                    } else if (this.classList.contains('exciting')) {
+                        tooltipText = 'Exciting Moment';
+                    }
+                    
+                    showTooltip(this, tooltipText);
+                });
+                
+                icon.addEventListener('mouseleave', hideTooltip);
             });
             
             // Handle keyboard navigation
@@ -1511,6 +2172,11 @@
                     navigateTimeline('prev');
                 } else if (e.key === 'ArrowRight') {
                     navigateTimeline('next');
+                } else if (e.key === 'Escape' && activeContent) {
+                    // Close active content when pressing Escape
+                    activeContent.classList.remove('active');
+                    timelineDots.forEach(dot => dot.classList.remove('active'));
+                    activeContent = null;
                 }
             });
             
@@ -1526,7 +2192,7 @@
             }
             
             // Activate first dot after initial load
-            setTimeout(activateFirstDotInPhase, 1000);
+            setTimeout(activateFirstDotInPhase, 1500);
             
             // Handle window resize for responsive adjustments
             window.addEventListener('resize', function() {
@@ -1566,6 +2232,58 @@
                     navigateTimeline('prev');
                 }
             }
+            
+            // Scroll indicator
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    scrollIndicator.classList.add('visible');
+                } else {
+                    scrollIndicator.classList.remove('visible');
+                }
+            });
+            
+            scrollIndicator.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Add animation to navigation buttons
+            prevBtn.addEventListener('mouseenter', function() {
+                this.querySelector('i').style.transform = 'translateX(-5px)';
+            });
+            
+            prevBtn.addEventListener('mouseleave', function() {
+                this.querySelector('i').style.transform = 'translateX(0)';
+            });
+            
+            nextBtn.addEventListener('mouseenter', function() {
+                this.querySelector('i').style.transform = 'translateX(5px)';
+            });
+            
+            nextBtn.addEventListener('mouseleave', function() {
+                this.querySelector('i').style.transform = 'translateX(0)';
+            });
+            
+            // Add tooltip to navigation buttons
+            prevBtn.addEventListener('mouseenter', function() {
+                showTooltip(this, 'Previous Event');
+            });
+            
+            prevBtn.addEventListener('mouseleave', hideTooltip);
+            
+            nextBtn.addEventListener('mouseenter', function() {
+                showTooltip(this, 'Next Event');
+            });
+            
+            nextBtn.addEventListener('mouseleave', hideTooltip);
+            
+            allBtn.addEventListener('mouseenter', function() {
+                showTooltip(this, 'View All Events');
+            });
+            
+            allBtn.addEventListener('mouseleave', hideTooltip);
         });
     </script>
 </body>
