@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Life Journey | M Nethmina Perera</title>
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="description" content="An interactive timeline showcasing the key milestones and chapters of my life journey">
     <style>
-        /* Premium Timeline Styles */
+        /* Timeline Container */
         .timeline-container {
             position: relative;
             max-width: 1400px;
@@ -16,21 +15,25 @@
             padding: 20px 0;
         }
         
+        /* Timeline Phases Navigation */
         .timeline-phases {
             display: flex;
             justify-content: space-between;
             margin-bottom: 50px;
             position: relative;
             z-index: 10;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .timeline-phase {
             flex: 1;
+            min-width: 150px;
             text-align: center;
             padding: 15px 10px;
-            background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-bg-light) 100%);
+            background: linear-gradient(135deg, var(--card-bg, #f8f9fa) 0%, var(--card-bg-light, #ffffff) 100%);
             border-radius: 8px;
-            margin: 0 10px;
+            margin: 0 5px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             cursor: pointer;
@@ -38,7 +41,7 @@
         }
         
         .timeline-phase.active {
-            border-bottom: 3px solid var(--primary-color);
+            border-bottom: 3px solid var(--primary-color, #4361ee);
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
@@ -51,33 +54,17 @@
         .timeline-phase h3 {
             margin: 0;
             font-size: 1.1rem;
-            color: var(--text-color);
+            color: var(--text-color, #333);
         }
         
         .timeline-phase span {
             font-size: 0.85rem;
-            color: var(--text-secondary);
+            color: var(--text-secondary, #666);
             display: block;
             margin-top: 5px;
         }
         
-        .timeline-line {
-            position: absolute;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, 
-                var(--primary-color) 0%, 
-                var(--accent-color) 33%, 
-                var(--secondary-color) 66%, 
-                var(--primary-color) 100%);
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            border-radius: 6px;
-            z-index: 1;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
+        /* Main Timeline */
         .timeline {
             position: relative;
             padding: 40px 0;
@@ -88,9 +75,9 @@
             position: absolute;
             width: 6px;
             background: linear-gradient(to bottom, 
-                var(--primary-color) 0%, 
-                var(--accent-color) 50%, 
-                var(--secondary-color) 100%);
+                var(--primary-color, #4361ee) 0%, 
+                var(--accent-color, #3a0ca3) 50%, 
+                var(--secondary-color, #7209b7) 100%);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -99,6 +86,7 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
         
+        /* Timeline Items */
         .timeline-item {
             padding: 10px 40px;
             position: relative;
@@ -115,54 +103,59 @@
             transform: translateY(0);
         }
         
-        .timeline-item::after {
-            content: '';
+        /* Timeline Dots */
+        .timeline-dot {
             position: absolute;
             width: 30px;
             height: 30px;
             right: -15px;
             top: 15px;
             border-radius: 50%;
-            z-index: 1;
-            background: var(--background-color);
-            border: 5px solid var(--primary-color);
-            box-shadow: 0 0 0 5px rgba(var(--primary-rgb), 0.2);
+            z-index: 2;
+            background: var(--background-color, #fff);
+            border: 5px solid var(--primary-color, #4361ee);
+            box-shadow: 0 0 0 5px rgba(67, 97, 238, 0.2);
             transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .timeline-item:hover::after {
+        .timeline-dot:hover, .timeline-dot.active {
             transform: scale(1.2);
-            box-shadow: 0 0 0 8px rgba(var(--primary-rgb), 0.2);
+            box-shadow: 0 0 0 8px rgba(67, 97, 238, 0.2);
         }
         
-        .timeline-item.education::after {
+        .timeline-item.education .timeline-dot {
             border-color: #4CAF50;
             background-color: rgba(76, 175, 80, 0.1);
         }
         
-        .timeline-item.career::after {
+        .timeline-item.career .timeline-dot {
             border-color: #2196F3;
             background-color: rgba(33, 150, 243, 0.1);
         }
         
-        .timeline-item.personal::after {
+        .timeline-item.personal .timeline-dot {
             border-color: #FF9800;
             background-color: rgba(255, 152, 0, 0.1);
         }
         
-        .timeline-item.achievement::after {
+        .timeline-item.achievement .timeline-dot {
             border-color: #9C27B0;
             background-color: rgba(156, 39, 176, 0.1);
         }
         
+        /* Timeline Icon */
         .timeline-icon {
             position: absolute;
             width: 24px;
             height: 24px;
             right: -12px;
             top: 18px;
-            z-index: 2;
-            color: var(--background-color);
+            z-index: 3;
+            color: var(--background-color, #fff);
             text-align: center;
             line-height: 24px;
             font-size: 12px;
@@ -172,6 +165,7 @@
             left: -12px;
         }
         
+        /* Left and Right Positioning */
         .left {
             left: 0;
             text-align: right;
@@ -182,11 +176,11 @@
             text-align: left;
         }
         
-        .left::after {
+        .left .timeline-dot {
             right: -15px;
         }
         
-        .right::after {
+        .right .timeline-dot {
             left: -15px;
         }
         
@@ -194,10 +188,11 @@
             right: -12px;
         }
         
+        /* Timeline Date */
         .timeline-date {
             display: inline-block;
             padding: 5px 15px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-light) 100%);
+            background: linear-gradient(135deg, var(--primary-color, #4361ee) 0%, var(--primary-color-light, #6780fa) 100%);
             color: white;
             border-radius: 20px;
             font-weight: bold;
@@ -216,7 +211,7 @@
         
         .left .timeline-date::after {
             border-width: 8px 0 8px 8px;
-            border-color: transparent transparent transparent var(--primary-color);
+            border-color: transparent transparent transparent var(--primary-color, #4361ee);
             right: -8px;
             top: 50%;
             transform: translateY(-50%);
@@ -224,27 +219,37 @@
         
         .right .timeline-date::after {
             border-width: 8px 8px 8px 0;
-            border-color: transparent var(--primary-color) transparent transparent;
+            border-color: transparent var(--primary-color, #4361ee) transparent transparent;
             left: -8px;
             top: 50%;
             transform: translateY(-50%);
         }
         
-       .timeline-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Distribute space evenly */
-    width: 500px; /* Increase the width */
-    min-height: 250px; /* Set a minimum height */
-    padding: 30px; /* Adjust padding if needed */
-    margin: 20px auto; /* Center the box */
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
+        /* Timeline Content */
+        .timeline-content {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            min-height: 250px;
+            padding: 30px;
+            margin: 20px auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: var(--card-bg, #f8f9fa);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .timeline-content.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
         
         .timeline-content::before {
             content: '';
@@ -253,7 +258,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            background: linear-gradient(90deg, var(--primary-color, #4361ee) 0%, var(--accent-color, #3a0ca3) 100%);
         }
         
         .timeline-content.education::before {
@@ -273,68 +278,57 @@
         }
         
         .timeline-content:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
         
         .timeline-content h3 {
-    margin-top: 0;
-    color: var(--text-color);
-    font-size: 1.5rem;
-    position: relative;
-    padding-bottom: 10px;
-    text-align: center;
-}
+            margin-top: 0;
+            color: var(--text-color, #333);
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+            text-align: center;
+        }
         
         .timeline-content h3::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 50px;
             height: 3px;
-            background: var(--primary-color);
+            background: var(--primary-color, #4361ee);
             border-radius: 3px;
         }
         
-        .right .timeline-content h3::after {
-            left: 0;
-        }
-        
-        .left .timeline-content h3::after {
-            right: 0;
-            left: auto;
-        }
-        
         .timeline-content p {
-    margin-bottom: 15px auto;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    text-align: justify;
-}
-
-        @media screen and (min-width: 1200px) {
-    .timeline-content {
-        width: 800px;
-        min-height: 350px;
-    }
-}
-        .timeline-image-container {
-    position: relative;
-    margin: 15px auto;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-}
-
+            margin-bottom: 15px;
+            color: var(--text-secondary, #666);
+            line-height: 1.6;
+            text-align: justify;
+        }
         
-       .timeline-image {
-    width: 100%;
-    display: block;
-    transition: all 0.5s ease;
-    transform: scale(1.01);
-}
+        /* Timeline Image */
+        .timeline-image-container {
+            position: relative;
+            margin: 15px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-height: 300px;
+        }
+        
+        .timeline-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: all 0.5s ease;
+            transform: scale(1.01);
+        }
         
         .timeline-content:hover .timeline-image {
             transform: scale(1.05);
@@ -357,6 +351,7 @@
             transform: translateY(0);
         }
         
+        /* Timeline Tags */
         .timeline-tags {
             display: flex;
             flex-wrap: wrap;
@@ -366,8 +361,8 @@
         
         .timeline-tag {
             padding: 5px 12px;
-            background: rgba(var(--primary-rgb), 0.1);
-            color: var(--primary-color);
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary-color, #4361ee);
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 500;
@@ -393,18 +388,19 @@
             color: #9C27B0;
         }
         
+        /* Timeline Milestone */
         .timeline-milestone {
             position: relative;
             margin-top: 20px;
             padding: 15px;
-            background: rgba(var(--accent-rgb), 0.05);
-            border-left: 4px solid var(--accent-color);
+            background: rgba(58, 12, 163, 0.05);
+            border-left: 4px solid var(--accent-color, #3a0ca3);
             border-radius: 0 8px 8px 0;
         }
         
         .timeline-milestone h4 {
             margin: 0 0 5px 0;
-            color: var(--accent-color);
+            color: var(--accent-color, #3a0ca3);
             font-size: 1rem;
         }
         
@@ -413,6 +409,7 @@
             font-size: 0.9rem;
         }
         
+        /* Timeline Emotions */
         .timeline-emotions {
             display: flex;
             margin-top: 15px;
@@ -435,8 +432,8 @@
             align-items: center;
             justify-content: center;
             margin-left: 8px;
-            background: var(--card-bg-light);
-            color: var(--text-secondary);
+            background: var(--card-bg-light, #fff);
+            color: var(--text-secondary, #666);
             font-size: 0.9rem;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -461,8 +458,9 @@
             color: #FF9800;
         }
         
+        /* Timeline Progress */
         .timeline-progress {
-            position: absolute;
+            position: sticky;
             top: 0;
             left: 0;
             width: 100%;
@@ -473,24 +471,26 @@
         
         .timeline-progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            background: linear-gradient(90deg, var(--primary-color, #4361ee) 0%, var(--accent-color, #3a0ca3) 100%);
             width: 0;
             transition: width 1s ease;
         }
         
+        /* Timeline Navigation */
         .timeline-navigation {
             display: flex;
             justify-content: center;
             margin-top: 40px;
             gap: 15px;
+            flex-wrap: wrap;
         }
         
         .timeline-nav-btn {
             padding: 10px 20px;
-            background: var(--card-bg);
+            background: var(--card-bg, #f8f9fa);
             border: none;
             border-radius: 30px;
-            color: var(--text-color);
+            color: var(--text-color, #333);
             cursor: pointer;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -503,12 +503,8 @@
         .timeline-nav-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-            background: var(--primary-color);
+            background: var(--primary-color, #4361ee);
             color: white;
-        }
-        
-        .timeline-nav-btn i {
-            font-size: 0.9rem;
         }
         
         /* Responsive Timeline */
@@ -521,6 +517,11 @@
             .timeline-phase {
                 flex: 1 1 calc(50% - 20px);
                 margin-bottom: 10px;
+                min-width: 120px;
+            }
+            
+            .timeline-content {
+                width: 100%;
             }
         }
         
@@ -536,8 +537,9 @@
                 text-align: left;
             }
             
-            .timeline-item::after {
+            .timeline-item .timeline-dot {
                 left: 15px;
+                right: auto;
                 top: 15px;
             }
             
@@ -548,12 +550,6 @@
             
             .left, .right {
                 left: 0;
-            }
-            
-            .left .timeline-content h3::after,
-            .right .timeline-content h3::after {
-                left: 0;
-                right: auto;
             }
             
             .timeline-date {
@@ -572,6 +568,11 @@
             .timeline-phase {
                 flex: 1 1 100%;
             }
+            
+            .timeline-content h3::after {
+                left: 0;
+                transform: none;
+            }
         }
         
         /* Dark mode adjustments */
@@ -584,7 +585,7 @@
             background: linear-gradient(135deg, var(--card-bg-dark, #1e1e2d) 0%, rgba(40, 40, 60, 1) 100%);
         }
         
-        .dark .timeline-item::after {
+        .dark .timeline-dot {
             background: var(--background-color-dark, #121212);
         }
         
@@ -594,6 +595,67 @@
         
         .dark .timeline-progress {
             background: #2a2a3a;
+        }
+        
+        .dark .timeline-nav-btn {
+            background: var(--card-bg-dark, #1e1e2d);
+            color: var(--text-color-dark, #e0e0e0);
+        }
+        
+        /* Year label for dots */
+        .year-label {
+            position: absolute;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: var(--text-secondary, #666);
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .timeline-dot:hover .year-label {
+            opacity: 1;
+        }
+        
+        /* Topic preview on dot hover */
+        .topic-preview {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-dot:hover .topic-preview {
+            opacity: 1;
+        }
+        
+        /* Animation for content reveal */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .timeline-content.active {
+            animation: fadeInUp 0.5s ease forwards;
         }
     </style>
 </head>
@@ -662,11 +724,15 @@
                         <div class="timeline">
                             <!-- Present Day -->
                             <div class="timeline-item left personal" data-phase="personal">
+                                <div class="timeline-dot" data-year="2025" data-topic="Present Day">
+                                    <span class="year-label">2025</span>
+                                    <span class="topic-preview">Present Day</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-hourglass-half"></i>
+                                    <i class="fa-solid fa-hourglass-half"></i>
                                 </div>
                                 <div class="timeline-date">2025</div>
-                                <div class="timeline-content personal">
+                                <div class="timeline-content personal" id="content-2025">
                                     <h3>Present Day</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/present-day.jpg" alt="Present Day" class="timeline-image">
@@ -687,10 +753,10 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon happy" title="Happy Memory">
-                                            <i class="fas fa-heart"></i>
+                                            <i class="fa-solid fa-heart"></i>
                                         </div>
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -698,11 +764,15 @@
                             
                             <!-- Professional Growth -->
                             <div class="timeline-item right career" data-phase="career">
+                                <div class="timeline-dot" data-year="2024" data-topic="Professional Growth">
+                                    <span class="year-label">2024</span>
+                                    <span class="topic-preview">Professional Growth</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-chart-line"></i>
+                                    <i class="fa-solid fa-chart-line"></i>
                                 </div>
                                 <div class="timeline-date">2024</div>
-                                <div class="timeline-content career">
+                                <div class="timeline-content career" id="content-2024">
                                     <h3>Professional Growth</h3>
                                     <p>Expanded my skill set by learning [New Skill/Technology], opening new opportunities in my career path. This continuous learning approach has helped me stay current in my field and take on more challenging responsibilities.</p>
                                     
@@ -713,7 +783,7 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -721,11 +791,15 @@
                             
                             <!-- Portfolio Website -->
                             <div class="timeline-item left personal" data-phase="personal">
+                                <div class="timeline-dot" data-year="2023" data-topic="Portfolio Website">
+                                    <span class="year-label">2023</span>
+                                    <span class="topic-preview">Portfolio Website</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-laptop-code"></i>
+                                    <i class="fa-solid fa-laptop-code"></i>
                                 </div>
                                 <div class="timeline-date">2023</div>
-                                <div class="timeline-content personal">
+                                <div class="timeline-content personal" id="content-2023">
                                     <h3>Portfolio Website Launch</h3>
                                     <p>Created and launched my personal portfolio website to showcase my projects and professional journey. This platform serves as a digital representation of my skills, experiences, and achievements.</p>
                                     
@@ -736,10 +810,10 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon happy" title="Happy Memory">
-                                            <i class="fas fa-heart"></i>
+                                            <i class="fa-solid fa-heart"></i>
                                         </div>
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -747,11 +821,15 @@
                             
                             <!-- First Job -->
                             <div class="timeline-item right career" data-phase="career">
+                                <div class="timeline-dot" data-year="2022" data-topic="Career Launch">
+                                    <span class="year-label">2022</span>
+                                    <span class="topic-preview">Career Launch</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-briefcase"></i>
+                                    <i class="fa-solid fa-briefcase"></i>
                                 </div>
                                 <div class="timeline-date">2022</div>
-                                <div class="timeline-content career">
+                                <div class="timeline-content career" id="content-2022">
                                     <h3>Career Launch</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/first-job.jpg" alt="First Job" class="timeline-image">
@@ -771,10 +849,10 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                         <div class="emotion-icon challenging" title="Challenging">
-                                            <i class="fas fa-mountain"></i>
+                                            <i class="fa-solid fa-mountain"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -782,11 +860,15 @@
                             
                             <!-- University Graduation -->
                             <div class="timeline-item left achievement" data-phase="education">
+                                <div class="timeline-dot" data-year="2021" data-topic="University Graduation">
+                                    <span class="year-label">2021</span>
+                                    <span class="topic-preview">University Graduation</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-award"></i>
+                                    <i class="fa-solid fa-award"></i>
                                 </div>
                                 <div class="timeline-date">2021</div>
-                                <div class="timeline-content achievement">
+                                <div class="timeline-content achievement" id="content-2021">
                                     <h3>University Graduation</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/university-graduation.jpg" alt="University Graduation" class="timeline-image">
@@ -807,10 +889,10 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon happy" title="Happy Memory">
-                                            <i class="fas fa-heart"></i>
+                                            <i class="fa-solid fa-heart"></i>
                                         </div>
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -818,11 +900,15 @@
                             
                             <!-- Internship -->
                             <div class="timeline-item right career" data-phase="education">
+                                <div class="timeline-dot" data-year="2020" data-topic="First Professional Experience">
+                                    <span class="year-label">2020</span>
+                                    <span class="topic-preview">First Professional Experience</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-briefcase"></i>
+                                    <i class="fa-solid fa-briefcase"></i>
                                 </div>
                                 <div class="timeline-date">2020</div>
-                                <div class="timeline-content career">
+                                <div class="timeline-content career" id="content-2020">
                                     <h3>First Professional Experience</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/internship.jpg" alt="Internship" class="timeline-image">
@@ -842,10 +928,10 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                         <div class="emotion-icon challenging" title="Challenging">
-                                            <i class="fas fa-mountain"></i>
+                                            <i class="fa-solid fa-mountain"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -853,11 +939,15 @@
                             
                             <!-- First Research Project -->
                             <div class="timeline-item left achievement" data-phase="education">
+                                <div class="timeline-dot" data-year="2019" data-topic="First Research Project">
+                                    <span class="year-label">2019</span>
+                                    <span class="topic-preview">First Research Project</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-search"></i>
+                                    <i class="fa-solid fa-search"></i>
                                 </div>
                                 <div class="timeline-date">2019</div>
-                                <div class="timeline-content achievement">
+                                <div class="timeline-content achievement" id="content-2019">
                                     <h3>First Research Project</h3>
                                     <p>Conducted my first research on e-banking service quality, which later became a published paper. This project allowed me to apply theoretical knowledge to real-world problems and develop my analytical skills.</p>
                                     
@@ -869,10 +959,10 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                         <div class="emotion-icon challenging" title="Challenging">
-                                            <i class="fas fa-mountain"></i>
+                                            <i class="fa-solid fa-mountain"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -880,11 +970,15 @@
                             
                             <!-- University Entrance -->
                             <div class="timeline-item right education" data-phase="education">
+                                <div class="timeline-dot" data-year="2017" data-topic="University of Ruhuna">
+                                    <span class="year-label">2017</span>
+                                    <span class="topic-preview">University of Ruhuna</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-university"></i>
+                                    <i class="fa-solid fa-university"></i>
                                 </div>
                                 <div class="timeline-date">2017</div>
-                                <div class="timeline-content education">
+                                <div class="timeline-content education" id="content-2017">
                                     <h3>University of Ruhuna</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/university.jpg" alt="University of Ruhuna" class="timeline-image">
@@ -904,10 +998,10 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                         <div class="emotion-icon challenging" title="Challenging">
-                                            <i class="fas fa-mountain"></i>
+                                            <i class="fa-solid fa-mountain"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -915,11 +1009,15 @@
                             
                             <!-- High School Graduation -->
                             <div class="timeline-item left achievement" data-phase="education">
+                                <div class="timeline-dot" data-year="2016" data-topic="High School Graduation">
+                                    <span class="year-label">2016</span>
+                                    <span class="topic-preview">High School Graduation</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-user-graduate"></i>
+                                    <i class="fa-solid fa-user-graduate"></i>
                                 </div>
                                 <div class="timeline-date">2016</div>
-                                <div class="timeline-content achievement">
+                                <div class="timeline-content achievement" id="content-2016">
                                     <h3>High School Graduation</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/graduation-high-school.jpg" alt="High School Graduation" class="timeline-image">
@@ -939,10 +1037,10 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon happy" title="Happy Memory">
-                                            <i class="fas fa-heart"></i>
+                                            <i class="fa-solid fa-heart"></i>
                                         </div>
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -950,11 +1048,15 @@
                             
                             <!-- First Programming Experience -->
                             <div class="timeline-item right education" data-phase="education">
+                                <div class="timeline-dot" data-year="2013" data-topic="First Line of Code">
+                                    <span class="year-label">2013</span>
+                                    <span class="topic-preview">First Line of Code</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-code"></i>
+                                    <i class="fa-solid fa-code"></i>
                                 </div>
                                 <div class="timeline-date">2013</div>
-                                <div class="timeline-content education">
+                                <div class="timeline-content education" id="content-2013">
                                     <h3>First Line of Code</h3>
                                     <p>Wrote my first program in BASIC, marking the beginning of my journey into the world of programming. This moment ignited my passion for coding and problem-solving through technology.</p>
                                     
@@ -970,10 +1072,10 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon happy" title="Happy Memory">
-                                            <i class="fas fa-heart"></i>
+                                            <i class="fa-solid fa-heart"></i>
                                         </div>
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -981,11 +1083,15 @@
                             
                             <!-- Secondary Education -->
                             <div class="timeline-item left education" data-phase="education">
+                                <div class="timeline-dot" data-year="2010" data-topic="Secondary Education">
+                                    <span class="year-label">2010</span>
+                                    <span class="topic-preview">Secondary Education</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-graduation-cap"></i>
+                                    <i class="fa-solid fa-graduation-cap"></i>
                                 </div>
                                 <div class="timeline-date">2010</div>
-                                <div class="timeline-content education">
+                                <div class="timeline-content education" id="content-2010">
                                     <h3>Secondary Education</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/secondary-school.jpg" alt="Secondary School" class="timeline-image">
@@ -1001,7 +1107,7 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -1009,11 +1115,15 @@
                             
                             <!-- First Academic Achievement -->
                             <div class="timeline-item right achievement" data-phase="early-years">
+                                <div class="timeline-dot" data-year="2008" data-topic="First Academic Achievement">
+                                    <span class="year-label">2008</span>
+                                    <span class="topic-preview">First Academic Achievement</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-trophy"></i>
+                                    <i class="fa-solid fa-trophy"></i>
                                 </div>
                                 <div class="timeline-date">2008</div>
-                                <div class="timeline-content achievement">
+                                <div class="timeline-content achievement" id="content-2008">
                                     <h3>First Academic Achievement</h3>
                                     <p>Won my first mathematics competition, sparking my interest in numbers and analytical thinking. This achievement boosted my confidence and revealed my aptitude for quantitative subjects.</p>
                                     
@@ -1024,10 +1134,10 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon happy" title="Happy Memory">
-                                            <i class="fas fa-heart"></i>
+                                            <i class="fa-solid fa-heart"></i>
                                         </div>
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -1035,11 +1145,15 @@
                             
                             <!-- First Day of School -->
                             <div class="timeline-item left education" data-phase="early-years">
+                                <div class="timeline-dot" data-year="2003" data-topic="First Day of School">
+                                    <span class="year-label">2003</span>
+                                    <span class="topic-preview">First Day of School</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-school"></i>
+                                    <i class="fa-solid fa-school"></i>
                                 </div>
                                 <div class="timeline-date">2003</div>
-                                <div class="timeline-content education">
+                                <div class="timeline-content education" id="content-2003">
                                     <h3>First Day of School</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/first-day-school.jpg" alt="First Day of School" class="timeline-image">
@@ -1059,10 +1173,10 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                         <div class="emotion-icon challenging" title="Challenging">
-                                            <i class="fas fa-mountain"></i>
+                                            <i class="fa-solid fa-mountain"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -1070,11 +1184,15 @@
                             
                             <!-- First Steps -->
                             <div class="timeline-item right personal" data-phase="early-years">
+                                <div class="timeline-dot" data-year="2000" data-topic="First Steps & Words">
+                                    <span class="year-label">2000</span>
+                                    <span class="topic-preview">First Steps & Words</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-shoe-prints"></i>
+                                    <i class="fa-solid fa-shoe-prints"></i>
                                 </div>
                                 <div class="timeline-date">2000</div>
-                                <div class="timeline-content personal">
+                                <div class="timeline-content personal" id="content-2000">
                                     <h3>First Steps & Words</h3>
                                     <p>Took my first steps and spoke my first words, beginning my journey of exploration and communication. These fundamental milestones set the foundation for all future growth.</p>
                                     
@@ -1085,7 +1203,7 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon happy" title="Happy Memory">
-                                            <i class="fas fa-heart"></i>
+                                            <i class="fa-solid fa-heart"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -1093,11 +1211,15 @@
                             
                             <!-- Birth -->
                             <div class="timeline-item left personal" data-phase="early-years">
+                                <div class="timeline-dot" data-year="1998" data-topic="The Beginning of My Story">
+                                    <span class="year-label">1998</span>
+                                    <span class="topic-preview">The Beginning of My Story</span>
+                                </div>
                                 <div class="timeline-icon">
-                                    <i class="fas fa-baby"></i>
+                                    <i class="fa-solid fa-baby"></i>
                                 </div>
                                 <div class="timeline-date">1998</div>
-                                <div class="timeline-content personal">
+                                <div class="timeline-content personal" id="content-1998">
                                     <h3>The Beginning of My Story</h3>
                                     <div class="timeline-image-container">
                                         <img src="../assets/images/birth.jpg" alt="Baby Photo" class="timeline-image">
@@ -1117,10 +1239,10 @@
                                     
                                     <div class="timeline-emotions">
                                         <div class="emotion-icon happy" title="Happy Memory">
-                                            <i class="fas fa-heart"></i>
+                                            <i class="fa-solid fa-heart"></i>
                                         </div>
                                         <div class="emotion-icon exciting" title="Exciting">
-                                            <i class="fas fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -1129,13 +1251,13 @@
                         
                         <div class="timeline-navigation">
                             <button class="timeline-nav-btn" id="prevBtn">
-                                <i class="fas fa-arrow-left"></i> Previous
+                                <i class="fa-solid fa-arrow-left"></i> Previous
                             </button>
                             <button class="timeline-nav-btn" id="allBtn">
                                 View All
                             </button>
                             <button class="timeline-nav-btn" id="nextBtn">
-                                Next <i class="fas fa-arrow-right"></i>
+                                Next <i class="fa-solid fa-arrow-right"></i>
                             </button>
                         </div>
                     </div>
@@ -1188,13 +1310,16 @@
 
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
+        <i class="fa-solid fa-arrow-up"></i>
     </a>
 
     <!-- Theme Toggle -->
     <div class="theme-toggle">
-        <i class="fas fa-moon"></i>
+        <i class="fa-solid fa-moon"></i>
     </div>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Scripts -->
     <script src="../script.js"></script>
@@ -1203,6 +1328,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Elements
             const timelineItems = document.querySelectorAll('.timeline-item');
+            const timelineDots = document.querySelectorAll('.timeline-dot');
+            const timelineContents = document.querySelectorAll('.timeline-content');
             const phaseButtons = document.querySelectorAll('.timeline-phase');
             const progressBar = document.getElementById('timelineProgress');
             const prevBtn = document.getElementById('prevBtn');
@@ -1212,6 +1339,7 @@
             // Initialize
             let currentIndex = 0;
             let activePhase = 'early-years';
+            let activeContent = null;
             
             // Show timeline items with animation
             function showTimelineItems() {
@@ -1230,6 +1358,16 @@
             // Filter timeline items by phase
             function filterByPhase(phase) {
                 activePhase = phase;
+                
+                // Hide all content
+                timelineContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Reset active dot
+                timelineDots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
                 
                 // Update active phase button
                 phaseButtons.forEach(btn => {
@@ -1254,6 +1392,9 @@
                         }, 500);
                     }
                 });
+                
+                // Reset active content
+                activeContent = null;
             }
             
             // Navigate through timeline items
@@ -1264,11 +1405,6 @@
                 
                 if (visibleItems.length === 0) return;
                 
-                // Hide all items
-                visibleItems.forEach(item => {
-                    item.classList.remove('visible');
-                });
-                
                 // Update current index
                 if (direction === 'next') {
                     currentIndex = (currentIndex + 1) % visibleItems.length;
@@ -1276,19 +1412,56 @@
                     currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
                 }
                 
-                // Show current item
-                setTimeout(() => {
-                    visibleItems[currentIndex].classList.add('visible');
-                    
-                    // Scroll to item
-                    visibleItems[currentIndex].scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center'
-                    });
-                }, 300);
+                // Get the dot in the current item
+                const currentDot = visibleItems[currentIndex].querySelector('.timeline-dot');
+                
+                // Simulate click on the dot
+                if (currentDot) {
+                    currentDot.click();
+                }
                 
                 // Update progress bar
                 progressBar.style.width = `${((currentIndex + 1) / visibleItems.length) * 100}%`;
+            }
+            
+            // Toggle content visibility when clicking on a dot
+            function toggleContent(dot) {
+                const year = dot.getAttribute('data-year');
+                const contentId = `content-${year}`;
+                const content = document.getElementById(contentId);
+                
+                // If there's an active content and it's not the one we're clicking
+                if (activeContent && activeContent !== content) {
+                    activeContent.classList.remove('active');
+                    
+                    // Find and remove active class from the corresponding dot
+                    timelineDots.forEach(d => {
+                        if (d !== dot) {
+                            d.classList.remove('active');
+                        }
+                    });
+                }
+                
+                // Toggle the clicked content
+                if (content) {
+                    content.classList.toggle('active');
+                    dot.classList.toggle('active');
+                    
+                    // Update active content reference
+                    if (content.classList.contains('active')) {
+                        activeContent = content;
+                        
+                        // Scroll to content
+                        setTimeout(() => {
+                            content.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
+                        }, 300);
+                    } else {
+                        activeContent = null;
+                    }
+                }
             }
             
             // Event Listeners
@@ -1301,6 +1474,12 @@
                     setTimeout(() => {
                         progressBar.style.width = '100%';
                     }, 300);
+                });
+            });
+            
+            timelineDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    toggleContent(this);
                 });
             });
             
@@ -1317,13 +1496,76 @@
                 icon.addEventListener('click', function() {
                     this.classList.toggle('active');
                     if (this.classList.contains('active')) {
-                        this.innerHTML = '<i class="fas fa-check"></i>';
+                        const originalIcon = this.innerHTML;
+                        this.innerHTML = '<i class="fa-solid fa-check"></i>';
                         setTimeout(() => {
-                            this.innerHTML = this.querySelector('i').outerHTML;
+                            this.innerHTML = originalIcon;
                         }, 1000);
                     }
                 });
             });
+            
+            // Handle keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') {
+                    navigateTimeline('prev');
+                } else if (e.key === 'ArrowRight') {
+                    navigateTimeline('next');
+                }
+            });
+            
+            // Make the first dot active by default for each phase
+            function activateFirstDotInPhase() {
+                const firstItem = document.querySelector(`.timeline-item[data-phase="${activePhase}"]`);
+                if (firstItem) {
+                    const firstDot = firstItem.querySelector('.timeline-dot');
+                    if (firstDot) {
+                        firstDot.click();
+                    }
+                }
+            }
+            
+            // Activate first dot after initial load
+            setTimeout(activateFirstDotInPhase, 1000);
+            
+            // Handle window resize for responsive adjustments
+            window.addEventListener('resize', function() {
+                // Recalculate positions if needed
+                if (activeContent) {
+                    setTimeout(() => {
+                        activeContent.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }, 300);
+                }
+            });
+            
+            // Add touch swipe support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            document.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            document.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    // Swipe left, go next
+                    navigateTimeline('next');
+                }
+                
+                if (touchEndX > touchStartX + swipeThreshold) {
+                    // Swipe right, go previous
+                    navigateTimeline('prev');
+                }
+            }
         });
     </script>
 </body>
