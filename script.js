@@ -262,6 +262,18 @@ if (projectViewButtons.length > 0) {
   });
 }
 
+  // Handle video playback
+document.querySelectorAll(".close-details").forEach((button) => {
+  button.addEventListener("click", function() {
+    // Find any videos in the project details and pause them when closing
+    const videos = this.closest(".project-details").querySelectorAll("video");
+    if (videos.length > 0) {
+      videos.forEach(video => {
+        video.pause();
+      });
+    }
+  });
+});
 
   // Blog filtering
   const blogFilterButtons = document.querySelectorAll(".blog-filter .filter-btn")
