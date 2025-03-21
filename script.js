@@ -162,98 +162,155 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  // Project filtering
-  const filterButtons = document.querySelectorAll(".project-filters .filter-btn")
-  const projectCards = document.querySelectorAll(".project-card")
+  // // Project filtering
+  // const filterButtons = document.querySelectorAll(".project-filters .filter-btn")
+  // const projectCards = document.querySelectorAll(".project-card")
 
-  if (filterButtons.length > 0 && projectCards.length > 0) {
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        // Remove active class from all buttons
-        filterButtons.forEach((btn) => btn.classList.remove("active"))
+  // if (filterButtons.length > 0 && projectCards.length > 0) {
+  //   filterButtons.forEach((button) => {
+  //     button.addEventListener("click", function () {
+  //       // Remove active class from all buttons
+  //       filterButtons.forEach((btn) => btn.classList.remove("active"))
 
-        // Add active class to clicked button
-        this.classList.add("active")
+  //       // Add active class to clicked button
+  //       this.classList.add("active")
 
-        const filter = this.getAttribute("data-filter")
+  //       const filter = this.getAttribute("data-filter")
 
-        projectCards.forEach((card) => {
-          if (filter === "all") {
-            card.style.display = "flex"
-            setTimeout(() => {
-              card.style.opacity = "1"
-              card.style.transform = "translateY(0)"
-            }, 100)
-          } else {
-            const category = card.getAttribute("data-category")
+  //       projectCards.forEach((card) => {
+  //         if (filter === "all") {
+  //           card.style.display = "flex"
+  //           setTimeout(() => {
+  //             card.style.opacity = "1"
+  //             card.style.transform = "translateY(0)"
+  //           }, 100)
+  //         } else {
+  //           const category = card.getAttribute("data-category")
 
-            if (category === filter) {
-              card.style.display = "flex"
-              setTimeout(() => {
-                card.style.opacity = "1"
-                card.style.transform = "translateY(0)"
-              }, 100)
-            } else {
-              card.style.opacity = "0"
-              card.style.transform = "translateY(20px)"
-              setTimeout(() => {
-                card.style.display = "none"
-              }, 300)
-            }
-          }
-        })
-      })
-    })
-  }
+  //           if (category === filter) {
+  //             card.style.display = "flex"
+  //             setTimeout(() => {
+  //               card.style.opacity = "1"
+  //               card.style.transform = "translateY(0)"
+  //             }, 100)
+  //           } else {
+  //             card.style.opacity = "0"
+  //             card.style.transform = "translateY(20px)"
+  //             setTimeout(() => {
+  //               card.style.display = "none"
+  //             }, 300)
+  //           }
+  //         }
+  //       })
+  //     })
+  //   })
+  // }
+
+  // // Project detail view functionality
+  // const projectViewButtons = document.querySelectorAll(".project-card .btn")
+
+  // if (projectViewButtons.length > 0) {
+  //   projectViewButtons.forEach((button) => {
+  //     button.addEventListener("click", function (e) {
+  //       e.preventDefault()
+
+  //       // Get project ID from data attribute
+  //       const projectId = this.closest(".project-card").getAttribute("data-id")
+
+  //       // Find corresponding project details section
+  //       const projectDetails = document.getElementById(`project-${projectId}-details`)
+
+  //       if (projectDetails) {
+  //         // Hide all other project details
+  //         document.querySelectorAll(".project-details").forEach((detail) => {
+  //           detail.classList.remove("active")
+  //         })
+
+  //         // Show this project's details
+  //         projectDetails.classList.add("active")
+
+  //         // Scroll to project details
+  //         window.scrollTo({
+  //           top: projectDetails.offsetTop - 80,
+  //           behavior: "smooth",
+  //         })
+  //       }
+  //     })
+  //   })
+
+  //   // Close project details button
+  //   document.querySelectorAll(".close-details").forEach((button) => {
+  //     button.addEventListener("click", function () {
+  //       this.closest(".project-details").classList.remove("active")
+
+  //       // Scroll back to projects section
+  //       const projectsSection = document.querySelector(".projects-section")
+  //       if (projectsSection) {
+  //         window.scrollTo({
+  //           top: projectsSection.offsetTop - 80,
+  //           behavior: "smooth",
+  //         })
+  //       }
+  //     })
+  //   })
+  // }
 
   // Project detail view functionality
-  const projectViewButtons = document.querySelectorAll(".project-card .btn")
+const projectViewButtons = document.querySelectorAll(".project-card .btn");
 
-  if (projectViewButtons.length > 0) {
-    projectViewButtons.forEach((button) => {
-      button.addEventListener("click", function (e) {
-        e.preventDefault()
+if (projectViewButtons.length > 0) {
+  projectViewButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault(); // Prevent default behavior
 
-        // Get project ID from data attribute
-        const projectId = this.closest(".project-card").getAttribute("data-id")
+      // Check if the button is for a PDF link
+      const pdfUrl = button.getAttribute("href");
+      if (pdfUrl.endsWith(".pdf")) {
+        // Open the PDF in a new tab
+        window.open(pdfUrl, "_blank");
+      } else {
+        // Existing logic for project details view
+        const projectId = this.closest(".project-card").getAttribute("data-id");
 
         // Find corresponding project details section
-        const projectDetails = document.getElementById(`project-${projectId}-details`)
+        const projectDetails = document.getElementById(`project-${projectId}-details`);
 
         if (projectDetails) {
           // Hide all other project details
           document.querySelectorAll(".project-details").forEach((detail) => {
-            detail.classList.remove("active")
-          })
+            detail.classList.remove("active");
+          });
 
           // Show this project's details
-          projectDetails.classList.add("active")
+          projectDetails.classList.add("active");
 
           // Scroll to project details
           window.scrollTo({
             top: projectDetails.offsetTop - 80,
             behavior: "smooth",
-          })
+          });
         }
-      })
-    })
+      }
+    });
+  });
 
-    // Close project details button
-    document.querySelectorAll(".close-details").forEach((button) => {
-      button.addEventListener("click", function () {
-        this.closest(".project-details").classList.remove("active")
+  // Close project details button
+  document.querySelectorAll(".close-details").forEach((button) => {
+    button.addEventListener("click", function () {
+      this.closest(".project-details").classList.remove("active");
 
-        // Scroll back to projects section
-        const projectsSection = document.querySelector(".projects-section")
-        if (projectsSection) {
-          window.scrollTo({
-            top: projectsSection.offsetTop - 80,
-            behavior: "smooth",
-          })
-        }
-      })
-    })
-  }
+      // Scroll back to projects section
+      const projectsSection = document.querySelector(".projects-section");
+      if (projectsSection) {
+        window.scrollTo({
+          top: projectsSection.offsetTop - 80,
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+}
+
 
   // Blog filtering
   const blogFilterButtons = document.querySelectorAll(".blog-filter .filter-btn")
