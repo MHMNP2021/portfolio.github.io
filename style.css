@@ -975,6 +975,27 @@ nav a.active::after {
   font-size: 1.2rem;
 }
 
+/* Add this to your CSS file */
+.details-video {
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.details-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .details-video {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+}
+
 /* ===== SKILLS SECTION ===== */
 .skills-section {
   background-color: var(--bg-light);
