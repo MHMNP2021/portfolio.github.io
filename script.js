@@ -454,3 +454,4 @@ document.querySelectorAll(".close-details").forEach((button) => {
 
 
 
+
