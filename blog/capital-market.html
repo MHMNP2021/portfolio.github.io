@@ -3,56 +3,438 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capital Market - Understanding the Basics</title>
+    <title>Capital Market: A Comprehensive Overview | My Portfolio</title>
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../blog-styles.css">
-    <link rel="stylesheet" href="../blog-preview-styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Additional styles specific to financial content */
-        .financial-content h2 {
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .logo a {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
-            margin-top: 30px;
+            text-decoration: none;
+            transition: color 0.3s;
         }
         
-        .financial-content h3 {
-            color: #34495e;
-            margin-top: 20px;
+        .logo a:hover {
+            color: #3498db;
         }
         
-        .financial-content ul, .financial-content ol {
-            margin-bottom: 20px;
+        nav ul {
+            display: flex;
+            list-style: none;
         }
         
-        .financial-content li {
-            margin-bottom: 8px;
+        nav ul li {
+            margin-left: 2rem;
         }
         
-        .financial-content table {
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        nav ul li a.active {
+            color: #3498db;
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
             width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
+            height: 2px;
+            background-color: #3498db;
         }
         
-        .financial-content table th,
-        .financial-content table td {
-            border: 1px solid #ddd;
-            padding: 8px 12px;
-            text-align: left;
+        /* Main Content */
+        .blog-content {
+            max-width: 800px;
+            margin: 2rem auto 4rem;
+            padding: 0 1.5rem;
         }
         
-        .financial-content table th {
-            background-color: #f2f2f2;
+        /* Article Header */
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 2rem;
         }
         
-        .financial-content em {
+        .article-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #3498db, #2c3e50);
+        }
+        
+        .article-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .post-meta .date {
+            display: flex;
+            align-items: center;
+        }
+        
+        .post-meta .date i {
+            margin-right: 0.5rem;
+            color: #3498db;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background-color: #f0f8ff;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .toc h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+        }
+        
+        .toc h2 i {
+            margin-right: 0.5rem;
+            color: #3498db;
+        }
+        
+        .toc ul {
+            list-style: none;
+        }
+        
+        .toc ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc ul li a {
+            text-decoration: none;
+            color: #555;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+        
+        .toc ul li a:hover {
+            color: #3498db;
+            transform: translateX(5px);
+        }
+        
+        /* Sections */
+        section {
+            margin-bottom: 3rem;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        section h2 i {
+            margin-right: 0.75rem;
+            color: #3498db;
+        }
+        
+        section h3 {
+            font-size: 1.3rem;
+            color: #34495e;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        section p {
+            margin-bottom: 1rem;
+            color: #555;
+            font-size: 1.05rem;
+        }
+        
+        /* Lists */
+        section ul, section ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+        }
+        
+        section li {
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+        
+        section ul li {
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+        
+        section ul li::before {
+            content: '•';
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        section ol li {
+            padding-left: 0.5rem;
+        }
+        
+        section li strong {
+            color: #2c3e50;
+        }
+        
+        /* Nested Lists */
+        section li ul, section li ol {
+            margin-top: 0.75rem;
+        }
+        
+        /* Examples and Emphasis */
+        em {
             font-style: italic;
             color: #555;
         }
         
-        .financial-content section {
-            margin-bottom: 30px;
+        .example {
+            background-color: #f8f9fa;
+            border-left: 4px solid #6c757d;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 5px 5px 0;
+            font-style: italic;
+        }
+        
+        .example strong {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        thead {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tbody tr:hover {
+            background-color: #e9f7fe;
+        }
+        
+        /* Key Points */
+        .key-points {
+            background-color: #e9f7fe;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .key-points h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .key-points h3 i {
+            margin-right: 0.5rem;
+            color: #3498db;
+        }
+        
+        .key-points ul {
+            margin-bottom: 0;
+        }
+        
+        /* Conclusion */
+        #conclusion {
+            background-color: #f0f8ff;
+            border-top: 4px solid #3498db;
+            border-radius: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 2rem 0;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .social-links a {
+            color: #fff;
+            margin-left: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #3498db;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            nav {
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-links {
+                margin-top: 1rem;
+            }
+            
+            .social-links a {
+                margin: 0 0.75rem;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
         }
     </style>
 </head>
@@ -71,135 +453,269 @@
         </nav>
     </header>
 
-    <main class="blog-content financial-content">
+    <main class="blog-content">
         <article>
-            <h1>Capital Market: A Comprehensive Overview</h1>
-            <div class="post-meta">
-                <span class="date">Published on: <time datetime="2025-03-29">March 29, 2025</time></span>
+            <div class="article-header">
+                <h1>Capital Market: A Comprehensive Overview</h1>
+                <div class="post-meta">
+                    <span class="date"><i class="fas fa-calendar-alt"></i> Published on: <time datetime="2025-03-29">March 29, 2025</time></span>
+                </div>
+            </div>
+
+            <div class="toc">
+                <h2><i class="fas fa-list"></i> Table of Contents</h2>
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#meaning">Meaning and Definition</a></li>
+                    <li><a href="#characteristics">Characteristics</a></li>
+                    <li><a href="#importance">Scope/Importance</a></li>
+                    <li><a href="#functions">Functions/Roles</a></li>
+                    <li><a href="#types">Types of Capital Market</a></li>
+                    <li><a href="#instruments">Capital Market Instruments</a></li>
+                    <li><a href="#structure">Structure of Capital Market</a></li>
+                    <li><a href="#difference">Difference Between Capital and Money Market</a></li>
+                    <li><a href="#global">Global Capital Market</a></li>
+                    <li><a href="#conclusion">Conclusion</a></li>
+                </ul>
             </div>
 
             <section id="introduction">
-                <h2>Introduction</h2>
+                <h2><i class="fas fa-info-circle"></i> Introduction</h2>
                 <p>The capital market plays a crucial role in the modern economy by facilitating the flow of funds between investors and businesses. It's important to understand the distinction between key terms:</p>
                 <ul>
                     <li><strong>Capital:</strong> Money that an owner invests in their own business</li>
                     <li><strong>Investment:</strong> Not the same as capital. Investment refers to outsiders' money in a company</li>
                 </ul>
                 <p>A capital market is where instruments like bonds, debentures, equity, or securities are traded. The primary role of the capital market is to channel investments from investors who have surplus funds to those who are running a deficit or need funding.</p>
-                <p><em>Example:</em> If XYZ company requires 10 lakh rupees to expand its infrastructure, they might issue company shares or bonds to the market to collect funds from the public who have surplus funds and are willing to be part of XYZ company.</p>
+                
+                <div class="example">
+                    <strong>Example:</strong> If XYZ company requires 10 lakh rupees to expand its infrastructure, they might issue company shares or bonds to the market to collect funds from the public who have surplus funds and are willing to be part of XYZ company.
+                </div>
             </section>
 
             <section id="meaning">
-                <h2>Meaning and Definition</h2>
+                <h2><i class="fas fa-book"></i> Meaning and Definition</h2>
                 <p>The capital market is a market where buyers and sellers engage in the trade of financial securities like bonds, stocks, etc. The buying and selling are undertaken by participants such as individuals and institutions. Generally, this market trades mostly in long-term securities (bonds, stocks, equity shares, preference shares).</p>
                 <p>The primary objective of the capital market is to raise long-term funds for companies (it does not deal with short-term financing).</p>
-                <p><em>Example:</em> If you have a surplus fund of 50,000 rupees and you keep it in your locker, you'll only have the same amount at the end of the year (which might be affected by the time value of money). However, if you invest that amount in the capital market, it could generate interest or dividends for you. This opportunity is provided by the capital market.</p>
+                
+                <div class="example">
+                    <strong>Example:</strong> If you have a surplus fund of 50,000 rupees and you keep it in your locker, you'll only have the same amount at the end of the year (which might be affected by the time value of money). However, if you invest that amount in the capital market, it could generate interest or dividends for you. This opportunity is provided by the capital market.
+                </div>
             </section>
 
             <section id="characteristics">
-                <h2>Characteristics of Capital Market</h2>
-                <ul>
+                <h2><i class="fas fa-fingerprint"></i> Characteristics of Capital Market</h2>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-star"></i> Key Features</h3>
+                    <ul>
+                        <li>Deals in long-term securities</li>
+                        <li>Has two main segments: Equity and Debentures</li>
+                        <li>Performs trade-off function</li>
+                        <li>Helps in capital formation</li>
+                        <li>Creates liquidity in the market</li>
+                    </ul>
+                </div>
+                
+                <h3>Two Main Segments:</h3>
+                <ol>
                     <li>
-                        <h3>It has two main segments:</h3>
-                        <ol>
-                            <li>
-                                <strong>Equity</strong> - Represents real ownership of the company through shareholding. Equity shareholders:
-                                <ul>
-                                    <li>Don't receive fixed dividends</li>
-                                    <li>Receive dividends based on company profits, as decided in board meetings</li>
-                                    <li>Are the last to receive repayment when a company closes</li>
-                                    <li>Only receive dividends if the company makes a profit</li>
-                                    <li>May have to pay the company if it makes a loss</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Debentures</strong> - Held by third-party members of the organization or company. Debenture holders:
-                                <ul>
-                                    <li>Are not owners and have no voting rights</li>
-                                    <li>Receive their investment money at the end of the maturity period</li>
-                                    <li>Receive a fixed interest amount every year (predetermined)</li>
-                                </ul>
-                            </li>
-                        </ol>
+                        <strong>Equity</strong> - Represents real ownership of the company through shareholding. Equity shareholders:
+                        <ul>
+                            <li>Don't receive fixed dividends</li>
+                            <li>Receive dividends based on company profits, as decided in board meetings</li>
+                            <li>Are the last to receive repayment when a company closes</li>
+                            <li>Only receive dividends if the company makes a profit</li>
+                            <li>May have to pay the company if it makes a loss</li>
+                        </ul>
                     </li>
-                    <li><strong>Deals in long-term securities</strong> - The capital market primarily focuses on financial instruments with longer maturity periods.</li>
-                    <li><strong>Performs trade-off function</strong> - Balances risk and return for various investment options.</li>
-                    <li><strong>Helps in capital formation</strong> - Aggregates small savings into productive capital.</li>
-                    <li><strong>Creates liquidity</strong> - Provides the ability for companies to quickly convert assets to money. Both buying and selling activities exist in this market.</li>
-                </ul>
+                    <li>
+                        <strong>Debentures</strong> - Held by third-party members of the organization or company. Debenture holders:
+                        <ul>
+                            <li>Are not owners and have no voting rights</li>
+                            <li>Receive their investment money at the end of the maturity period</li>
+                            <li>Receive a fixed interest amount every year (predetermined)</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <p><strong>Liquidity:</strong> The ability that determines how fast a company can convert its assets to money. In this market, both selling and buying activities exist. In the primary market, companies release their shares into the market, while in the secondary market, those shares are traded.</p>
             </section>
 
             <section id="importance">
-                <h2>Scope/Importance of Capital Market</h2>
+                <h2><i class="fas fa-chart-line"></i> Scope/Importance of Capital Market</h2>
                 <ul>
-                    <li><strong>Mobilization of savings</strong> - The capital market creates a habit of saving among market participants. Without this market, people might keep their money themselves or spend it on goods or services for short-term satisfaction, without getting any profit or value addition.</li>
-                    <li><strong>Long-term funds</strong> - Provides a platform for raising long-term capital for businesses and governments.</li>
-                    <li><strong>Capital formation</strong> - Helps in the formation of capital by channeling savings into investments.</li>
-                    <li><strong>Proper regulation of funds</strong> - Ensures that funds are allocated efficiently and according to regulations.</li>
-                    <li><strong>Speeds up economic growth</strong> - By facilitating investment in productive sectors, it accelerates economic development.</li>
+                    <li>
+                        <strong>Mobilization of savings</strong> - The capital market creates a habit of saving among market participants. Without this market, people might keep their money themselves or spend it on goods or services for short-term satisfaction, without getting any profit or value addition.
+                    </li>
+                    <li>
+                        <strong>Long-term funds</strong> - Provides a platform for raising long-term capital for businesses and governments, enabling them to finance large-scale projects and expansions.
+                    </li>
+                    <li>
+                        <strong>Capital formation</strong> - Helps in the formation of capital by channeling savings into investments, which is crucial for economic development.
+                    </li>
+                    <li>
+                        <strong>Proper regulation of funds</strong> - Ensures that funds are allocated efficiently and according to regulations, preventing misuse and ensuring optimal utilization.
+                    </li>
+                    <li>
+                        <strong>Speeds up economic growth</strong> - By facilitating investment in productive sectors, it accelerates economic development and creates employment opportunities.
+                    </li>
                 </ul>
             </section>
 
             <section id="functions">
-                <h2>Functions/Roles of Capital Market</h2>
+                <h2><i class="fas fa-cogs"></i> Functions/Roles of Capital Market</h2>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-tasks"></i> Primary Functions</h3>
+                    <ul>
+                        <li>Capital formation</li>
+                        <li>Economic growth</li>
+                        <li>Industrial growth</li>
+                        <li>Technical assistance</li>
+                        <li>Regulation of funds</li>
+                        <li>Mobilization of savings</li>
+                        <li>Connects investors and institutions</li>
+                        <li>Availability of funds</li>
+                    </ul>
+                </div>
+                
+                <p>The capital market serves as a crucial intermediary in the financial system, performing several vital functions:</p>
+                
                 <ul>
-                    <li><strong>Capital formation</strong> - Aggregates small savings into productive capital.</li>
-                    <li><strong>Economic growth</strong> - Facilitates investment in productive sectors, accelerating economic development.</li>
-                    <li><strong>Industrial growth</strong> - Provides necessary funding for industrial expansion and development.</li>
-                    <li><strong>Technical assistance</strong> - Offers expertise and guidance for efficient fund utilization.</li>
-                    <li><strong>Regulation of funds</strong> - Ensures proper allocation and utilization of financial resources.</li>
-                    <li><strong>Mobilization of savings</strong> - Encourages saving habits among the public.</li>
-                    <li><strong>Connects investors and institutions</strong> - Bridges the gap between those with surplus funds and those who need capital.</li>
-                    <li><strong>Availability of funds</strong> - Ensures a steady supply of capital for various economic activities.</li>
+                    <li>
+                        <strong>Capital formation</strong> - Aggregates small savings into productive capital, enabling large-scale investments that would otherwise be impossible.
+                    </li>
+                    <li>
+                        <strong>Economic growth</strong> - Facilitates investment in productive sectors, accelerating economic development by ensuring efficient allocation of resources.
+                    </li>
+                    <li>
+                        <strong>Industrial growth</strong> - Provides necessary funding for industrial expansion and development, fostering innovation and technological advancement.
+                    </li>
+                    <li>
+                        <strong>Technical assistance</strong> - Offers expertise and guidance for efficient fund utilization, helping businesses make informed investment decisions.
+                    </li>
+                    <li>
+                        <strong>Regulation of funds</strong> - Ensures proper allocation and utilization of financial resources through regulatory frameworks and oversight.
+                    </li>
+                    <li>
+                        <strong>Mobilization of savings</strong> - Encourages saving habits among the public by offering investment opportunities with potential returns.
+                    </li>
+                    <li>
+                        <strong>Connects investors and institutions</strong> - Bridges the gap between those with surplus funds and those who need capital, creating a mutually beneficial ecosystem.
+                    </li>
+                    <li>
+                        <strong>Availability of funds</strong> - Ensures a steady supply of capital for various economic activities, preventing liquidity crunches.
+                    </li>
                 </ul>
             </section>
 
             <section id="types">
-                <h2>Types of Capital Market</h2>
+                <h2><i class="fas fa-sitemap"></i> Types of Capital Market</h2>
                 <p>Under financial institutions, we have two main categories:</p>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-layer-group"></i> Market Structure</h3>
+                    <ul>
+                        <li>Capital Market (Primary and Secondary)</li>
+                        <li>Money Market</li>
+                    </ul>
+                </div>
+                
                 <ol>
                     <li>
                         <strong>Capital Market</strong>
                         <ul>
                             <li>
-                                <strong>Primary Market</strong> - Specifically for IPOs (Initial Public Offerings) where shares and other securities are issued for the first time.
+                                <strong>Primary Market</strong> - Specifically for IPOs (Initial Public Offerings) where shares and other securities are issued for the first time. This is where companies directly raise capital from investors.
                             </li>
                             <li>
-                                <strong>Secondary Market</strong> - Where already existing securities are traded.
+                                <strong>Secondary Market</strong> - Where already existing securities are traded between investors. The company doesn't receive additional funds from these transactions, but it creates liquidity for investors.
                             </li>
                         </ul>
                     </li>
-                    <li><strong>Money Market</strong> - Deals with short-term financial instruments.</li>
+                    <li>
+                        <strong>Money Market</strong> - Deals with short-term financial instruments with maturities typically less than one year. It serves different purposes than the capital market, focusing on short-term liquidity needs.
+                    </li>
                 </ol>
             </section>
 
             <section id="instruments">
-                <h2>Capital Market Instruments</h2>
+                <h2><i class="fas fa-tools"></i> Capital Market Instruments</h2>
                 <p>Capital market instruments are financial tools that are used to raise capital. These include:</p>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-file-invoice-dollar"></i> Key Instruments</h3>
+                    <ul>
+                        <li>Equity Shares</li>
+                        <li>Preference Shares</li>
+                        <li>Debentures</li>
+                        <li>Bonds</li>
+                        <li>Commercial Papers</li>
+                        <li>Certificate of Deposits</li>
+                    </ul>
+                </div>
+                
                 <ul>
-                    <li><strong>Equity Shares</strong> - Represent ownership in a company</li>
-                    <li><strong>Preference Shares</strong> - Have priority over equity shares in dividend payments</li>
-                    <li><strong>Debentures</strong> - Long-term debt instruments issued by companies</li>
-                    <li><strong>Bonds</strong> - Debt securities issued by governments or corporations</li>
-                    <li><strong>Commercial Papers</strong> - Short-term unsecured promissory notes</li>
-                    <li><strong>Certificate of Deposits</strong> - Short-term deposit instruments issued by banks</li>
+                    <li>
+                        <strong>Equity Shares</strong> - Represent ownership in a company and give shareholders voting rights and dividends based on company performance.
+                    </li>
+                    <li>
+                        <strong>Preference Shares</strong> - Have priority over equity shares in dividend payments and asset distribution during liquidation, but typically don't carry voting rights.
+                    </li>
+                    <li>
+                        <strong>Debentures</strong> - Long-term debt instruments issued by companies that pay fixed interest and must be repaid at maturity.
+                    </li>
+                    <li>
+                        <strong>Bonds</strong> - Debt securities issued by governments or corporations that pay periodic interest and return principal at maturity.
+                    </li>
+                    <li>
+                        <strong>Commercial Papers</strong> - Short-term unsecured promissory notes issued by corporations to meet short-term liabilities.
+                    </li>
+                    <li>
+                        <strong>Certificate of Deposits</strong> - Short-term deposit instruments issued by banks that can be traded in the secondary market.
+                    </li>
                 </ul>
             </section>
 
             <section id="structure">
-                <h2>Structure of Capital Market</h2>
-                <p>The capital market structure consists of:</p>
+                <h2><i class="fas fa-building"></i> Structure of Capital Market</h2>
+                <p>The capital market structure consists of various components that work together to facilitate the flow of funds:</p>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-project-diagram"></i> Key Components</h3>
+                    <ul>
+                        <li>Primary Market</li>
+                        <li>Secondary Market</li>
+                        <li>Financial Intermediaries</li>
+                        <li>Regulatory Bodies</li>
+                        <li>Investors</li>
+                    </ul>
+                </div>
+                
                 <ul>
-                    <li><strong>Primary Market</strong> - Where new securities are issued</li>
-                    <li><strong>Secondary Market</strong> - Where existing securities are traded</li>
-                    <li><strong>Financial Intermediaries</strong> - Banks, insurance companies, mutual funds, etc.</li>
-                    <li><strong>Regulatory Bodies</strong> - Securities and Exchange Board, Central Bank, etc.</li>
-                    <li><strong>Investors</strong> - Individual and institutional investors</li>
+                    <li>
+                        <strong>Primary Market</strong> - Where new securities are issued and companies raise fresh capital directly from investors.
+                    </li>
+                    <li>
+                        <strong>Secondary Market</strong> - Where existing securities are traded among investors, providing liquidity to the market.
+                    </li>
+                    <li>
+                        <strong>Financial Intermediaries</strong> - Banks, insurance companies, mutual funds, and other institutions that facilitate transactions between issuers and investors.
+                    </li>
+                    <li>
+                        <strong>Regulatory Bodies</strong> - Securities and Exchange Board, Central Bank, and other authorities that oversee market operations and ensure compliance with regulations.
+                    </li>
+                    <li>
+                        <strong>Investors</strong> - Individual and institutional investors who provide capital in exchange for financial returns.
+                    </li>
                 </ul>
             </section>
 
             <section id="difference">
-                <h2>Difference Between Capital and Money Market</h2>
+                <h2><i class="fas fa-balance-scale"></i> Difference Between Capital and Money Market</h2>
+                <p>While both capital and money markets are important components of the financial system, they serve different purposes and have distinct characteristics:</p>
+                
                 <table>
                     <thead>
                         <tr>
@@ -239,41 +755,122 @@
                             <td>Capital formation and investment</td>
                             <td>Working capital and liquidity management</td>
                         </tr>
+                        <tr>
+                            <td>Participants</td>
+                            <td>Retail investors, institutional investors, corporations</td>
+                            <td>Banks, financial institutions, corporations</td>
+                        </tr>
+                        <tr>
+                            <td>Regulation</td>
+                            <td>More regulated</td>
+                            <td>Less regulated</td>
+                        </tr>
                     </tbody>
                 </table>
             </section>
 
             <section id="global">
-                <h2>Global Capital Market</h2>
-                <p>The global capital market refers to the worldwide network where international investors trade securities and companies raise capital across national boundaries. Key features include:</p>
+                <h2><i class="fas fa-globe"></i> Global Capital Market</h2>
+                <p>The global capital market refers to the worldwide network where international investors trade securities and companies raise capital across national boundaries. As economies become increasingly interconnected, the global capital market plays a crucial role in facilitating international investment and economic growth.</p>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-key"></i> Key Features</h3>
+                    <ul>
+                        <li>International Integration</li>
+                        <li>Cross-border Investments</li>
+                        <li>Foreign Exchange Markets</li>
+                        <li>International Financial Institutions</li>
+                        <li>Global Regulatory Framework</li>
+                    </ul>
+                </div>
+                
                 <ul>
-                    <li><strong>International Integration</strong> - Markets across countries are interconnected</li>
-                    <li><strong>Cross-border Investments</strong> - Capital flows between different countries</li>
-                    <li><strong>Foreign Exchange Markets</strong> - Currency exchange is an integral part</li>
-                    <li><strong>International Financial Institutions</strong> - Organizations like World Bank, IMF play important roles</li>
-                    <li><strong>Global Regulatory Framework</strong> - International standards and regulations govern operations</li>
+                    <li>
+                        <strong>International Integration</strong> - Markets across countries are interconnected, allowing capital to flow freely across borders in search of the best investment opportunities.
+                    </li>
+                    <li>
+                        <strong>Cross-border Investments</strong> - Capital flows between different countries, enabling investors to diversify their portfolios globally and companies to access international funding sources.
+                    </li>
+                    <li>
+                        <strong>Foreign Exchange Markets</strong> - Currency exchange is an integral part of the global capital market, facilitating international transactions and investments.
+                    </li>
+                    <li>
+                        <strong>International Financial Institutions</strong> - Organizations like the World Bank, IMF, and regional development banks play important roles in the global capital market, providing funding, technical assistance, and regulatory oversight.
+                    </li>
+                    <li>
+                        <strong>Global Regulatory Framework</strong> - International standards and regulations govern operations to ensure stability, transparency, and investor protection across different jurisdictions.
+                    </li>
                 </ul>
             </section>
 
             <section id="conclusion">
-                <h2>Conclusion</h2>
+                <h2><i class="fas fa-flag-checkered"></i> Conclusion</h2>
                 <p>The capital market serves as a vital component of any economy by facilitating the efficient allocation of resources. It provides a platform for businesses to raise long-term capital and for investors to grow their wealth. Understanding the structure, functions, and instruments of the capital market is essential for anyone looking to participate in it effectively.</p>
-                <p>As global economies become increasingly interconnected, the importance of well-functioning capital markets continues to grow. They not only support economic growth but also contribute to financial stability and prosperity.</p>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-lightbulb"></i> Key Takeaways</h3>
+                    <ul>
+                        <li>Capital markets facilitate the flow of funds from savers to borrowers</li>
+                        <li>They play a crucial role in economic development and capital formation</li>
+                        <li>Primary and secondary markets serve different but complementary functions</li>
+                        <li>Various instruments like equity, bonds, and debentures offer different risk-return profiles</li>
+                        <li>Global integration has expanded investment opportunities across borders</li>
+                    </ul>
+                </div>
+                
+                <p>As global economies become increasingly interconnected, the importance of well-functioning capital markets continues to grow. They not only support economic growth but also contribute to financial stability and prosperity. By channeling savings into productive investments, capital markets help create jobs, foster innovation, and improve living standards.</p>
+                
+                <p>For investors, understanding the nuances of capital markets can lead to better investment decisions and portfolio management. For businesses, these markets provide essential funding for growth, expansion, and innovation. And for economies as a whole, robust capital markets are indicators of financial health and development.</p>
             </section>
         </article>
     </main>
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <footer>
         <div class="footer-content">
             <p>&copy; 2025 My Portfolio. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://github.com/MHMNP2021" target="_blank">GitHub</a>
-                <a href="#" target="_blank">LinkedIn</a>
-                <a href="#" target="_blank">Twitter</a>
+                <a href="https://github.com/MHMNP2021" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
             </div>
         </div>
     </footer>
 
-    <script src="../script.js"></script>
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for table of contents links
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
