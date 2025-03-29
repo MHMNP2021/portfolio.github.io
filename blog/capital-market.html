@@ -936,7 +936,7 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="../index.html">MHM<span>NP</span></a>
+                <a href="../index.html">MHMN<span>Perera</span></a>
             </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
@@ -1345,7 +1345,7 @@
         <div class="comments-section">
             <h2><i class="fas fa-comments"></i> Comments</h2>
             
-            <div class="comment">
+<!--             <div class="comment">
                 <div class="comment-header">
                     <div class="comment-avatar">JD</div>
                     <div class="comment-meta">
@@ -1369,7 +1369,7 @@
                 <div class="comment-content">
                     <p>Thank you for this comprehensive article. I'm a student studying economics, and this helped me understand the capital market much better than my textbook! The comparison table between capital and money markets was particularly useful.</p>
                 </div>
-            </div>
+            </div> -->
             
             <div class="comment-form">
                 <h3>Leave a Comment</h3>
@@ -1388,6 +1388,12 @@
                     </div>
                     <button type="submit" class="submit-btn">Submit Comment</button>
                 </form>
+                
+                <div id="comment-section">
+        <h3>Comments</h3>
+        <div id="comments-container"></div>
+    </div>
+
             </div>
         </div>
     </main>
@@ -1549,23 +1555,51 @@
         });
         
         // Comment form submission
-        const commentForm = document.getElementById('commentForm');
+        // const commentForm = document.getElementById('commentForm');
         
-        commentForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        // commentForm.addEventListener('submit', function(e) {
+        //     e.preventDefault();
             
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const comment = document.getElementById('comment').value;
+        //     // Get form values
+        //     const name = document.getElementById('name').value;
+        //     const email = document.getElementById('email').value;
+        //     const comment = document.getElementById('comment').value;
             
-            // In a real application, you would send this data to a server
-            // For now, we'll just show an alert
-            alert(`Thank you for your comment, ${name}! Your comment has been submitted.`);
+        //     // In a real application, you would send this data to a server
+        //     // For now, we'll just show an alert
+        //     alert(`Thank you for your comment, ${name}! Your comment has been submitted.`);
             
-            // Reset the form
-            commentForm.reset();
+        //     // Reset the form
+        //     commentForm.reset();
+        // });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const commentForm = document.getElementById("comment-form");
+            const commentsContainer = document.getElementById("comments-container");
+
+            commentForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const name = document.getElementById("name").value;
+                const comment = document.getElementById("comment").value;
+
+                if (name.trim() === "" || comment.trim() === "") {
+                    alert("Please enter both name and comment.");
+                    return;
+                }
+
+                const commentElement = document.createElement("div");
+                commentElement.classList.add("comment-box");
+                commentElement.innerHTML = `<strong>${name}:</strong> <p>${comment}</p>`;
+
+                commentsContainer.appendChild(commentElement);
+                document.getElementById("name").value = "";
+                document.getElementById("comment").value = "";
+            });
         });
+
+        
     </script>
 </body>
 </html>
