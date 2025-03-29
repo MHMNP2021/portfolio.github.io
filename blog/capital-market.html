@@ -1359,9 +1359,9 @@
             </div>
         </article>
         
-        <!-- Comments Section -->
+<!--         <!-- Comments Section -->
         <div class="comments-section">
-            <h2><i class="fas fa-comments"></i> Comments</h2>
+            <h2><i class="fas fa-comments"></i> Comments</h2> -->
             
 <!--             <div class="comment">
                 <div class="comment-header">
@@ -1389,7 +1389,7 @@
                 </div>
             </div> -->
             
-            <div class="comment-form">
+<!--             <div class="comment-form">
                 <h3>Leave a Comment</h3>
                 <form id="commentForm">
                     <div class="form-group">
@@ -1407,9 +1407,9 @@
                     <button type="submit" class="submit-btn">Submit Comment</button>
                 </form>           
                
-            </div>
+            </div> -->
             
-            <section class="comments-section">
+<!--             <section class="comments-section">
     <h2>Comments</h2>
     <div class="utterances-container">
         <script src="https://utteranc.es/client.js"
@@ -1421,7 +1421,7 @@
             async>
         </script>
     </div>
-</section>
+</section> -->
             
         </div>
     </main>
@@ -1432,17 +1432,14 @@
 
     <footer>
         <div class="footer-container">
-            <div class="footer-section">
-                <h3>About Me</h3>
-                <p>I'm a passionate web developer and financial analyst focused on creating beautiful, functional, and user-friendly websites and applications.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/MHMNP2021" class="social-link"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
+<!--             <div class="footer-section">
+                
+<!--                 <h3>About Me</h3>
+                <p>I'm a passionate financial analyst and researcher focused on creating beautiful, functional, and user-friendly websites and applications.</p> -->
+                
+               
+            </div> -->
+        
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
@@ -1454,13 +1451,13 @@
             </div>
             <div class="footer-section">
                 <h3>Contact Info</h3>
-                <p>Email: contact@mhmnp.com</p>
-                <p>Phone: +1 (123) 456-7890</p>
-                <p>Location: San Francisco, CA</p>
+                <p>Email: mhmn200021@gmail.com</p>
+                <p>Phone: +94 78 745 9905</p>
+               
             </div>
         </div>
         <div class="copyright">
-            &copy; 2025 MHMNP. All rights reserved.
+            &copy; 2025 M Nethmina Perera. All rights reserved.
         </div>
     </footer>
 
@@ -1602,32 +1599,32 @@
         //     commentForm.reset();
         // });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const commentForm = document.getElementById("comment-form");
-    const commentsContainer = document.getElementById("comments-container");
+// document.addEventListener("DOMContentLoaded", function () {
+//     const commentForm = document.getElementById("comment-form");
+//     const commentsContainer = document.getElementById("comments-container");
 
-    commentForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+//     commentForm.addEventListener("submit", function (event) {
+//         event.preventDefault();
 
-        const name = document.getElementById("name").value;
-        const comment = document.getElementById("comment").value;
+//         const name = document.getElementById("name").value;
+//         const comment = document.getElementById("comment").value;
 
-        if (name.trim() === "" || comment.trim() === "") {
-            alert("Please enter both name and comment.");
-            return;
-        }
+//         if (name.trim() === "" || comment.trim() === "") {
+//             alert("Please enter both name and comment.");
+//             return;
+//         }
 
-        const commentElement = document.createElement("div");
-        commentElement.classList.add("comment-box");
-        commentElement.innerHTML = `<strong>${name}:</strong> <p>${comment}</p>`;
+//         const commentElement = document.createElement("div");
+//         commentElement.classList.add("comment-box");
+//         commentElement.innerHTML = `<strong>${name}:</strong> <p>${comment}</p>`;
 
-        commentsContainer.appendChild(commentElement);
+//         commentsContainer.appendChild(commentElement);
 
-        // Clear input fields after submission
-        document.getElementById("name").value = "";
-        document.getElementById("comment").value = "";
-    });
-});
+//         // Clear input fields after submission
+//         document.getElementById("name").value = "";
+//         document.getElementById("comment").value = "";
+//     });
+// });
 
         
 
