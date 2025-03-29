@@ -1228,16 +1228,7 @@ plt.show()
             </div>
         </article>
         
-        <!-- Comments Section with GitHub Issues -->
-        <section class="comments-section">
-            <h2><i class="fas fa-comments"></i> Comments</h2>
-            <div id="gh-comments-list"></div>
-            
-            <div class="gh-comments-footer">
-                <a class="gh-comments-button" id="gh-comments-button" href="#" target="_blank">Add a Comment</a>
-                <p class="gh-comments-note">Comments are powered by GitHub Issues. You'll need a GitHub account to post.</p>
-            </div>
-        </section>
+       
     </main>
 
     <a href="#" class="back-to-top" id="backToTop">
@@ -1338,118 +1329,6 @@ plt.show()
             document.getElementById('progressBar').style.width = scrolled + '%';
         });
         
-        // GitHub Comments System
-        const repoOwner = 'MHMNP2021';
-        const repoName = 'portfolio.github.io';
-        const issueLabel = 'blog-comment';
-        
-        // Get the current page path to use as the issue title
-        const pagePath = window.location.pathname.split('/').pop() || 'index.html';
-        const issueTitle = `Comments for ${pagePath}`;
-        
-        // Function to format dates
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'short', 
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-        }
-        
-        // Function to load comments
-        async function loadComments() {
-            const commentsList = document.getElementById('gh-comments-list');
-            commentsList.innerHTML = '<p>Loading comments...</p>';
-            
-            try {
-                // First, search for an existing issue for this page
-                const searchResponse = await fetch(`https://api.github.com/search/issues?q=repo:${repoOwner}/${repoName}+label:${issueLabel}+"${issueTitle}"+in:title&sort=created&order=asc`);
-                const searchData = await searchResponse.json();
-                
-                let issueNumber;
-                let issueUrl;
-                
-                if (searchData.items && searchData.items.length > 0) {
-                    // Use existing issue
-                    issueNumber = searchData.items[0].number;
-                    issueUrl = searchData.items[0].html_url;
-                } else {
-                    // No issue exists yet
-                    commentsList.innerHTML = '<p>No comments yet. Be the first to comment!</p>';
-                    
-                    // Create new issue URL
-                    issueUrl = `https://github.com/${repoOwner}/${repoName}/issues/new?title=${encodeURIComponent(issueTitle)}&labels=${issueLabel}`;
-                    
-                    // Update the comment button
-                    const commentButton = document.getElementById('gh-comments-button');
-                    commentButton.href = issueUrl;
-                    return;
-                }
-                
-                // Update the comment button
-                const commentButton = document.getElementById('gh-comments-button');
-                commentButton.href = `${issueUrl}#new_comment_field`;
-                
-                // Fetch comments for the issue
-                const commentsResponse = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/issues/${issueNumber}/comments`);
-                const comments = await commentsResponse.json();
-                
-                if (comments.length === 0) {
-                    commentsList.innerHTML = '<p>No comments yet. Be the first to comment!</p>';
-                    return;
-                }
-                
-                // Build comments HTML
-                let commentsHtml = '';
-                
-                comments.forEach(comment => {
-                    commentsHtml += `
-                        <div class="gh-comment">
-                            <div class="gh-comment-header">
-                                <img class="gh-comment-avatar" src="${comment.user.avatar_url}" alt="${comment.user.login}" width="32" height="32">
-                                <div class="gh-comment-meta">
-                                    <a href="${comment.user.html_url}" class="gh-comment-username" target="_blank">${comment.user.login}</a>
-                                    <span class="gh-comment-date">${formatDate(comment.created_at)}</span>
-                                </div>
-                            </div>
-                            <div class="gh-comment-body">${comment.body_html || comment.body}</div>
-                        </div>
-                    `;
-                });
-                
-                commentsList.innerHTML = commentsHtml;
-                
-            } catch (error) {
-                console.error('Error loading comments:', error);
-                commentsList.innerHTML = '<p>Error loading comments. Please try again later.</p>';
-            }
-        }
-        
-        // Load comments when the page loads
-        window.addEventListener('load', loadComments);
-        
-        // Auto-detect device type and set appropriate styles
-        function detectDeviceType() {
-            const userAgent = navigator.userAgent.toLowerCase();
-            const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
-            const isTablet = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
-            
-            if (isMobile && !isTablet) {
-                document.body.classList.add('mobile-device');
-                document.body.classList.remove('tablet-device', 'desktop-device');
-            } else if (isTablet) {
-                document.body.classList.add('tablet-device');
-                document.body.classList.remove('mobile-device', 'desktop-device');
-            } else {
-                document.body.classList.add('desktop-device');
-                document.body.classList.remove('mobile-device', 'tablet-device');
-            }
-        }
-        
-        detectDeviceType();
         
         // Handle window resize
         window.addEventListener('resize', () => {
