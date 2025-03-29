@@ -485,6 +485,22 @@
         }
         
         /* Comments Section */
+
+        .comments-section {
+        margin-top: 2rem;
+        padding: 1rem;
+        border-top: 1px solid #eaeaea;
+    }
+    
+    .comments-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .utterances-container {
+        margin-top: 1.5rem;
+    }
+        
         .comments-section {
             margin-top: 3rem;
             background-color: var(--bg-secondary);
@@ -928,6 +944,8 @@
         }
     </style>
 </head>
+
+    
 <body>
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
@@ -1391,10 +1409,19 @@
                
             </div>
             
-             <div id="comment-section">
-        <h3>Comments</h3>
-        <div id="comments-container"></div>
+            <section class="comments-section">
+    <h2>Comments</h2>
+    <div class="utterances-container">
+        <script src="https://utteranc.es/client.js"
+            repo="MHMNP2021/portfolio.github.io"
+            issue-term="pathname"
+            label="comment"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+        </script>
     </div>
+</section>
             
         </div>
     </main>
@@ -1556,6 +1583,7 @@
         });
         
         // Comment form submission
+        
         // const commentForm = document.getElementById('commentForm');
         
         // commentForm.addEventListener('submit', function(e) {
@@ -1574,31 +1602,34 @@
         //     commentForm.reset();
         // });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const commentForm = document.getElementById("comment-form");
+    const commentsContainer = document.getElementById("comments-container");
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const commentForm = document.getElementById("comment-form");
-            const commentsContainer = document.getElementById("comments-container");
+    commentForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-            commentForm.addEventListener("submit", function (event) {
-                event.preventDefault();
+        const name = document.getElementById("name").value;
+        const comment = document.getElementById("comment").value;
 
-                const name = document.getElementById("name").value;
-                const comment = document.getElementById("comment").value;
+        if (name.trim() === "" || comment.trim() === "") {
+            alert("Please enter both name and comment.");
+            return;
+        }
 
-                if (name.trim() === "" || comment.trim() === "") {
-                    alert("Please enter both name and comment.");
-                    return;
-                }
+        const commentElement = document.createElement("div");
+        commentElement.classList.add("comment-box");
+        commentElement.innerHTML = `<strong>${name}:</strong> <p>${comment}</p>`;
 
-                const commentElement = document.createElement("div");
-                commentElement.classList.add("comment-box");
-                commentElement.innerHTML = `<strong>${name}:</strong> <p>${comment}</p>`;
+        commentsContainer.appendChild(commentElement);
 
-                commentsContainer.appendChild(commentElement);
-                document.getElementById("name").value = "";
-                document.getElementById("comment").value = "";
-            });
-        });
+        // Clear input fields after submission
+        document.getElementById("name").value = "";
+        document.getElementById("comment").value = "";
+    });
+});
+
+        
 
         
     </script>
