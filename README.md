@@ -1,5 +1,3 @@
-Thought for 1 secondYes, that's the content for your README.md file. Here it is formatted as code that you can directly copy and paste into your README.md file:
-
 ```markdown
 # M Nethmina Perera - Portfolio Website
 
@@ -52,58 +50,7 @@ portfolio.github.io/
 ├── script.js               # JavaScript functionality
 └── README.md               # Project documentation
 
-```plaintext
 
-## 🚀 Setup and Local Development
-
-### Prerequisites
-
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- Basic understanding of Git (for cloning and making changes)
-
-### Local Development
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/MHMNP2021/portfolio.github.io.git
-```
-
-2. Navigate to the project directory:
-
-```shellscript
-cd portfolio.github.io
-```
-
-
-3. Open `index.html` in your browser to view the site locally.
-4. Make changes to HTML, CSS, or JavaScript files as needed.
-5. Commit and push changes to deploy to GitHub Pages:
-
-```shellscript
-git add .
-git commit -m "Description of changes"
-git push origin main
-```
-
-
-
-
-## 📝 Content Management
-
-### Adding a New Project
-
-1. Open `index.html`
-2. Locate the projects section
-3. Copy an existing project card and modify the content
-4. Add appropriate category data attributes for filtering
-5. Update image paths and links
-
-
-### Adding a New Blog Post
-
-1. Create a new HTML file in the `blog/` directory
-2. Use the existing blog post structure as a template
-3. Update the blog preview section in `blog.html` to include your new post
 
 
 ## 🔮 Future Plans
@@ -117,7 +64,7 @@ git push origin main
 
 ## 📞 Contact Information
 
-- **Email**: [mhmnperera@gmail.com](mailto:mhmnperera@gmail.com)
+- **Email**: [mhmn200021@gmail.com](mailto:mhmn200021@gmail.com)
 - **LinkedIn**: [Mahinsa Nethmina](https://www.linkedin.com/in/mahinsa-nethmina-451284288/)
 - **GitHub**: [MHMNP2021](https://github.com/MHMNP2021)
 - **Location**: Pannala, Sri Lanka
@@ -131,7 +78,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 © 2025 M Nethmina Perera. All Rights Reserved.
 
-```plaintext
-
-You can copy this entire block and save it as README.md in your repository. GitHub will automatically render the Markdown formatting when displayed on your repository page.
-```
