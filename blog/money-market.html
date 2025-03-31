@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en" class="light-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Market: A Comprehensive Overview | My Portfolio</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and base styles */
+        :root {
+            --bg-primary: #f9f9f9;
+            --bg-secondary: #ffffff;
+            --text-primary: #333333;
+            --text-secondary: #555555;
+            --accent-primary: #1a365d;
+            --accent-secondary: #2c7a7b;
+            --accent-highlight: #4fd1c5;
+            --border-color: #dddddd;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --header-bg: #ffffff;
+            --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --footer-bg: #1a365d;
+            --footer-text: #ffffff;
+            --toc-bg: #f0f8ff;
+            --example-bg: #f8f9fa;
+            --key-points-bg: #e6fffa;
+            --table-header-bg: #1a365d;
+            --table-header-text: #ffffff;
+            --table-row-even: #f2f2f2;
+            --table-row-hover: #e6fffa;
+            --code-bg: #f5f5f5;
+            --back-to-top-bg: #2c7a7b;
+            --back-to-top-hover: #1a365d;
+            --category-bg: #e6fffa;
+            --category-text: #1a365d;
+            --comment-bg: #f8f9fa;
+            --comment-border: #e2e8f0;
+            --comment-highlight: #e6fffa;
+            --button-primary: #2c7a7b;
+            --button-hover: #1a365d;
+            --button-text: #ffffff;
+        }
+
+        .dark-mode {
+            --bg-primary: #1a202c;
+            --bg-secondary: #2d3748;
+            --text-primary: #e2e8f0;
+            --text-secondary: #a0aec0;
+            --accent-primary: #4fd1c5;
+            --accent-secondary: #2c7a7b;
+            --accent-highlight: #4fd1c5;
+            --border-color: #4a5568;
+            --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            --header-bg: #2d3748;
+            --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            --footer-bg: #1a202c;
+            --footer-text: #e2e8f0;
+            --toc-bg: #2d3748;
+            --example-bg: #3a4a5e;
+            --key-points-bg: #2c4a52;
+            --table-header-bg: #2c7a7b;
+            --table-header-text: #e2e8f0;
+            --table-row-even: #3a4a5e;
+            --table-row-hover: #2c4a52;
+            --code-bg: #2d3748;
+            --back-to-top-bg: #4fd1c5;
+            --back-to-top-hover: #2c7a7b;
+            --category-bg: #2c4a52;
+            --category-text: #4fd1c5;
+            --comment-bg: #2d3748;
+            --comment-border: #4a5568;
+            --comment-highlight: #2c4a52;
+            --button-primary: #4fd1c5;
+            --button-hover: #2c7a7b;
+            --button-text: #1a202c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: var(--header-bg);
+            box-shadow: var(--header-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .logo a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo a span {
+            color: var(--accent-highlight);
+        }
+        
+        .logo a:hover {
+            color: var(--accent-secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-primary);
+        }
+        
+        nav ul li a.active {
+            color: var(--accent-primary);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-primary);
+        }
+        
+        /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .theme-toggle span {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .theme-toggle:hover {
+            color: var(--accent-primary);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Main Content */
+        .blog-content {
+            max-width: 800px;
+            margin: 2rem auto 4rem;
+            padding: 0 1.5rem;
+        }
+        
+        /* Article Header */
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .article-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+        }
+        
+        .article-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .post-meta .date {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .post-meta .date i {
+            margin-right: 0.5rem;
+            color: var(--accent-secondary);
+        }
+        
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .categories a {
+            background-color: var(--category-bg);
+            color: var(--category-text);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .categories a:hover {
+            background-color: var(--accent-secondary);
+            color: white;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background-color: var(--toc-bg);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+            transition: background-color 0.3s ease;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .toc h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .toc h2 i {
+            margin-right: 0.5rem;
+            color: var(--accent-secondary);
+        }
+        
+        .toc ul {
+            list-style: none;
+        }
+        
+        .toc ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc ul li a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+            padding: 0.2rem 0;
+        }
+        
+        .toc ul li a:hover {
+            color: var(--accent-secondary);
+            transform: translateX(5px);
+        }
+        
+        /* Sections */
+        section {
+            margin-bottom: 3rem;
+            background-color: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-secondary);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        section h2 i {
+            margin-right: 0.75rem;
+            color: var(--accent-secondary);
+        }
+        
+        section h3 {
+            font-size: 1.3rem;
+            color: var(--accent-primary);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        section p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        
+        /* Lists */
+        section ul, section ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+        }
+        
+        section li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+        
+        section ul li {
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+        
+        section ul li::before {
+            content: '•';
+            color: var(--accent-secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        section ol li {
+            padding-left: 0.5rem;
+        }
+        
+        section li strong {
+            color: var(--accent-primary);
+        }
+        
+        /* Nested Lists */
+        section li ul, section li ol {
+            margin-top: 0.75rem;
+        }
+        
+        /* Examples and Emphasis */
+        em {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        
+        .example {
+            background-color: var(--example-bg);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 5px 5px 0;
+            font-style: italic;
+            transition: background-color 0.3s ease;
+        }
+        
+        .example strong {
+            font-weight: 500;
+            color: var(--accent-primary);
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: var(--card-shadow);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        thead {
+            background-color: var(--table-header-bg);
+            color: var(--table-header-text);
+            transition: background-color 0.3s ease;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            transition: border-color 0.3s ease;
+        }
+        
+        tbody tr:nth-child(even) {
+            background-color: var(--table-row-even);
+            transition: background-color 0.3s ease;
+        }
+        
+        tbody tr:hover {
+            background-color: var(--table-row-hover);
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Key Points */
+        .key-points {
+            background-color: var(--key-points-bg);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            transition: background-color 0.3s ease;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .key-points h3 {
+            color: var(--accent-primary);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .key-points h3 i {
+            margin-right: 0.5rem;
+            color: var(--accent-secondary);
+        }
+        
+        .key-points ul {
+            margin-bottom: 0;
+        }
+        
+        /* Conclusion */
+        #conclusion {
+            background-color: var(--toc-bg);
+            border-top: 4px solid var(--accent-secondary);
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Comments Section */
+        .comments-section {
+            margin-top: 3rem;
+            background-color: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .comments-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-secondary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .comments-section h2 i {
+            margin-right: 0.75rem;
+            color: var(--accent-secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 3rem 0;
+            transition: background-color 0.3s ease;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-highlight);
+        }
+        
+        .footer-section p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--footer-text);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-highlight);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--footer-text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent-highlight);
+            color: var(--footer-bg);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--back-to-top-bg);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, transform 0.3s;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--back-to-top-hover);
+            transform: translateY(-5px);
+        }
+        
+        .back-to-top i {
+            font-size: 1.2rem;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1000;
+        }
+        
+        .progress-bar {
+            height: 4px;
+            background: var(--accent-secondary);
+            width: 0%;
+        }
+        
+        /* Post Navigation */
+        .post-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .post-navigation a {
+            color: var(--accent-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s, transform 0.3s;
+            font-weight: 500;
+        }
+        
+        .post-navigation a:hover {
+            color: var(--accent-primary);
+            transform: translateX(-5px);
+        }
+        
+        .post-navigation a.next-post:hover {
+            transform: translateX(5px);
+        }
+        
+        .prev-post i {
+            margin-right: 0.5rem;
+        }
+        
+        .next-post i {
+            margin-left: 0.5rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--header-bg);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                box-shadow: var(--header-shadow);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+                z-index: 99;
+            }
+            
+            nav ul.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .post-navigation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .back-to-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .article-header h1 {
+                font-size: 1.75rem;
+            }
+            
+            section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            .mobile-menu-toggle,
+            .theme-toggle,
+            .back-to-top,
+            .progress-container,
+            .post-navigation,
+            .comments-section,
+            footer {
+                display: none !important;
+            }
+            
+            body {
+                background-color: white;
+                color: black;
+            }
+            
+            .blog-content {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            
+            section {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+                margin-bottom: 1.5rem;
+            }
+            
+            a {
+                color: black;
+                text-decoration: underline;
+            }
+            
+            .toc {
+                break-after: page;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../index.html">MHMN<span>Perera</span></a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                        <span>Dark Mode</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="blog-content">
+        <article>
+            <div class="article-header">
+                <h1>Money Market: A Comprehensive Overview</h1>
+                <div class="post-meta">
+                    <span class="date"><i class="fas fa-calendar-alt"></i> Published on: <time datetime="2025-03-31">March 31, 2025</time></span>
+                    <span class="categories">
+                        <a href="#">Finance</a>
+                        <a href="#">Economics</a>
+                        <a href="#">Banking</a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="toc">
+                <h2><i class="fas fa-list"></i> Table of Contents</h2>
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#meaning">Meaning and Definition</a></li>
+                    <li><a href="#characteristics">Characteristics</a></li>
+                    <li><a href="#importance">Scope/Importance</a></li>
+                    <li><a href="#functions">Functions/Roles</a></li>
+                    <li><a href="#instruments">Money Market Instruments</a></li>
+                    <li><a href="#participants">Key Participants</a></li>
+                    <li><a href="#structure">Structure of Money Market</a></li>
+                    <li><a href="#difference">Difference Between Money and Capital Market</a></li>
+                    <li><a href="#global">Global Money Market</a></li>
+                    <li><a href="#conclusion">Conclusion</a></li>
+                </ul>
+            </div>
+
+            <section id="introduction">
+                <h2><i class="fas fa-info-circle"></i> Introduction</h2>
+                <p>The money market is a vital component of the financial system that facilitates the trading of short-term, highly liquid financial instruments. Unlike the capital market, which deals with long-term securities, the money market focuses on financial assets with maturities typically less than one year.</p>
+                <p>Understanding the money market is essential for anyone involved in finance, economics, or business, as it plays a crucial role in managing liquidity, implementing monetary policy, and maintaining economic stability.</p>
+                
+                <div class="example">
+                    <strong>Example:</strong> When a large corporation has excess cash that it won't need for a few months, instead of letting it sit idle, the company might purchase Treasury bills or commercial paper in the money market, earning interest while maintaining liquidity.
+                </div>
+            </section>
+
+            <section id="meaning">
+                <h2><i class="fas fa-book"></i> Meaning and Definition</h2>
+                <p>The money market is a segment of the financial market where short-term borrowing, lending, buying, and selling of securities with original maturities of one year or less takes place. It provides a mechanism for borrowers to meet short-term obligations and for lenders to earn returns on their surplus funds.</p>
+                <p>Unlike stock or bond markets, the money market is primarily a wholesale market where large institutions and governments trade large denominations of financial instruments. Transactions typically involve amounts in the millions or billions.</p>
+                
+                <div class="example">
+                    <strong>Example:</strong> A bank with excess reserves might lend $10 million overnight to another bank that needs to meet its reserve requirements. This transaction occurs in the interbank market, a key component of the money market.
+                </div>
+                
+                <p>The money market is characterized by its high liquidity, low risk, and short-term nature. It serves as a source of short-term funding for banks, corporations, and governments, and provides a temporary investment avenue for entities with surplus funds.</p>
+            </section>
+
+            <section id="characteristics">
+                <h2><i class="fas fa-fingerprint"></i> Characteristics of Money Market</h2>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-star"></i> Key Features</h3>
+                    <ul>
+                        <li>Short-term maturities (typically less than one year)</li>
+                        <li>High liquidity</li>
+                        <li>Low risk compared to other markets</li>
+                        <li>Large transaction sizes</li>
+                        <li>Minimal regulation compared to capital markets</li>
+                        <li>Wholesale nature with institutional participants</li>
+                    </ul>
+                </div>
+                
+                <h3>Key Characteristics Explained:</h3>
+                <ol>
+                    <li>
+                        <strong>Short-term Nature</strong> - Money market instruments have maturities ranging from overnight to one year, with many concentrated in the 1-3 month range.
+                    </li>
+                    <li>
+                        <strong>High Liquidity</strong> - Instruments can be quickly converted to cash with minimal loss of value, making them ideal for cash management.
+                    </li>
+                    <li>
+                        <strong>Low Risk</strong> - Money market instruments typically carry lower risk than longer-term investments due to their short maturities and the high creditworthiness of issuers.
+                    </li>
+                    <li>
+                        <strong>Large Denominations</strong> - Transactions often involve large amounts, typically in millions, making direct participation limited to institutional investors.
+                    </li>
+                    <li>
+                        <strong>Informal Structure</strong> - Unlike organized exchanges, many money market transactions occur over-the-counter (OTC) through a network of dealers and brokers.
+                    </li>
+                </ol>
+                
+                <p><strong>Efficiency:</strong> The money market is highly efficient due to the large volume of transactions, the sophisticated nature of participants, and the standardization of instruments. This efficiency results in narrow bid-ask spreads and competitive pricing.</p>
+            </section>
+
+            <section id="importance">
+                <h2><i class="fas fa-chart-line"></i> Scope/Importance of Money Market</h2>
+                <ul>
+                    <li>
+                        <strong>Liquidity management</strong> - Provides a mechanism for banks, businesses, and governments to manage their short-term cash needs efficiently.
+                    </li>
+                    <li>
+                        <strong>Monetary policy implementation</strong> - Central banks use the money market to implement monetary policy through open market operations, influencing interest rates and money supply.
+                    </li>
+                    <li>
+                        <strong>Financing short-term needs</strong> - Enables businesses to finance inventory, meet payroll, and cover operational expenses during cash flow gaps.
+                    </li>
+                    <li>
+                        <strong>Benchmark interest rates</strong> - Rates established in the money market serve as benchmarks for pricing other financial products.
+                    </li>
+                    <li>
+                        <strong>Economic stability</strong> - A well-functioning money market contributes to overall financial stability by providing liquidity and facilitating efficient resource allocation.
+                    </li>
+                </ul>
+                
+                <p>The money market serves as a barometer of financial conditions, with interest rates reflecting market expectations about inflation, economic growth, and central bank policy. Disruptions in the money market can have far-reaching consequences for the broader economy, as demonstrated during the 2008 financial crisis when money markets froze, causing severe liquidity problems throughout the financial system.</p>
+            </section>
+
+            <section id="functions">
+                <h2><i class="fas fa-cogs"></i> Functions/Roles of Money Market</h2>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-tasks"></i> Primary Functions</h3>
+                    <ul>
+                        <li>Liquidity adjustment</li>
+                        <li>Short-term financing</li>
+                        <li>Monetary policy transmission</li>
+                        <li>Interest rate determination</li>
+                        <li>Risk management</li>
+                        <li>Facilitating international trade</li>
+                    </ul>
+                </div>
+                
+                <p>The money market performs several critical functions in the financial system:</p>
+                
+                <ul>
+                    <li>
+                        <strong>Liquidity adjustment</strong> - Enables institutions to adjust their liquidity positions by borrowing when short of funds or lending when they have surplus funds.
+                    </li>
+                    <li>
+                        <strong>Short-term financing</strong> - Provides a source of short-term funding for governments, financial institutions, and corporations.
+                    </li>
+                    <li>
+                        <strong>Monetary policy transmission</strong> - Serves as the primary channel through which central bank actions affect the broader economy.
+                    </li>
+                    <li>
+                        <strong>Interest rate determination</strong> - Establishes benchmark short-term interest rates that influence rates throughout the economy.
+                    </li>
+                    <li>
+                        <strong>Risk management</strong> - Offers instruments that help institutions manage interest rate risk and liquidity risk.
+                    </li>
+                    <li>
+                        <strong>Facilitating international trade</strong> - Supports international commerce through instruments like bankers' acceptances and currency swaps.
+                    </li>
+                </ul>
+                
+                <p>The money market also plays a crucial role in maintaining financial stability by providing a mechanism for redistributing liquidity from institutions with surplus funds to those with deficits, thereby preventing localized liquidity problems from becoming systemic crises.</p>
+            </section>
+
+            <section id="instruments">
+                <h2><i class="fas fa-tools"></i> Money Market Instruments</h2>
+                <p>Money market instruments are short-term debt securities that enable borrowers to raise funds and investors to earn returns on temporary cash surpluses. These instruments are characterized by their high liquidity, low risk, and short maturities.</p>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-file-invoice-dollar"></i> Key Instruments</h3>
+                    <ul>
+                        <li>Treasury Bills</li>
+                        <li>Commercial Paper</li>
+                        <li>Certificates of Deposit</li>
+                        <li>Repurchase Agreements</li>
+                        <li>Bankers' Acceptances</li>
+                        <li>Federal Funds</li>
+                    </ul>
+                </div>
+                
+                <ul>
+                    <li>
+                        <strong>Treasury Bills (T-Bills)</strong> - Short-term debt obligations issued by the government, typically with maturities of 4, 13, 26, or 52 weeks. They are considered the safest money market instruments due to their backing by the full faith and credit of the government.
+                    </li>
+                    <li>
+                        <strong>Commercial Paper</strong> - Unsecured promissory notes issued by large corporations with strong credit ratings to meet short-term financing needs. Maturities typically range from 1 to 270 days.
+                    </li>
+                    <li>
+                        <strong>Certificates of Deposit (CDs)</strong> - Time deposits issued by banks with fixed maturities ranging from a few weeks to several months. Negotiable CDs can be traded in the secondary market.
+                    </li>
+                    <li>
+                        <strong>Repurchase Agreements (Repos)</strong> - Short-term loans, often overnight, where the borrower sells securities to the lender with an agreement to repurchase them at a slightly higher price on a specified date.
+                    </li>
+                    <li>
+                        <strong>Bankers' Acceptances</strong> - Time drafts drawn on and accepted by a bank, typically used to finance international trade. They have maturities up to 180 days.
+                    </li>
+                    <li>
+                        <strong>Federal Funds</strong> - Overnight loans of reserves between banks to meet reserve requirements. The federal funds rate is a key benchmark interest rate targeted by the Federal Reserve.
+                    </li>
+                </ul>
+                
+                <p>Each instrument serves specific needs in the market and offers different combinations of risk, return, and liquidity. The choice of instrument depends on the specific requirements of the issuer and investor, including maturity preferences, credit risk tolerance, and regulatory considerations.</p>
+            </section>
+
+            <section id="participants">
+                <h2><i class="fas fa-users"></i> Key Participants in the Money Market</h2>
+                <p>The money market involves various participants who interact to facilitate the efficient allocation of short-term funds. Each participant plays a specific role in ensuring the market functions smoothly.</p>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-user-tie"></i> Major Participants</h3>
+                    <ul>
+                        <li>Central Banks</li>
+                        <li>Commercial Banks</li>
+                        <li>Corporations</li>
+                        <li>Government Entities</li>
+                        <li>Money Market Mutual Funds</li>
+                        <li>Dealers and Brokers</li>
+                    </ul>
+                </div>
+                
+                <ul>
+                    <li>
+                        <strong>Central Banks</strong> - Use the money market to implement monetary policy through open market operations, setting policy rates, and acting as lenders of last resort. Their actions significantly influence money market conditions.
+                    </li>
+                    <li>
+                        <strong>Commercial Banks</strong> - Major players who borrow and lend in the interbank market to manage reserve requirements and liquidity. They also issue certificates of deposit and participate in repo transactions.
+                    </li>
+                    <li>
+                        <strong>Corporations</strong> - Use the money market to manage cash, investing surplus funds in instruments like commercial paper and T-bills, or raising short-term funds by issuing commercial paper.
+                    </li>
+                    <li>
+                        <strong>Government Entities</strong> - Issue Treasury bills and other short-term securities to finance government operations and manage cash flow.
+                    </li>
+                    <li>
+                        <strong>Money Market Mutual Funds</strong> - Pool investors' funds to purchase money market instruments, providing individual investors indirect access to the money market.
+                    </li>
+                    <li>
+                        <strong>Dealers and Brokers</strong> - Facilitate transactions by matching buyers and sellers, maintaining inventories of securities, and providing market liquidity.
+                    </li>
+                </ul>
+                
+                <p>The interaction among these participants creates a dynamic marketplace where short-term funds flow efficiently from those with surpluses to those with deficits, helping to maintain financial stability and support economic activity.</p>
+            </section>
+
+            <section id="structure">
+                <h2><i class="fas fa-building"></i> Structure of Money Market</h2>
+                <p>The money market is not a single, centralized marketplace but rather a collection of markets for different instruments and participants. Its structure varies across countries but generally includes several key segments:</p>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-project-diagram"></i> Key Segments</h3>
+                    <ul>
+                        <li>Interbank Market</li>
+                        <li>Treasury Bill Market</li>
+                        <li>Commercial Paper Market</li>
+                        <li>Certificate of Deposit Market</li>
+                        <li>Repo Market</li>
+                        <li>Federal Funds Market</li>
+                    </ul>
+                </div>
+                
+                <ul>
+                    <li>
+                        <strong>Interbank Market</strong> - Where banks borrow and lend reserves among themselves, typically on an overnight basis. This market helps banks manage their reserve requirements and is a key channel for monetary policy transmission.
+                    </li>
+                    <li>
+                        <strong>Treasury Bill Market</strong> - The market for short-term government securities, which are auctioned regularly by the treasury department and traded in the secondary market.
+                    </li>
+                    <li>
+                        <strong>Commercial Paper Market</strong> - Where large corporations issue unsecured promissory notes to meet short-term financing needs. This market provides an alternative to bank loans for creditworthy corporations.
+                    </li>
+                    <li>
+                        <strong>Certificate of Deposit Market</strong> - The market for negotiable time deposits issued by banks. Large-denomination CDs are actively traded in the secondary market.
+                    </li>
+                    <li>
+                        <strong>Repo Market</strong> - Where securities are sold with an agreement to repurchase them at a specified date and price. This market provides secured short-term funding and is used extensively by dealers to finance their inventories.
+                    </li>
+                    <li>
+                        <strong>Federal Funds Market</strong> - Specifically in the U.S., where banks trade reserves held at the Federal Reserve to meet reserve requirements.
+                    </li>
+                </ul>
+                
+                <p>These segments are interconnected, with participants often active in multiple markets simultaneously. The structure is also influenced by regulatory frameworks, central bank policies, and technological developments that affect trading mechanisms and market access.</p>
+            </section>
+
+            <section id="difference">
+                <h2><i class="fas fa-balance-scale"></i> Difference Between Money and Capital Market</h2>
+                <p>While both money and capital markets are important components of the financial system, they serve different purposes and have distinct characteristics:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Basis</th>
+                            <th>Money Market</th>
+                            <th>Capital Market</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Time Period</td>
+                            <td>Short-term (less than 1 year)</td>
+                            <td>Long-term (more than 1 year)</td>
+                        </tr>
+                        <tr>
+                            <td>Instruments</td>
+                            <td>Treasury bills, commercial paper, certificates of deposit, repos</td>
+                            <td>Stocks, bonds, debentures</td>
+                        </tr>
+                        <tr>
+                            <td>Risk</td>
+                            <td>Lower risk</td>
+                            <td>Higher risk</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td>Lower return potential</td>
+                            <td>Higher return potential</td>
+                        </tr>
+                        <tr>
+                            <td>Liquidity</td>
+                            <td>More liquid</td>
+                            <td>Less liquid</td>
+                        </tr>
+                        <tr>
+                            <td>Purpose</td>
+                            <td>Working capital and liquidity management</td>
+                            <td>Capital formation and investment</td>
+                        </tr>
+                        <tr>
+                            <td>Participants</td>
+                            <td>Banks, financial institutions, corporations</td>
+                            <td>Retail investors, institutional investors, corporations</td>
+                        </tr>
+                        <tr>
+                            <td>Regulation</td>
+                            <td>Less regulated</td>
+                            <td>More regulated</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>The money market focuses on short-term financing and liquidity management, while the capital market facilitates long-term investment and capital formation. The money market is primarily wholesale in nature, with large transactions between institutional participants, whereas the capital market has broader participation, including individual retail investors.</p>
+                
+                <p>Despite these differences, the two markets are interconnected, with developments in one often affecting the other. For example, changes in short-term interest rates in the money market can influence long-term rates in the capital market, affecting investment decisions and asset valuations.</p>
+            </section>
+
+            <section id="global">
+                <h2><i class="fas fa-globe"></i> Global Money Market</h2>
+                <p>The global money market encompasses the interconnected short-term funding markets across different countries and currencies. As financial markets have become increasingly integrated, the global money market has grown in importance for managing international liquidity and facilitating cross-border transactions.</p>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-key"></i> Key Features</h3>
+                    <ul>
+                        <li>Eurocurrency Markets</li>
+                        <li>Foreign Exchange Swaps</li>
+                        <li>International Banking Facilities</li>
+                        <li>Global Interbank Market</li>
+                        <li>Cross-border Repo Markets</li>
+                    </ul>
+                </div>
+                
+                <ul>
+                    <li>
+                        <strong>Eurocurrency Markets</strong> - Markets for deposits denominated in currencies outside their country of origin, such as Eurodollars (dollar deposits outside the U.S.). These markets facilitate international funding and investment.
+                    </li>
+                    <li>
+                        <strong>Foreign Exchange Swaps</strong> - Instruments that combine spot and forward foreign exchange transactions, used for managing currency risk and short-term funding in different currencies.
+                    </li>
+                    <li>
+                        <strong>International Banking Facilities</strong> - Special units of banks that conduct international business with reduced regulatory requirements, enhancing global money market efficiency.
+                    </li>
+                    <li>
+                        <strong>Global Interbank Market</strong> - The network of banks worldwide that lend to and borrow from each other, facilitating international liquidity management.
+                    </li>
+                    <li>
+                        <strong>Cross-border Repo Markets</strong> - Markets where securities from one country are used as collateral for short-term borrowing in another, enhancing international financial integration.
+                    </li>
+                </ul>
+                
+                <p>The global money market plays a crucial role in international finance by facilitating cross-border capital flows, supporting international trade, and enabling multinational corporations and financial institutions to manage their global liquidity efficiently. However, it also creates channels for the transmission of financial stress across borders, as demonstrated during the global financial crisis when disruptions in U.S. money markets quickly spread to markets worldwide.</p>
+            </section>
+
+            <section id="conclusion">
+                <h2><i class="fas fa-flag-checkered"></i> Conclusion</h2>
+                <p>The money market serves as a vital component of the financial system, providing a platform for short-term borrowing, lending, and liquidity management. Its efficient functioning is essential for economic stability, monetary policy implementation, and the smooth operation of businesses and financial institutions.</p>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-lightbulb"></i> Key Takeaways</h3>
+                    <ul>
+                        <li>Money markets facilitate short-term funding and liquidity management</li>
+                        <li>They play a crucial role in monetary policy transmission</li>
+                        <li>Various instruments serve different needs with varying risk-return profiles</li>
+                        <li>Multiple participants interact to ensure efficient allocation of short-term funds</li>
+                        <li>Global integration has expanded the scope and importance of money markets</li>
+                    </ul>
+                </div>
+                
+                <p>Understanding the money market is essential for financial professionals, policymakers, and businesses. The market's health is a barometer of overall financial conditions, with disruptions potentially having far-reaching consequences for the broader economy.</p>
+                
+                <p>As financial markets continue to evolve with technological advancements, regulatory changes, and shifting economic conditions, the money market will remain a cornerstone of the financial system, adapting to new challenges while continuing to fulfill its fundamental role in facilitating short-term funding and liquidity management.</p>
+            </section>
+            
+            <div class="post-navigation">
+                <div class="prev-post">
+                    <a href="#"><i class="fas fa-arrow-left"></i> Previous Post</a>
+                </div>
+                <div class="next-post">
+                    <a href="#">Next Post <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <footer>
+        <div class="footer-container">
+            <div class="copyright">
+                &copy; 2025 M Nethmina Perera. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const themeText = themeToggle.querySelector('span');
+        const htmlElement = document.documentElement;
+        
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        function setTheme(isDark) {
+            if (isDark) {
+                htmlElement.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                themeText.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlElement.classList.remove('dark-mode');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                themeText.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
+            setTheme(true);
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            setTheme(!htmlElement.classList.contains('dark-mode'));
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            if (navLinks.classList.contains('active')) {
+                mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for table of contents links
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+        
+        // Auto-detect device type and set appropriate styles
+        function detectDeviceType() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
+            const isTablet = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
+            
+            if (isMobile && !isTablet) {
+                document.body.classList.add('mobile-device');
+                document.body.classList.remove('tablet-device', 'desktop-device');
+            } else if (isTablet) {
+                document.body.classList.add('tablet-device');
+                document.body.classList.remove('mobile-device', 'desktop-device');
+            } else {
+                document.body.classList.add('desktop-device');
+                document.body.classList.remove('mobile-device', 'tablet-device');
+            }
+        }
+        
+        detectDeviceType();
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            detectDeviceType();
+            
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+    </script>
+</body>
+</html>
