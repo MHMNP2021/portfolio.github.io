@@ -11,39 +11,39 @@
 <style>
 /* Reset and base styles */
 :root {
-    --bg-primary: #1a202c;
-    --bg-secondary: #2d3748;
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
     --text-primary: #e2e8f0;
     --text-secondary: #a0aec0;
     --accent-primary: #4299e1;
     --accent-secondary: #3182ce;
     --accent-highlight: #63b3ed;
     --border-color: #333333;
-    --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-    --header-bg: #2d3748;
-    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    --footer-bg: #1a202c;
+    --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    --header-bg: #1e1e1e;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    --footer-bg: #0a0a0a;
     --footer-text: #e2e8f0;
-    --toc-bg: #2d3748;
-    --example-bg: #3a4a5e;
-    --key-points-bg: #2c4a52;
+    --toc-bg: #1e1e1e;
+    --example-bg: #2a2a2a;
+    --key-points-bg: #2a2a2a;
     --table-header-bg: #3182ce;
     --table-header-text: #e2e8f0;
-    --table-row-even: #3a4a5e;
-    --table-row-hover: #2c4a52;
-    --code-bg: #2d3748;
+    --table-row-even: #2a2a2a;
+    --table-row-hover: #333333;
+    --code-bg: #2a2a2a;
     --back-to-top-bg: #4299e1;
     --back-to-top-hover: #3182ce;
-    --category-bg: #2c4a52;
+    --category-bg: #2a2a2a;
     --category-text: #63b3ed;
-    --comment-bg: #2d3748;
-    --comment-border: #4a5568;
-    --comment-highlight: #2c4a52;
+    --comment-bg: #1e1e1e;
+    --comment-border: #333333;
+    --comment-highlight: #2a2a2a;
     --button-primary: #4299e1;
     --button-hover: #3182ce;
-    --button-text: #1a202c;
-    --reference-bg: #2d3748;
-    --reference-border: #4a5568;
+    --button-text: #ffffff;
+    --reference-bg: #1e1e1e;
+    --reference-border: #333333;
 }
 
 .light-mode {
@@ -1362,7 +1362,7 @@ footer {
         
         <p>As financial markets continue to evolve with technological advancements, regulatory changes, and shifting economic conditions, the capital market will remain a cornerstone of the financial system, adapting to new challenges while continuing to fulfill its fundamental role in channeling savings into productive investments and supporting long-term economic development.</p>
     </section>
-    
+
     <section id="references" class="references">
         <h2><i class="fas fa-book-open"></i> References</h2>
         <ol>
@@ -1377,7 +1377,7 @@ footer {
             <li>Asian Development Bank. (2022). <em>Asian Economic Integration Report</em>. Manila: ADB.</li>
         </ol>
     </section>
-    
+
     <div class="post-navigation">
         <div class="prev-post">
             <a href="#"><i class="fas fa-arrow-left"></i> Previous Post</a>
@@ -1391,18 +1391,18 @@ footer {
 
 <!-- Theme Toggle Button (Floating) -->
 <button class="theme-toggle-float" id="themeToggleFloat">
-    <i class="fas fa-moon"></i>
+<i class="fas fa-moon"></i>
 </button>
 
 <a href="#" class="back-to-top" id="backToTop">
-    <i class="fas fa-arrow-up"></i>
+<i class="fas fa-arrow-up"></i>
 </a>
 
 <footer>
 <div class="footer-container">
-    <div class="copyright">
-        &copy; 2025 M Nethmina Perera. All rights reserved.
-    </div>
+<div class="copyright">
+    &copy; 2025 M Nethmina Perera. All rights reserved.
+</div>
 </div>
 </footer>
 
@@ -1416,30 +1416,30 @@ const savedTheme = localStorage.getItem('theme');
 const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 function setTheme(isDark) {
-    if (isDark) {
-        htmlElement.classList.remove('light-mode');
-        htmlElement.classList.add('dark-mode');
-        themeToggleFloat.innerHTML = '<i class="fas fa-sun"></i>';
-        localStorage.setItem('theme', 'dark');
-    } else {
-        htmlElement.classList.remove('dark-mode');
-        htmlElement.classList.add('light-mode');
-        themeToggleFloat.innerHTML = '<i class="fas fa-moon"></i>';
-        localStorage.setItem('theme', 'light');
-    }
+if (isDark) {
+    htmlElement.classList.remove('light-mode');
+    htmlElement.classList.add('dark-mode');
+    themeToggleFloat.innerHTML = '<i class="fas fa-sun"></i>';
+    localStorage.setItem('theme', 'dark');
+} else {
+    htmlElement.classList.remove('dark-mode');
+    htmlElement.classList.add('light-mode');
+    themeToggleFloat.innerHTML = '<i class="fas fa-moon"></i>';
+    localStorage.setItem('theme', 'light');
+}
 }
 
 // Set initial theme
 if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
-    setTheme(true);
+setTheme(true);
 } else {
-    setTheme(false);
+setTheme(false);
 }
 
 // Toggle theme on button click
 themeToggleFloat.addEventListener('click', () => {
-    const isDarkMode = htmlElement.classList.contains('dark-mode');
-    setTheme(!isDarkMode);
+const isDarkMode = htmlElement.classList.contains('dark-mode');
+setTheme(!isDarkMode);
 });
 
 // Mobile menu toggle
@@ -1447,82 +1447,82 @@ const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const navLinks = document.getElementById('navLinks');
 
 mobileMenuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    
-    if (navLinks.classList.contains('active')) {
-        mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
-    } else {
-        mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    }
+navLinks.classList.toggle('active');
+
+if (navLinks.classList.contains('active')) {
+    mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
+} else {
+    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+}
 });
 
 // Back to top button functionality
 const backToTopButton = document.getElementById('backToTop');
 
 window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('visible');
-    } else {
-        backToTopButton.classList.remove('visible');
-    }
+if (window.pageYOffset > 300) {
+    backToTopButton.classList.add('visible');
+} else {
+    backToTopButton.classList.remove('visible');
+}
 });
 
 backToTopButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+e.preventDefault();
+window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 // Smooth scrolling for table of contents links
 document.querySelectorAll('.toc a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-        });
+anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
     });
+});
 });
 
 // Progress bar
 window.addEventListener('scroll', () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    document.getElementById('progressBar').style.width = scrolled + '%';
+const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+const scrolled = (winScroll / height) * 100;
+document.getElementById('progressBar').style.width = scrolled + '%';
 });
 
 // Auto-detect device type and set appropriate styles
 function detectDeviceType() {
-    const userAgent = navigator.userAgent.toLowerCase();
-    const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
-    const isTablet = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
-    
-    if (isMobile && !isTablet) {
-        document.body.classList.add('mobile-device');
-        document.body.classList.remove('tablet-device', 'desktop-device');
-    } else if (isTablet) {
-        document.body.classList.add('tablet-device');
-        document.body.classList.remove('mobile-device', 'desktop-device');
-    } else {
-        document.body.classList.add('desktop-device');
-        document.body.classList.remove('mobile-device', 'tablet-device');
-    }
+const userAgent = navigator.userAgent.toLowerCase();
+const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
+const isTablet = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
+
+if (isMobile && !isTablet) {
+    document.body.classList.add('mobile-device');
+    document.body.classList.remove('tablet-device', 'desktop-device');
+} else if (isTablet) {
+    document.body.classList.add('tablet-device');
+    document.body.classList.remove('mobile-device', 'desktop-device');
+} else {
+    document.body.classList.add('desktop-device');
+    document.body.classList.remove('mobile-device', 'tablet-device');
+}
 }
 
 detectDeviceType();
 
 // Handle window resize
 window.addEventListener('resize', () => {
-    detectDeviceType();
-    
-    if (window.innerWidth > 768) {
-        navLinks.classList.remove('active');
-        mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    }
+detectDeviceType();
+
+if (window.innerWidth > 768) {
+    navLinks.classList.remove('active');
+    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+}
 });
 </script>
 </body>
