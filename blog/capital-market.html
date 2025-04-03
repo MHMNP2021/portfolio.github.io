@@ -9,1508 +9,1521 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-    /* Reset and base styles */
-    :root {
-        --bg-primary: #1a202c;
-        --bg-secondary: #2d3748;
-        --text-primary: #e2e8f0;
-        --text-secondary: #a0aec0;
-        --accent-primary: #4299e1;
-        --accent-secondary: #3182ce;
-        --accent-highlight: #63b3ed;
-        --border-color: #4a5568;
-        --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-        --header-bg: #2d3748;
-        --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        --footer-bg: #1a202c;
-        --footer-text: #e2e8f0;
-        --toc-bg: #2d3748;
-        --example-bg: #3a4a5e;
-        --key-points-bg: #2c4a52;
-        --table-header-bg: #3182ce;
-        --table-header-text: #e2e8f0;
-        --table-row-even: #3a4a5e;
-        --table-row-hover: #2c4a52;
-        --code-bg: #2d3748;
-        --back-to-top-bg: #4299e1;
-        --back-to-top-hover: #3182ce;
-        --category-bg: #2c4a52;
-        --category-text: #63b3ed;
-        --comment-bg: #2d3748;
-        --comment-border: #4a5568;
-        --comment-highlight: #2c4a52;
-        --button-primary: #4299e1;
-        --button-hover: #3182ce;
-        --button-text: #1a202c;
-        --reference-bg: #2d3748;
-        --reference-border: #4a5568;
+/* Reset and base styles */
+:root {
+    --bg-primary: #1a202c;
+    --bg-secondary: #2d3748;
+    --text-primary: #e2e8f0;
+    --text-secondary: #a0aec0;
+    --accent-primary: #4299e1;
+    --accent-secondary: #3182ce;
+    --accent-highlight: #63b3ed;
+    --border-color: #4a5568;
+    --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    --header-bg: #2d3748;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --footer-bg: #1a202c;
+    --footer-text: #e2e8f0;
+    --toc-bg: #2d3748;
+    --example-bg: #3a4a5e;
+    --key-points-bg: #2c4a52;
+    --table-header-bg: #3182ce;
+    --table-header-text: #e2e8f0;
+    --table-row-even: #3a4a5e;
+    --table-row-hover: #2c4a52;
+    --code-bg: #2d3748;
+    --back-to-top-bg: #4299e1;
+    --back-to-top-hover: #3182ce;
+    --category-bg: #2c4a52;
+    --category-text: #63b3ed;
+    --comment-bg: #2d3748;
+    --comment-border: #4a5568;
+    --comment-highlight: #2c4a52;
+    --button-primary: #4299e1;
+    --button-hover: #3182ce;
+    --button-text: #1a202c;
+    --reference-bg: #2d3748;
+    --reference-border: #4a5568;
+}
+
+.light-mode {
+    --bg-primary: #f9f9f9;
+    --bg-secondary: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #555555;
+    --accent-primary: #3182ce;
+    --accent-secondary: #4299e1;
+    --accent-highlight: #63b3ed;
+    --border-color: #dddddd;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --header-bg: #ffffff;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --footer-bg: #1a365d;
+    --footer-text: #ffffff;
+    --toc-bg: #f0f8ff;
+    --example-bg: #f8f9fa;
+    --key-points-bg: #e6fffa;
+    --table-header-bg: #3182ce;
+    --table-header-text: #ffffff;
+    --table-row-even: #f2f2f2;
+    --table-row-hover: #e6fffa;
+    --code-bg: #f5f5f5;
+    --back-to-top-bg: #4299e1;
+    --back-to-top-hover: #3182ce;
+    --category-bg: #e6fffa;
+    --category-text: #3182ce;
+    --comment-bg: #f8f9fa;
+    --comment-border: #e2e8f0;
+    --comment-highlight: #e6fffa;
+    --button-primary: #4299e1;
+    --button-hover: #3182ce;
+    --button-text: #ffffff;
+    --reference-bg: #f8f9fa;
+    --reference-border: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header and Navigation */
+header {
+    background-color: var(--header-bg);
+    box-shadow: var(--header-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.logo a span {
+    color: var(--accent-highlight);
+}
+
+.logo a:hover {
+    color: var(--accent-secondary);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--accent-primary);
+}
+
+nav ul li a.active {
+    color: var(--accent-primary);
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-primary);
+}
+
+/* Mobile Menu */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Main Content */
+.blog-content {
+    max-width: 800px;
+    margin: 2rem auto 4rem;
+    padding: 0 1.5rem;
+}
+
+/* Article Header */
+.article-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.article-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+}
+
+.article-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.post-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.post-meta .date {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.post-meta .date i {
+    margin-right: 0.5rem;
+    color: var(--accent-secondary);
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.categories a {
+    background-color: var(--category-bg);
+    color: var(--category-text);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.categories a:hover {
+    background-color: var(--accent-secondary);
+    color: white;
+}
+
+/* Table of Contents */
+.toc {
+    background-color: var(--toc-bg);
+    border-left: 4px solid var(--accent-secondary);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.3s ease;
+    box-shadow: var(--card-shadow);
+}
+
+.toc h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--accent-primary);
+    display: flex;
+    align-items: center;
+}
+
+.toc h2 i {
+    margin-right: 0.5rem;
+    color: var(--accent-secondary);
+}
+
+.toc ul {
+    list-style: none;
+}
+
+.toc ul li {
+    margin-bottom: 0.5rem;
+}
+
+.toc ul li a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
+    padding: 0.2rem 0;
+}
+
+.toc ul li a:hover {
+    color: var(--accent-secondary);
+    transform: translateX(5px);
+}
+
+/* Sections */
+section {
+    margin-bottom: 3rem;
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-secondary);
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+section h2 i {
+    margin-right: 0.75rem;
+    color: var(--accent-secondary);
+}
+
+section h3 {
+    font-size: 1.3rem;
+    color: var(--accent-primary);
+    margin: 1.5rem 0 1rem;
+}
+
+section p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+/* Lists */
+section ul, section ol {
+    margin: 1rem 0 1.5rem 1.5rem;
+}
+
+section li {
+    margin-bottom: 0.75rem;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+section ul li {
+    list-style-type: none;
+    padding-left: 1.5rem;
+}
+
+section ul li::before {
+    content: '•';
+    color: var(--accent-secondary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+section ol li {
+    padding-left: 0.5rem;
+}
+
+section li strong {
+    color: var(--accent-primary);
+}
+
+/* Nested Lists */
+section li ul, section li ol {
+    margin-top: 0.75rem;
+}
+
+/* Examples and Emphasis */
+em {
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.example {
+    background-color: var(--example-bg);
+    border-left: 4px solid var(--accent-secondary);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 5px 5px 0;
+    font-style: italic;
+    transition: background-color 0.3s ease;
+}
+
+.example strong {
+    font-weight: 500;
+    color: var(--accent-primary);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    box-shadow: var(--card-shadow);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+thead {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
+    transition: background-color 0.3s ease;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    transition: border-color 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--table-row-even);
+    transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+    background-color: var(--table-row-hover);
+    transition: background-color 0.3s ease;
+}
+
+/* Key Points */
+.key-points {
+    background-color: var(--key-points-bg);
+    border-left: 4px solid var(--accent-secondary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.3s ease;
+    box-shadow: var(--card-shadow);
+}
+
+.key-points h3 {
+    color: var(--accent-primary);
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.key-points h3 i {
+    margin-right: 0.5rem;
+    color: var(--accent-secondary);
+}
+
+.key-points ul {
+    margin-bottom: 0;
+}
+
+/* Conclusion */
+#conclusion {
+    background-color: var(--toc-bg);
+    border-top: 4px solid var(--accent-secondary);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+/* References Section */
+.references {
+    margin-top: 3rem;
+    background-color: var(--reference-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.references h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.references h2 i {
+    margin-right: 0.75rem;
+    color: var(--accent-secondary);
+}
+
+.references ol {
+    margin-left: 1.5rem;
+}
+
+.references li {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.references a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.references a:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 3rem;
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comments-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.comments-section h2 i {
+    margin-right: 0.75rem;
+    color: var(--accent-secondary);
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 3rem 0;
+    transition: background-color 0.3s ease;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-highlight);
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--footer-text);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: var(--accent-highlight);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--accent-highlight);
+    color: var(--footer-bg);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--back-to-top-bg);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, transform 0.3s;
+    z-index: 99;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--back-to-top-hover);
+    transform: translateY(-5px);
+}
+
+.back-to-top i {
+    font-size: 1.2rem;
+}
+
+/* Theme Toggle Button (Floating) */
+.theme-toggle-float {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: var(--back-to-top-bg);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 99;
+    border: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.theme-toggle-float:hover {
+    background-color: var(--back-to-top-hover);
+    transform: translateY(-5px);
+}
+
+.theme-toggle-float i {
+    font-size: 1.2rem;
+}
+
+/* Progress Bar */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--accent-secondary);
+    width: 0%;
+}
+
+/* Post Navigation */
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.post-navigation a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s, transform 0.3s;
+    font-weight: 500;
+}
+
+.post-navigation a:hover {
+    color: var(--accent-primary);
+    transform: translateX(-5px);
+}
+
+.post-navigation a.next-post:hover {
+    transform: translateX(5px);
+}
+
+.prev-post i {
+    margin-right: 0.5rem;
+}
+
+.next-post i {
+    margin-left: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .article-header h1 {
+        font-size: 2rem;
     }
     
-    .light-mode {
-        --bg-primary: #f9f9f9;
-        --bg-secondary: #ffffff;
-        --text-primary: #333333;
-        --text-secondary: #555555;
-        --accent-primary: #3182ce;
-        --accent-secondary: #4299e1;
-        --accent-highlight: #63b3ed;
-        --border-color: #dddddd;
-        --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        --header-bg: #ffffff;
-        --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        --footer-bg: #1a365d;
-        --footer-text: #ffffff;
-        --toc-bg: #f0f8ff;
-        --example-bg: #f8f9fa;
-        --key-points-bg: #e6fffa;
-        --table-header-bg: #3182ce;
-        --table-header-text: #ffffff;
-        --table-row-even: #f2f2f2;
-        --table-row-hover: #e6fffa;
-        --code-bg: #f5f5f5;
-        --back-to-top-bg: #4299e1;
-        --back-to-top-hover: #3182ce;
-        --category-bg: #e6fffa;
-        --category-text: #3182ce;
-        --comment-bg: #f8f9fa;
-        --comment-border: #e2e8f0;
-        --comment-highlight: #e6fffa;
-        --button-primary: #4299e1;
-        --button-hover: #3182ce;
-        --button-text: #ffffff;
-        --reference-bg: #f8f9fa;
-        --reference-border: #e2e8f0;
+    section {
+        padding: 1.5rem;
     }
     
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    body {
-        font-family: 'Roboto', sans-serif;
-        line-height: 1.6;
-        color: var(--text-primary);
-        background-color: var(--bg-primary);
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    
-    /* Header and Navigation */
-    header {
-        background-color: var(--header-bg);
-        box-shadow: var(--header-shadow);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 1rem;
-    }
-    
-    .logo a {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--accent-primary);
-        text-decoration: none;
-        transition: color 0.3s;
-        display: flex;
-        align-items: center;
-    }
-    
-    .logo a span {
-        color: var(--accent-highlight);
-    }
-    
-    .logo a:hover {
-        color: var(--accent-secondary);
+    .mobile-menu-toggle {
+        display: block;
     }
     
     nav ul {
-        display: flex;
-        list-style: none;
-    }
-    
-    nav ul li {
-        margin-left: 2rem;
-    }
-    
-    nav ul li a {
-        text-decoration: none;
-        color: var(--text-secondary);
-        font-weight: 500;
-        transition: color 0.3s;
-        position: relative;
-    }
-    
-    nav ul li a:hover {
-        color: var(--accent-primary);
-    }
-    
-    nav ul li a.active {
-        color: var(--accent-primary);
-    }
-    
-    nav ul li a.active::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
+        position: fixed;
+        top: 60px;
         left: 0;
         width: 100%;
-        height: 2px;
-        background-color: var(--accent-primary);
-    }
-    
-    /* Theme Toggle */
-    .theme-toggle {
-        background: none;
-        border: none;
-        color: var(--text-secondary);
-        font-size: 1.2rem;
-        cursor: pointer;
-        margin-left: 1.5rem;
-        transition: color 0.3s;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    
-    .theme-toggle span {
-        font-size: 0.8rem;
-        font-weight: 500;
-    }
-    
-    .theme-toggle:hover {
-        color: var(--accent-primary);
-    }
-    
-    /* Mobile Menu */
-    .mobile-menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        color: var(--text-secondary);
-        font-size: 1.5rem;
-        cursor: pointer;
-    }
-    
-    /* Main Content */
-    .blog-content {
-        max-width: 800px;
-        margin: 2rem auto 4rem;
-        padding: 0 1.5rem;
-    }
-    
-    /* Article Header */
-    .article-header {
-        text-align: center;
-        margin-bottom: 3rem;
-        position: relative;
-        padding-bottom: 2rem;
-    }
-    
-    .article-header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100px;
-        height: 3px;
-        background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
-    }
-    
-    .article-header h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.5rem;
-        color: var(--accent-primary);
-        margin-bottom: 1rem;
-        line-height: 1.2;
-    }
-    
-    .post-meta {
-        display: flex;
+        background-color: var(--header-bg);
         flex-direction: column;
         align-items: center;
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-    }
-    
-    .post-meta .date {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0.5rem;
-    }
-    
-    .post-meta .date i {
-        margin-right: 0.5rem;
-        color: var(--accent-secondary);
-    }
-    
-    .categories {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-    }
-    
-    .categories a {
-        background-color: var(--category-bg);
-        color: var(--category-text);
-        padding: 0.25rem 0.75rem;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        text-decoration: none;
-        transition: background-color 0.3s, color 0.3s;
-    }
-    
-    .categories a:hover {
-        background-color: var(--accent-secondary);
-        color: white;
-    }
-    
-    /* Table of Contents */
-    .toc {
-        background-color: var(--toc-bg);
-        border-left: 4px solid var(--accent-secondary);
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border-radius: 0 8px 8px 0;
-        transition: background-color 0.3s ease;
-        box-shadow: var(--card-shadow);
-    }
-    
-    .toc h2 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-        color: var(--accent-primary);
-        display: flex;
-        align-items: center;
-    }
-    
-    .toc h2 i {
-        margin-right: 0.5rem;
-        color: var(--accent-secondary);
-    }
-    
-    .toc ul {
-        list-style: none;
-    }
-    
-    .toc ul li {
-        margin-bottom: 0.5rem;
-    }
-    
-    .toc ul li a {
-        text-decoration: none;
-        color: var(--text-secondary);
-        transition: color 0.3s, transform 0.3s;
-        display: inline-block;
-        padding: 0.2rem 0;
-    }
-    
-    .toc ul li a:hover {
-        color: var(--accent-secondary);
-        transform: translateX(5px);
-    }
-    
-    /* Sections */
-    section {
-        margin-bottom: 3rem;
-        background-color: var(--bg-secondary);
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: var(--card-shadow);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    section h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.8rem;
-        color: var(--accent-primary);
-        margin-bottom: 1.5rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid var(--accent-secondary);
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
-    
-    section h2 i {
-        margin-right: 0.75rem;
-        color: var(--accent-secondary);
-    }
-    
-    section h3 {
-        font-size: 1.3rem;
-        color: var(--accent-primary);
-        margin: 1.5rem 0 1rem;
-    }
-    
-    section p {
-        margin-bottom: 1rem;
-        color: var(--text-secondary);
-        font-size: 1.05rem;
-    }
-    
-    /* Lists */
-    section ul, section ol {
-        margin: 1rem 0 1.5rem 1.5rem;
-    }
-    
-    section li {
-        margin-bottom: 0.75rem;
-        position: relative;
-        color: var(--text-secondary);
-    }
-    
-    section ul li {
-        list-style-type: none;
-        padding-left: 1.5rem;
-    }
-    
-    section ul li::before {
-        content: '•';
-        color: var(--accent-secondary);
-        font-weight: bold;
-        position: absolute;
-        left: 0;
-    }
-    
-    section ol li {
-        padding-left: 0.5rem;
-    }
-    
-    section li strong {
-        color: var(--accent-primary);
-    }
-    
-    /* Nested Lists */
-    section li ul, section li ol {
-        margin-top: 0.75rem;
-    }
-    
-    /* Examples and Emphasis */
-    em {
-        font-style: italic;
-        color: var(--text-secondary);
-    }
-    
-    .example {
-        background-color: var(--example-bg);
-        border-left: 4px solid var(--accent-secondary);
-        padding: 1rem 1.5rem;
-        margin: 1.5rem 0;
-        border-radius: 0 5px 5px 0;
-        font-style: italic;
-        transition: background-color 0.3s ease;
-    }
-    
-    .example strong {
-        font-weight: 500;
-        color: var(--accent-primary);
-    }
-    
-    /* Tables */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 1.5rem 0;
-        box-shadow: var(--card-shadow);
-        border-radius: 8px;
-        overflow: hidden;
-        transition: box-shadow 0.3s ease;
-    }
-    
-    thead {
-        background-color: var(--table-header-bg);
-        color: var(--table-header-text);
-        transition: background-color 0.3s ease;
-    }
-    
-    th, td {
-        padding: 1rem;
-        text-align: left;
-        border-bottom: 1px solid var(--border-color);
-        transition: border-color 0.3s ease;
-    }
-    
-    tbody tr:nth-child(even) {
-        background-color: var(--table-row-even);
-        transition: background-color 0.3s ease;
-    }
-    
-    tbody tr:hover {
-        background-color: var(--table-row-hover);
-        transition: background-color 0.3s ease;
-    }
-    
-    /* Key Points */
-    .key-points {
-        background-color: var(--key-points-bg);
-        border-left: 4px solid var(--accent-secondary);
-        padding: 1.5rem;
-        margin: 1.5rem 0;
-        border-radius: 0 8px 8px 0;
-        transition: background-color 0.3s ease;
-        box-shadow: var(--card-shadow);
-    }
-    
-    .key-points h3 {
-        color: var(--accent-primary);
-        margin-top: 0;
-        display: flex;
-        align-items: center;
-    }
-    
-    .key-points h3 i {
-        margin-right: 0.5rem;
-        color: var(--accent-secondary);
-    }
-    
-    .key-points ul {
-        margin-bottom: 0;
-    }
-    
-    /* Conclusion */
-    #conclusion {
-        background-color: var(--toc-bg);
-        border-top: 4px solid var(--accent-secondary);
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-    }
-    
-    /* References Section */
-    .references {
-        margin-top: 3rem;
-        background-color: var(--reference-bg);
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: var(--card-shadow);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .references h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.8rem;
-        color: var(--accent-primary);
-        margin-bottom: 1.5rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid var(--accent-secondary);
-        display: flex;
-        align-items: center;
-    }
-    
-    .references h2 i {
-        margin-right: 0.75rem;
-        color: var(--accent-secondary);
-    }
-    
-    .references ol {
-        margin-left: 1.5rem;
-    }
-    
-    .references li {
-        margin-bottom: 1rem;
-        color: var(--text-secondary);
-    }
-    
-    .references a {
-        color: var(--accent-secondary);
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-    
-    .references a:hover {
-        color: var(--accent-primary);
-        text-decoration: underline;
-    }
-    
-    /* Comments Section */
-    .comments-section {
-        margin-top: 3rem;
-        background-color: var(--bg-secondary);
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: var(--card-shadow);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .comments-section h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.8rem;
-        color: var(--accent-primary);
-        margin-bottom: 1.5rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid var(--accent-secondary);
-        display: flex;
-        align-items: center;
-    }
-    
-    .comments-section h2 i {
-        margin-right: 0.75rem;
-        color: var(--accent-secondary);
-    }
-    
-    /* Footer */
-    footer {
-        background-color: var(--footer-bg);
-        color: var(--footer-text);
-        padding: 3rem 0;
-        transition: background-color 0.3s ease;
-    }
-    
-    .footer-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-    }
-    
-    .footer-section h3 {
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-        color: var(--accent-highlight);
-    }
-    
-    .footer-section p {
-        margin-bottom: 1rem;
-        opacity: 0.8;
-    }
-    
-    .footer-links {
-        list-style: none;
-    }
-    
-    .footer-links li {
-        margin-bottom: 0.8rem;
-    }
-    
-    .footer-links a {
-        color: var(--footer-text);
-        text-decoration: none;
-        opacity: 0.8;
-        transition: all 0.3s ease;
-    }
-    
-    .footer-links a:hover {
-        opacity: 1;
-        color: var(--accent-highlight);
-    }
-    
-    .social-links {
-        display: flex;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-    
-    .social-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.1);
-        color: var(--footer-text);
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
-    
-    .social-link:hover {
-        background-color: var(--accent-highlight);
-        color: var(--footer-bg);
-        transform: translateY(-3px);
-    }
-    
-    .copyright {
-        text-align: center;
-        padding-top: 2rem;
-        margin-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 0.9rem;
-        opacity: 0.7;
-    }
-    
-    /* Back to Top Button */
-    .back-to-top {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        background-color: var(--back-to-top-bg);
-        color: white;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        padding: 1rem 0;
+        box-shadow: var(--header-shadow);
+        transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, transform 0.3s;
+        transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
         z-index: 99;
     }
     
-    .back-to-top.visible {
+    nav ul.active {
+        transform: translateY(0);
         opacity: 1;
         visibility: visible;
     }
     
-    .back-to-top:hover {
-        background-color: var(--back-to-top-hover);
-        transform: translateY(-5px);
+    nav ul li {
+        margin: 0.5rem 0;
     }
     
-    .back-to-top i {
-        font-size: 1.2rem;
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
     
-    /* Progress Bar */
-    .progress-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background: transparent;
-        z-index: 1000;
+    .social-links {
+        justify-content: center;
     }
     
-    .progress-bar {
-        height: 4px;
-        background: var(--accent-secondary);
-        width: 0%;
+    table {
+        display: block;
+        overflow-x: auto;
     }
     
-    /* Post Navigation */
     .post-navigation {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 3rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid var(--border-color);
+        flex-direction: column;
+        gap: 1rem;
     }
     
-    .post-navigation a {
-        color: var(--accent-secondary);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        transition: color 0.3s, transform 0.3s;
-        font-weight: 500;
+    .back-to-top, .theme-toggle-float {
+        bottom: 1.5rem;
     }
     
-    .post-navigation a:hover {
-        color: var(--accent-primary);
-        transform: translateX(-5px);
+    .theme-toggle-float {
+        left: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-header h1 {
+        font-size: 1.75rem;
     }
     
-    .post-navigation a.next-post:hover {
-        transform: translateX(5px);
+    section h2 {
+        font-size: 1.5rem;
     }
     
-    .prev-post i {
-        margin-right: 0.5rem;
+    .back-to-top, .theme-toggle-float {
+        bottom: 1rem;
+        width: 45px;
+        height: 45px;
     }
     
-    .next-post i {
-        margin-left: 0.5rem;
+    .theme-toggle-float {
+        left: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .mobile-menu-toggle,
+    .theme-toggle-float,
+    .back-to-top,
+    .progress-container,
+    .post-navigation,
+    .comments-section,
+    footer {
+        display: none !important;
     }
     
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .article-header h1 {
-            font-size: 2rem;
-        }
-        
-        section {
-            padding: 1.5rem;
-        }
-        
-        .mobile-menu-toggle {
-            display: block;
-        }
-        
-        nav ul {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            width: 100%;
-            background-color: var(--header-bg);
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem 0;
-            box-shadow: var(--header-shadow);
-            transform: translateY(-100%);
-            opacity: 0;
-            visibility: hidden;
-            transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-            z-index: 99;
-        }
-        
-        nav ul.active {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        nav ul li {
-            margin: 0.5rem 0;
-        }
-        
-        .footer-container {
-            grid-template-columns: 1fr;
-            text-align: center;
-        }
-        
-        .social-links {
-            justify-content: center;
-        }
-        
-        table {
-            display: block;
-            overflow-x: auto;
-        }
-        
-        .post-navigation {
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .back-to-top {
-            bottom: 1.5rem;
-            right: 1.5rem;
-        }
+    body {
+        background-color: white;
+        color: black;
     }
     
-    @media (max-width: 480px) {
-        .article-header h1 {
-            font-size: 1.75rem;
-        }
-        
-        section h2 {
-            font-size: 1.5rem;
-        }
-        
-        .back-to-top {
-            bottom: 1rem;
-            right: 1rem;
-            width: 45px;
-            height: 45px;
-        }
+    .blog-content {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
     }
     
-    /* Print Styles */
-    @media print {
-        .mobile-menu-toggle,
-        .theme-toggle,
-        .back-to-top,
-        .progress-container,
-        .post-navigation,
-        .comments-section,
-        footer {
-            display: none !important;
-        }
-        
-        body {
-            background-color: white;
-            color: black;
-        }
-        
-        .blog-content {
-            max-width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        
-        section {
-            break-inside: avoid;
-            box-shadow: none;
-            border: 1px solid #ddd;
-            margin-bottom: 1.5rem;
-        }
-        
-        a {
-            color: black;
-            text-decoration: underline;
-        }
-        
-        .toc {
-            break-after: page;
-        }
+    section {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+        margin-bottom: 1.5rem;
     }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+    
+    .toc {
+        break-after: page;
+    }
+}
 </style>
 </head>
 
 <body>
 <div class="progress-container">
-    <div class="progress-bar" id="progressBar"></div>
+<div class="progress-bar" id="progressBar"></div>
 </div>
 
 <header>
-    <nav>
-        <div class="logo">
-            <a href="../index.html">MHMN<span>Perera</span></a>
-        </div>
-        <button class="mobile-menu-toggle" id="mobileMenuToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul id="navLinks">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../blog.html" class="active">Blog</a></li>
-            <li><a href="../index.html#about">About</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
-            <li>
-                <button class="theme-toggle" id="themeToggle">
-                    <i class="fas fa-sun"></i>
-                    <span>Light Mode</span>
-                </button>
-            </li>
-        </ul>
-    </nav>
+<nav>
+    <div class="logo">
+        <a href="../index.html">MHMN<span>Perera</span></a>
+    </div>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    <ul id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../blog.html" class="active">Blog</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+</nav>
 </header>
 
 <main class="blog-content">
-    <article>
-        <div class="article-header">
-            <h1>Capital Market: A Comprehensive Overview</h1>
-            <div class="post-meta">
-                <span class="date"><i class="fas fa-calendar-alt"></i> Published on: <time datetime="2025-03-28">March 28, 2025</time></span>
-                <span class="categories">
-                    <a href="#">Finance</a>
-                    <a href="#">Economics</a>
-                </span>
-            </div>
+<article>
+    <div class="article-header">
+        <h1>Capital Market: A Comprehensive Overview</h1>
+        <div class="post-meta">
+            <span class="date"><i class="fas fa-calendar-alt"></i> Published on: <time datetime="2025-03-28">March 28, 2025</time></span>
+            <span class="categories">
+                <a href="#">Finance</a>
+                <a href="#">Economics</a>
+            </span>
         </div>
+    </div>
 
-        <div class="toc">
-            <h2><i class="fas fa-list"></i> Table of Contents</h2>
-            <ul>
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#meaning">Meaning and Definition</a></li>
-                <li><a href="#characteristics">Characteristics</a></li>
-                <li><a href="#importance">Scope/Importance</a></li>
-                <li><a href="#functions">Functions/Roles</a></li>
-                <li><a href="#instruments">Capital Market Instruments</a></li>
-                <li><a href="#participants">Key Participants</a></li>
-                <li><a href="#structure">Structure of Capital Market</a></li>
-                <li><a href="#difference">Difference Between Capital and Money Market</a></li>
-                <li><a href="#global">Global Capital Market</a></li>
-                <li><a href="#sri-lanka">Sri Lankan Capital Market</a></li>
-                <li><a href="#conclusion">Conclusion</a></li>
-                <li><a href="#references">References</a></li>
-            </ul>
-        </div>
+    <div class="toc">
+        <h2><i class="fas fa-list"></i> Table of Contents</h2>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#meaning">Meaning and Definition</a></li>
+            <li><a href="#characteristics">Characteristics</a></li>
+            <li><a href="#importance">Scope/Importance</a></li>
+            <li><a href="#functions">Functions/Roles</a></li>
+            <li><a href="#instruments">Capital Market Instruments</a></li>
+            <li><a href="#participants">Key Participants</a></li>
+            <li><a href="#structure">Structure of Capital Market</a></li>
+            <li><a href="#difference">Difference Between Capital and Money Market</a></li>
+            <li><a href="#global">Global Capital Market</a></li>
+            <li><a href="#sri-lanka">Sri Lankan Capital Market</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#references">References</a></li>
+        </ul>
+    </div>
 
-        <section id="introduction">
-            <h2><i class="fas fa-info-circle"></i> Introduction</h2>
-            <p>The capital market is a crucial component of the financial system that facilitates the trading of long-term financial instruments. Unlike the money market, which deals with short-term securities, the capital market focuses on financial assets with maturities typically exceeding one year.
+    <section id="introduction">
+        <h2><i class="fas fa-info-circle"></i> Introduction</h2>
+        <p>The capital market is a crucial component of the financial system that facilitates the trading of long-term financial instruments. Unlike the money market, which deals with short-term securities, the capital market focuses on financial assets with maturities typically exceeding one year.
 
 <p>Understanding the capital market is essential for anyone involved in finance, economics, or business, as it plays a crucial role in capital formation, economic growth, and long-term investment opportunities.</p>
-            
+        
 <div class="example">
-    <strong>Example:</strong> When a corporation needs to raise funds for a major expansion project, instead of taking a short-term loan, it might issue bonds or shares in the capital market, securing long-term financing while providing investors with opportunities for returns.
+<strong>Example:</strong> When a corporation needs to raise funds for a major expansion project, instead of taking a short-term loan, it might issue bonds or shares in the capital market, securing long-term financing while providing investors with opportunities for returns.
 </div>
-        </section>
+    </section>
 
-        <section id="meaning">
-            <h2><i class="fas fa-book"></i> Meaning and Definition</h2>
-            <p>The capital market is a segment of the financial market where long-term debt and equity-backed securities are created, bought, and sold. It provides a mechanism for channeling savings into productive investments and for companies and governments to raise long-term funds.</p>
-            <p>Unlike money markets, capital markets involve securities with maturities exceeding one year and are focused on financing capital expenditures and investments rather than working capital needs. These markets include both primary markets (where new securities are issued) and secondary markets (where existing securities are traded).</p>
-            
-            <div class="example">
-                <strong>Example:</strong> A technology company conducts an Initial Public Offering (IPO) on a stock exchange, raising $500 million by selling shares to the public. This transaction occurs in the primary capital market, while subsequent trading of these shares takes place in the secondary market.
-            </div>
-            
-            <p>The capital market is characterized by its focus on long-term investment, higher risk-return profiles, and its role in economic development through efficient allocation of resources to productive sectors.</p>
-        </section>
-
-        <section id="characteristics">
-            <h2><i class="fas fa-fingerprint"></i> Characteristics of Capital Market</h2>
-            
-            <div class="key-points">
-                <h3><i class="fas fa-star"></i> Key Features</h3>
-                <ul>
-                    <li>Long-term maturities (typically more than one year)</li>
-                    <li>Higher risk and return potential</li>
-                    <li>Both debt and equity instruments</li>
-                    <li>Regulated market structure</li>
-                    <li>Diverse participant base including retail investors</li>
-                    <li>Focus on capital formation and investment</li>
-                </ul>
-            </div>
-            
-            <h3>Key Characteristics Explained:</h3>
-            <ol>
-                <li>
-                    <strong>Long-term Nature</strong> - Capital market instruments have maturities exceeding one year, with many extending to several years or even decades, supporting long-term economic growth.
-                </li>
-                <li>
-                    <strong>Risk-Return Profile</strong> - These markets typically offer higher potential returns compared to money markets, but with correspondingly higher risks due to longer time horizons and greater market uncertainties.
-                </li>
-                <li>
-                    <strong>Market Structure</strong> - Capital markets are more formalized and regulated, with organized exchanges (like stock exchanges) playing a central role alongside over-the-counter markets.
-                </li>
-                <li>
-                    <strong>Liquidity</strong> - While generally less liquid than money markets, secondary markets for capital market instruments provide mechanisms for investors to buy and sell securities before maturity.
-                </li>
-                <li>
-                    <strong>Participant Diversity</strong> - Capital markets involve a wide range of participants, including retail investors, institutional investors, corporations, and governments.
-                </li>
-            </ol>
-            
-            <p><strong>Efficiency:</strong> The efficiency of capital markets varies across different segments and countries. Developed capital markets tend to be more efficient, with prices quickly reflecting available information, while emerging markets may exhibit various inefficiencies due to information asymmetries, regulatory constraints, or limited participation.</p>
-        </section>
-
-        <section id="importance">
-            <h2><i class="fas fa-chart-line"></i> Scope/Importance of Capital Market</h2>
-            <ul>
-                <li>
-                    <strong>Capital formation</strong> - Facilitates the accumulation of capital by channeling savings into productive investments, supporting economic growth and development.
-                </li>
-                <li>
-                    <strong>Resource allocation</strong> - Directs resources to their most productive uses through the price mechanism, enhancing economic efficiency.
-                </li>
-                <li>
-                    <strong>Long-term financing</strong> - Provides businesses and governments with access to long-term funds for infrastructure development, expansion, and other capital-intensive projects.
-                </li>
-                <li>
-                    <strong>Investment opportunities</strong> - Offers individuals and institutions various investment options to grow their wealth and achieve financial goals.
-                </li>
-                <li>
-                    <strong>Economic stability</strong> - Well-functioning capital markets contribute to economic stability by facilitating risk sharing and providing mechanisms for price discovery.
-                </li>
-            </ul>
-            
-            <p>The capital market serves as a barometer of economic health, with market indices often used as leading indicators of economic performance. The development of robust capital markets is associated with higher economic growth rates, as they enable more efficient allocation of resources and provide mechanisms for financing innovation and entrepreneurship.</p>
-        </section>
-
-        <section id="functions">
-            <h2><i class="fas fa-cogs"></i> Functions/Roles of Capital Market</h2>
-            
-            <div class="key-points">
-                <h3><i class="fas fa-tasks"></i> Primary Functions</h3>
-                <ul>
-                    <li>Mobilization of savings</li>
-                    <li>Capital formation</li>
-                    <li>Price discovery</li>
-                    <li>Liquidity provision</li>
-                    <li>Risk transfer</li>
-                    <li>Corporate governance</li>
-                </ul>
-            </div>
-            
-            <p>The capital market performs several critical functions in the financial system:</p>
-            
-            <ul>
-                <li>
-                    <strong>Mobilization of savings</strong> - Channels savings from households and other economic units into productive investments, increasing the overall capital stock in the economy.
-                </li>
-                <li>
-                    <strong>Capital formation</strong> - Facilitates the creation of physical capital by providing long-term financing for infrastructure, industrial development, and technological innovation.
-                </li>
-                <li>
-                    <strong>Price discovery</strong> - Establishes prices for financial assets based on supply and demand, reflecting the collective assessment of market participants regarding future prospects.
-                </li>
-                <li>
-                    <strong>Liquidity provision</strong> - Enables investors to convert their investments into cash through secondary markets, enhancing the attractiveness of long-term investments.
-                </li>
-                <li>
-                    <strong>Risk transfer</strong> - Allows for the transfer of risk from those less willing to bear it to those more willing, through various financial instruments and derivatives.
-                </li>
-                <li>
-                    <strong>Corporate governance</strong> - Promotes better corporate governance through market discipline, disclosure requirements, and shareholder activism.
-                </li>
-            </ul>
-            
-            <p>The capital market also plays a crucial role in economic development by providing mechanisms for financing large-scale projects that might be beyond the capacity of individual financial institutions. It enables risk diversification and specialization, leading to more efficient resource allocation and economic growth.</p>
-        </section>
-
-        <section id="instruments">
-            <h2><i class="fas fa-tools"></i> Capital Market Instruments</h2>
-            <p>Capital market instruments are long-term securities that enable entities to raise funds for capital expenditures and investments. These instruments can be broadly categorized into equity instruments and debt instruments, each with distinct characteristics and purposes.</p>
-            
-            <div class="key-points">
-                <h3><i class="fas fa-file-invoice-dollar"></i> Key Instruments</h3>
-                <ul>
-                    <li>Equity Shares (Common Stock)</li>
-                    <li>Preference Shares</li>
-                    <li>Bonds and Debentures</li>
-                    <li>Government Securities</li>
-                    <li>Derivatives</li>
-                    <li>Mutual Funds and ETFs</li>
-                </ul>
-            </div>
-            
-            <ul>
-                <li>
-                    <strong>Equity Shares (Common Stock)</strong> - Represent ownership in a company, entitling shareholders to voting rights and dividends. Equity financing provides companies with permanent capital without fixed repayment obligations.
-                </li>
-                <li>
-                    <strong>Preference Shares</strong> - Hybrid instruments that combine features of both equity and debt. They offer priority over common shareholders in dividend payments and asset distribution during liquidation but typically have limited or no voting rights.
-                </li>
-                <li>
-                    <strong>Bonds and Debentures</strong> - Long-term debt instruments issued by corporations with fixed maturity dates and interest payment schedules. Bonds are typically secured by specific assets, while debentures are unsecured.
-                </li>
-                <li>
-                    <strong>Government Securities</strong> - Debt instruments issued by national, state, or local governments to finance public expenditures. These include treasury bonds, municipal bonds, and sovereign bonds.
-                </li>
-                <li>
-                    <strong>Derivatives</strong> - Financial contracts whose value is derived from underlying assets such as stocks, bonds, commodities, or market indices. Common derivatives include options, futures, and swaps.
-                </li>
-                <li>
-                    <strong>Mutual Funds and ETFs</strong> - Investment vehicles that pool funds from multiple investors to purchase diversified portfolios of securities, providing access to professional management and diversification.
-                </li>
-            </ul>
-            
-            <p>Each instrument serves specific needs in the market and offers different combinations of risk, return, and control rights. The choice of instrument depends on the specific requirements of the issuer and investor, including capital structure preferences, risk tolerance, and investment objectives.</p>
-        </section>
-
-        <section id="participants">
-            <h2><i class="fas fa-users"></i> Key Participants in the Capital Market</h2>
-            <p>The capital market involves various participants who interact to facilitate the efficient allocation of long-term capital. Each participant plays a specific role in ensuring the market functions effectively.</p>
-            
-            <div class="key-points">
-                <h3><i class="fas fa-user-tie"></i> Major Participants</h3>
-                <ul>
-                    <li>Issuers</li>
-                    <li>Investors</li>
-                    <li>Intermediaries</li>
-                    <li>Regulators</li>
-                    <li>Stock Exchanges</li>
-                    <li>Rating Agencies</li>
-                </ul>
-            </div>
-            
-            <ul>
-                <li>
-                    <strong>Issuers</strong> - Entities that raise capital by issuing securities, including corporations, governments, and municipalities. They use the funds for long-term investments, expansion, or refinancing existing debt.
-                </li>
-                <li>
-                    <strong>Investors</strong> - Individuals and institutions that provide capital by purchasing securities. These include retail investors, pension funds, insurance companies, mutual funds, hedge funds, and sovereign wealth funds.
-                </li>
-                <li>
-                    <strong>Intermediaries</strong> - Financial institutions that facilitate transactions between issuers and investors. These include investment banks, brokers, dealers, and underwriters who help in the issuance, distribution, and trading of securities.
-                </li>
-                <li>
-                    <strong>Regulators</strong> - Government agencies and self-regulatory organizations that oversee capital markets to ensure fair practices, transparency, and investor protection. Examples include the SEC in the US and the FCA in the UK.
-                </li>
-                <li>
-                    <strong>Stock Exchanges</strong> - Organized marketplaces where securities are listed and traded according to standardized rules. They provide infrastructure for price discovery, liquidity, and transparent trading.
-                </li>
-                <li>
-                    <strong>Rating Agencies</strong> - Organizations that assess the creditworthiness of issuers and their debt instruments, providing investors with information about the risk associated with different securities.
-                </li>
-            </ul>
-            
-            <p>The interaction among these participants creates a dynamic marketplace where long-term capital flows efficiently from those with surplus funds to those with productive investment opportunities, supporting economic growth and development.</p>
-        </section>
-
-        <section id="structure">
-            <h2><i class="fas fa-building"></i> Structure of Capital Market</h2>
-            <p>The capital market has a complex structure with various segments serving different needs. Its organization varies across countries but generally includes several key components:</p>
-            
-            <div class="key-points">
-                <h3><i class="fas fa-project-diagram"></i> Key Segments</h3>
-                <ul>
-                    <li>Primary Market</li>
-                    <li>Secondary Market</li>
-                    <li>Equity Market</li>
-                    <li>Debt Market</li>
-                    <li>Derivatives Market</li>
-                    <li>Private Capital Market</li>
-                </ul>
-            </div>
-            
-            <ul>
-                <li>
-                    <strong>Primary Market</strong> - Where new securities are issued and sold to investors for the first time. This includes initial public offerings (IPOs), rights issues, and private placements. The primary market enables issuers to raise fresh capital.
-                </li>
-                <li>
-                    <strong>Secondary Market</strong> - Where previously issued securities are bought and sold among investors. This market provides liquidity to investors and helps in price discovery. Stock exchanges are the most visible component of the secondary market.
-                </li>
-                <li>
-                    <strong>Equity Market</strong> - The market for trading ownership shares in companies. It includes both listed stocks traded on exchanges and unlisted stocks traded over-the-counter.
-                </li>
-                <li>
-                    <strong>Debt Market</strong> - The market for trading fixed-income securities such as government bonds, corporate bonds, and debentures. It includes both government securities and corporate debt.
-                </li>
-                <li>
-                    <strong>Derivatives Market</strong> - Where derivative instruments such as futures, options, and swaps are traded. These markets facilitate risk management and speculative activities.
-                </li>
-                <li>
-                    <strong>Private Capital Market</strong> - Where transactions occur directly between parties without public offerings. This includes private equity, venture capital, and private placements.
-                </li>
-            </ul>
-            
-            <p>These segments are interconnected, with developments in one often affecting others. The structure is also influenced by regulatory frameworks, technological advancements, and market practices that vary across jurisdictions.</p>
-        </section>
-
-        <section id="difference">
-            <h2><i class="fas fa-balance-scale"></i> Difference Between Capital and Money Market</h2>
-            <p>While both capital and money markets are important components of the financial system, they serve different purposes and have distinct characteristics:</p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Basis</th>
-                        <th>Capital Market</th>
-                        <th>Money Market</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Time Period</td>
-                        <td>Long-term (more than 1 year)</td>
-                        <td>Short-term (less than 1 year)</td>
-                    </tr>
-                    <tr>
-                        <td>Instruments</td>
-                        <td>Stocks, bonds, debentures</td>
-                        <td>Treasury bills, commercial paper, certificates of deposit, repos</td>
-                    </tr>
-                    <tr>
-                        <td>Risk</td>
-                        <td>Higher risk</td>
-                        <td>Lower risk</td>
-                    </tr>
-                    <tr>
-                        <td>Return</td>
-                        <td>Higher return potential</td>
-                        <td>Lower return potential</td>
-                    </tr>
-                    <tr>
-                        <td>Liquidity</td>
-                        <td>Less liquid</td>
-                        <td>More liquid</td>
-                    </tr>
-                    <tr>
-                        <td>Purpose</td>
-                        <td>Capital formation and investment</td>
-                        <td>Working capital and liquidity management</td>
-                    </tr>
-                    <tr>
-                        <td>Participants</td>
-                        <td>Retail investors, institutional investors, corporations</td>
-                        <td>Banks, financial institutions, corporations</td>
-                    </tr>
-                    <tr>
-                        <td>Regulation</td>
-                        <td>More regulated</td>
-                        <td>Less regulated</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <p>The capital market focuses on long-term investment and capital formation, while the money market facilitates short-term financing and liquidity management. The capital market has broader participation, including individual retail investors, whereas the money market is primarily wholesale in nature, with large transactions between institutional participants.</p>
-            
-            <p>Despite these differences, the two markets are interconnected, with developments in one often affecting the other. For example, changes in long-term interest rates in the capital market can influence expectations about future short-term rates in the money market, affecting investment decisions and asset valuations across both markets.</p>
-        </section>
-
-        <section id="global">
-            <h2><i class="fas fa-globe"></i> Global Capital Market</h2>
-            <p>The global capital market encompasses the interconnected network of markets where long-term financial instruments are traded across national boundaries. As financial markets have become increasingly integrated, the global capital market has grown in importance for international investment, risk diversification, and capital allocation.</p>
-            
-            <div class="key-points">
-                <h3><i class="fas fa-key"></i> Key Features</h3>
-                <ul>
-                    <li>International Equity Markets</li>
-                    <li>Global Bond Markets</li>
-                    <li>Cross-border Listings</li>
-                    <li>International Investment Flows</li>
-                    <li>Global Financial Centers</li>
-                </ul>
-            </div>
-            
-            <ul>
-                <li>
-                    <strong>International Equity Markets</strong> - Markets where shares of companies from different countries are traded. These include major stock exchanges like the NYSE, NASDAQ, London Stock Exchange, and Tokyo Stock Exchange, as well as emerging market exchanges.
-                </li>
-                <li>
-                    <strong>Global Bond Markets</strong> - Markets for debt securities issued by governments, corporations, and international organizations across different currencies and jurisdictions. The Eurobond market is a significant component of the global bond market.
-                </li>
-                <li>
-                    <strong>Cross-border Listings</strong> - Companies listing their securities on exchanges outside their home country to access international investors, enhance visibility, and increase liquidity. This includes American Depositary Receipts (ADRs) and Global Depositary Receipts (GDRs).
-                </li>
-                <li>
-                    <strong>International Investment Flows</strong> - Movement of capital across national borders as investors seek diversification and higher returns. This includes foreign direct investment, portfolio investment, and international venture capital.
-                </li>
-                <li>
-                    <strong>Global Financial Centers</strong> - Cities that serve as hubs for international financial activity, such as New York, London, Hong Kong, Singapore, and Tokyo, providing infrastructure, expertise, and regulatory environments conducive to global capital market operations.
-                </li>
-            </ul>
-            
-            <p>The global capital market plays a crucial role in international finance by facilitating cross-border capital flows, enabling multinational corporations to raise funds globally, and providing investors with opportunities for international diversification. However, it also creates channels for the transmission of financial stress across borders, as demonstrated during global financial crises when disruptions in one market quickly spread to markets worldwide.</p>
-        </section>
-
-        <section id="sri-lanka">
-            <h2><i class="fas fa-map-marked-alt"></i> Sri Lankan Capital Market</h2>
-            <p>The Sri Lankan capital market has evolved significantly over the years, playing an increasingly important role in the country's economic development. It provides a platform for companies to raise long-term capital and offers investment opportunities for both domestic and international investors.</p>
-            
-            <div class="key-points">
-                <h3><i class="fas fa-landmark"></i> Structure of Sri Lankan Capital Market</h3>
-                <ul>
-                    <li>Colombo Stock Exchange (CSE)</li>
-                    <li>Government Securities Market</li>
-                    <li>Corporate Debt Market</li>
-                    <li>Unit Trust Market</li>
-                    <li>Private Equity Market</li>
-                </ul>
-            </div>
-            
-            <h3>Key Components of Sri Lankan Capital Market:</h3>
-            
-            <ol>
-                <li>
-                    <strong>Colombo Stock Exchange (CSE)</strong> - The primary stock exchange in Sri Lanka, established in 1985. It provides a platform for trading equity securities and corporate debt instruments. The CSE operates two main indices: the All Share Price Index (ASPI) and the S&P Sri Lanka 20 Index. It has made significant technological advancements, including the implementation of an automated trading system and a central depository system.
-                </li>
-                <li>
-                    <strong>Government Securities Market</strong> - The market for trading long-term government securities, primarily Treasury bonds. These are issued by the Central Bank of Sri Lanka (CBSL) on behalf of the government to finance long-term development projects and manage public debt. The government securities market is a significant component of Sri Lanka's capital market, providing benchmark rates for other fixed-income securities.
-                </li>
-                <li>
-                    <strong>Corporate Debt Market</strong> - The market for corporate bonds and debentures issued by companies to raise long-term debt capital. This segment has grown in recent years, with an increasing number of listed debentures on the CSE, providing companies with an alternative to bank financing.
-                </li>
-                <li>
-                    <strong>Unit Trust Market</strong> - Comprises various mutual funds and unit trusts that pool investments from multiple investors to invest in diversified portfolios of securities. This segment has been growing, providing retail investors with access to professional fund management and diversification.
-                </li>
-                <li>
-                    <strong>Private Equity Market</strong> - Though less developed compared to other segments, the private equity market in Sri Lanka has been evolving, with increasing interest from both domestic and international private equity firms in investing in Sri Lankan companies with growth potential.
-                </li>
-            </ol>
-            
-            <h3>Regulatory Framework:</h3>
-            
-            <p>The Sri Lankan capital market is regulated by several key institutions:</p>
-            
-            <ul>
-                <li>
-                    <strong>Securities and Exchange Commission of Sri Lanka (SEC)</strong> - The primary regulatory authority responsible for maintaining fair, efficient, and transparent capital markets. The SEC licenses market intermediaries, regulates market conduct, and protects investor interests.
-                </li>
-                <li>
-                    <strong>Central Bank of Sri Lanka (CBSL)</strong> - Regulates the government securities market and oversees the overall stability of the financial system, including aspects of the capital market.
-                </li>
-                <li>
-                    <strong>Colombo Stock Exchange (CSE)</strong> - Acts as a self-regulatory organization, establishing listing requirements, trading rules, and monitoring compliance by listed companies and market participants.
-                </li>
-            </ul>
-            
-            <div class="example">
-                <strong>Example:</strong> A leading Sri Lankan conglomerate issues a 5-year corporate debenture on the CSE, raising LKR 2 billion at an annual interest rate of 13.5%. The issue is oversubscribed, demonstrating investor confidence in the company and the growing appetite for corporate debt instruments in the Sri Lankan capital market.
-            </div>
-            
-            <h3>Recent Developments and Challenges:</h3>
-            
-            <p>The Sri Lankan capital market has faced several challenges and developments in recent years:</p>
-            
-            <ul>
-                <li>
-                    <strong>Economic Challenges</strong> - The economic crisis that intensified in 2022 significantly impacted the capital market, with market volatility, reduced foreign participation, and challenges in corporate performance affecting investor sentiment.
-                </li>
-                <li>
-                    <strong>Digitalization</strong> - The market has been embracing digital transformation, with initiatives such as the introduction of a mobile trading app by the CSE and efforts to enhance market accessibility through technology.
-                </li>
-                <li>
-                    <strong>Market Development Initiatives</strong> - Efforts to deepen and broaden the market, including the introduction of new products like Real Estate Investment Trusts (REITs) and the development of a derivatives market.
-                </li>
-                <li>
-                    <strong>Foreign Investment Flows</strong> - Fluctuations in foreign investor participation, influenced by global economic conditions, domestic economic factors, and policy changes affecting capital flows.
-                </li>
-                <li>
-                    <strong>Regulatory Reforms</strong> - Ongoing regulatory reforms aimed at enhancing market integrity, transparency, and investor protection, including updates to listing rules and disclosure requirements.
-                </li>
-            </ul>
-            
-            <p>Despite these challenges, the Sri Lankan capital market continues to evolve, with efforts focused on enhancing market depth, improving regulatory frameworks, and increasing participation from both domestic and international investors. The development of a robust capital market remains crucial for Sri Lanka's long-term economic growth and financial sector development.</p>
-        </section>
-
-        <section id="conclusion">
-            <h2><i class="fas fa-flag-checkered"></i> Conclusion</h2>
-            <p>The capital market serves as a vital component of the financial system, providing a platform for long-term investment, capital formation, and resource allocation. Its efficient functioning is essential for economic development, corporate growth, and the creation of wealth for investors.</p>
-            
-            <div class="key-points">
-                <h3><i class="fas fa-lightbulb"></i> Key Takeaways</h3>
-                <ul>
-                    <li>Capital markets facilitate long-term investment and capital formation</li>
-                    <li>They offer a diverse range of instruments with varying risk-return profiles</li>
-                    <li>Multiple participants interact to ensure efficient allocation of resources</li>
-                    <li>Well-functioning capital markets contribute significantly to economic growth</li>
-                    <li>Global integration has expanded investment opportunities and capital access</li>
-                    <li>Country-specific capital markets, like Sri Lanka's, have unique structures and challenges</li>
-                </ul>
-            </div>
-            
-            <p>Understanding the capital market is essential for financial professionals, policymakers, businesses, and individual investors. The market's health is a barometer of economic vitality, with robust capital markets associated with higher rates of innovation, entrepreneurship, and economic growth.</p>
-            
-            <p>As financial markets continue to evolve with technological advancements, regulatory changes, and shifting economic conditions, the capital market will remain a cornerstone of the financial system, adapting to new challenges while continuing to fulfill its fundamental role in channeling savings into productive investments and supporting long-term economic development.</p>
-        </section>
+    <section id="meaning">
+        <h2><i class="fas fa-book"></i> Meaning and Definition</h2>
+        <p>The capital market is a segment of the financial market where long-term debt and equity-backed securities are created, bought, and sold. It provides a mechanism for channeling savings into productive investments and for companies and governments to raise long-term funds.</p>
+        <p>Unlike money markets, capital markets involve securities with maturities exceeding one year and are focused on financing capital expenditures and investments rather than working capital needs. These markets include both primary markets (where new securities are issued) and secondary markets (where existing securities are traded).</p>
         
-        <section id="references" class="references">
-            <h2><i class="fas fa-book-open"></i> References</h2>
-            <ol>
-                <li>Central Bank of Sri Lanka. (n.d.). <em>Financial System</em>. Retrieved from <a href="https://www.cbsl.gov.lk/en/node/120" target="_blank">https://www.cbsl.gov.lk/en/node/120</a></li>
-                <li>Securities and Exchange Commission of Sri Lanka. (2023). <em>Capital Market Development in Sri Lanka</em>. Retrieved from <a href="https://www.sec.gov.lk" target="_blank">https://www.sec.gov.lk</a></li>
-                <li>Colombo Stock Exchange. (2023). <em>Market Reports</em>. Retrieved from <a href="https://www.cse.lk" target="_blank">https://www.cse.lk</a></li>
-                <li>International Monetary Fund. (2022). <em>Global Financial Stability Report</em>. Washington, D.C.: IMF.</li>
-                <li>Mishkin, F. S., & Eakins, S. G. (2021). <em>Financial Markets and Institutions</em> (10th ed.). Pearson.</li>
-                <li>Central Bank of Sri Lanka. (2022). <em>Annual Report 2021</em>. Colombo: CBSL.</li>
-                <li>Fabozzi, F. J., & Mann, S. V. (2022). <em>The Handbook of Fixed Income Securities</em> (9th ed.). McGraw-Hill Education.</li>
-                <li>World Bank. (2021). <em>Capital Market Development: Causes, Effects, and Sequencing</em>. World Bank Policy Research Working Paper.</li>
-                <li>Asian Development Bank. (2022). <em>Asian Economic Integration Report</em>. Manila: ADB.</li>
-            </ol>
-        </section>
-        
-        <div class="post-navigation">
-            <div class="prev-post">
-                <a href="#"><i class="fas fa-arrow-left"></i> Previous Post</a>
-            </div>
-            <div class="next-post">
-                <a href="#">Next Post <i class="fas fa-arrow-right"></i></a>
-            </div>
+        <div class="example">
+            <strong>Example:</strong> A technology company conducts an Initial Public Offering (IPO) on a stock exchange, raising $500 million by selling shares to the public. This transaction occurs in the primary capital market, while subsequent trading of these shares takes place in the secondary market.
         </div>
-    </article>
+        
+        <p>The capital market is characterized by its focus on long-term investment, higher risk-return profiles, and its role in economic development through efficient allocation of resources to productive sectors.</p>
+    </section>
+
+    <section id="characteristics">
+        <h2><i class="fas fa-fingerprint"></i> Characteristics of Capital Market</h2>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-star"></i> Key Features</h3>
+            <ul>
+                <li>Long-term maturities (typically more than one year)</li>
+                <li>Higher risk and return potential</li>
+                <li>Both debt and equity instruments</li>
+                <li>Regulated market structure</li>
+                <li>Diverse participant base including retail investors</li>
+                <li>Focus on capital formation and investment</li>
+            </ul>
+        </div>
+        
+        <h3>Key Characteristics Explained:</h3>
+        <ol>
+            <li>
+                <strong>Long-term Nature</strong> - Capital market instruments have maturities exceeding one year, with many extending to several years or even decades, supporting long-term economic growth.
+            </li>
+            <li>
+                <strong>Risk-Return Profile</strong> - These markets typically offer higher potential returns compared to money markets, but with correspondingly higher risks due to longer time horizons and greater market uncertainties.
+            </li>
+            <li>
+                <strong>Market Structure</strong> - Capital markets are more formalized and regulated, with organized exchanges (like stock exchanges) playing a central role alongside over-the-counter markets.
+            </li>
+            <li>
+                <strong>Liquidity</strong> - While generally less liquid than money markets, secondary markets for capital market instruments provide mechanisms for investors to buy and sell securities before maturity.
+            </li>
+            <li>
+                <strong>Participant Diversity</strong> - Capital markets involve a wide range of participants, including retail investors, institutional investors, corporations, and governments.
+            </li>
+        </ol>
+        
+        <p><strong>Efficiency:</strong> The efficiency of capital markets varies across different segments and countries. Developed capital markets tend to be more efficient, with prices quickly reflecting available information, while emerging markets may exhibit various inefficiencies due to information asymmetries, regulatory constraints, or limited participation.</p>
+    </section>
+
+    <section id="importance">
+        <h2><i class="fas fa-chart-line"></i> Scope/Importance of Capital Market</h2>
+        <ul>
+            <li>
+                <strong>Capital formation</strong> - Facilitates the accumulation of capital by channeling savings into productive investments, supporting economic growth and development.
+            </li>
+            <li>
+                <strong>Resource allocation</strong> - Directs resources to their most productive uses through the price mechanism, enhancing economic efficiency.
+            </li>
+            <li>
+                <strong>Long-term financing</strong> - Provides businesses and governments with access to long-term funds for infrastructure development, expansion, and other capital-intensive projects.
+            </li>
+            <li>
+                <strong>Investment opportunities</strong> - Offers individuals and institutions various investment options to grow their wealth and achieve financial goals.
+            </li>
+            <li>
+                <strong>Economic stability</strong> - Well-functioning capital markets contribute to economic stability by facilitating risk sharing and providing mechanisms for price discovery.
+            </li>
+        </ul>
+        
+        <p>The capital market serves as a barometer of economic health, with market indices often used as leading indicators of economic performance. The development of robust capital markets is associated with higher economic growth rates, as they enable more efficient allocation of resources and provide mechanisms for financing innovation and entrepreneurship.</p>
+    </section>
+
+    <section id="functions">
+        <h2><i class="fas fa-cogs"></i> Functions/Roles of Capital Market</h2>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-tasks"></i> Primary Functions</h3>
+            <ul>
+                <li>Mobilization of savings</li>
+                <li>Capital formation</li>
+                <li>Price discovery</li>
+                <li>Liquidity provision</li>
+                <li>Risk transfer</li>
+                <li>Corporate governance</li>
+            </ul>
+        </div>
+        
+        <p>The capital market performs several critical functions in the financial system:</p>
+        
+        <ul>
+            <li>
+                <strong>Mobilization of savings</strong> - Channels savings from households and other economic units into productive investments, increasing the overall capital stock in the economy.
+            </li>
+            <li>
+                <strong>Capital formation</strong> - Facilitates the creation of physical capital by providing long-term financing for infrastructure, industrial development, and technological innovation.
+            </li>
+            <li>
+                <strong>Price discovery</strong> - Establishes prices for financial assets based on supply and demand, reflecting the collective assessment of market participants regarding future prospects.
+            </li>
+            <li>
+                <strong>Liquidity provision</strong> - Enables investors to convert their investments into cash through secondary markets, enhancing the attractiveness of long-term investments.
+            </li>
+            <li>
+                <strong>Risk transfer</strong> - Allows for the transfer of risk from those less willing to bear it to those more willing, through various financial instruments and derivatives.
+            </li>
+            <li>
+                <strong>Corporate governance</strong> - Promotes better corporate governance through market discipline, disclosure requirements, and shareholder activism.
+            </li>
+        </ul>
+        
+        <p>The capital market also plays a crucial role in economic development by providing mechanisms for financing large-scale projects that might be beyond the capacity of individual financial institutions. It enables risk diversification and specialization, leading to more efficient resource allocation and economic growth.</p>
+    </section>
+
+    <section id="instruments">
+        <h2><i class="fas fa-tools"></i> Capital Market Instruments</h2>
+        <p>Capital market instruments are long-term securities that enable entities to raise funds for capital expenditures and investments. These instruments can be broadly categorized into equity instruments and debt instruments, each with distinct characteristics and purposes.</p>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-file-invoice-dollar"></i> Key Instruments</h3>
+            <ul>
+                <li>Equity Shares (Common Stock)</li>
+                <li>Preference Shares</li>
+                <li>Bonds and Debentures</li>
+                <li>Government Securities</li>
+                <li>Derivatives</li>
+                <li>Mutual Funds and ETFs</li>
+            </ul>
+        </div>
+        
+        <ul>
+            <li>
+                <strong>Equity Shares (Common Stock)</strong> - Represent ownership in a company, entitling shareholders to voting rights and dividends. Equity financing provides companies with permanent capital without fixed repayment obligations.
+            </li>
+            <li>
+                <strong>Preference Shares</strong> - Hybrid instruments that combine features of both equity and debt. They offer priority over common shareholders in dividend payments and asset distribution during liquidation but typically have limited or no voting rights.
+            </li>
+            <li>
+                <strong>Bonds and Debentures</strong> - Long-term debt instruments issued by corporations with fixed maturity dates and interest payment schedules. Bonds are typically secured by specific assets, while debentures are unsecured.
+            </li>
+            <li>
+                <strong>Government Securities</strong> - Debt instruments issued by national, state, or local governments to finance public expenditures. These include treasury bonds, municipal bonds, and sovereign bonds.
+            </li>
+            <li>
+                <strong>Derivatives</strong> - Financial contracts whose value is derived from underlying assets such as stocks, bonds, commodities, or market indices. Common derivatives include options, futures, and swaps.
+            </li>
+            <li>
+                <strong>Mutual Funds and ETFs</strong> - Investment vehicles that pool funds from multiple investors to purchase diversified portfolios of securities, providing access to professional management and diversification.
+            </li>
+        </ul>
+        
+        <p>Each instrument serves specific needs in the market and offers different combinations of risk, return, and control rights. The choice of instrument depends on the specific requirements of the issuer and investor, including capital structure preferences, risk tolerance, and investment objectives.</p>
+    </section>
+
+    <section id="participants">
+        <h2><i class="fas fa-users"></i> Key Participants in the Capital Market</h2>
+        <p>The capital market involves various participants who interact to facilitate the efficient allocation of long-term capital. Each participant plays a specific role in ensuring the market functions effectively.</p>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-user-tie"></i> Major Participants</h3>
+            <ul>
+                <li>Issuers</li>
+                <li>Investors</li>
+                <li>Intermediaries</li>
+                <li>Regulators</li>
+                <li>Stock Exchanges</li>
+                <li>Rating Agencies</li>
+            </ul>
+        </div>
+        
+        <ul>
+            <li>
+                <strong>Issuers</strong> - Entities that raise capital by issuing securities, including corporations, governments, and municipalities. They use the funds for long-term investments, expansion, or refinancing existing debt.
+            </li>
+            <li>
+                <strong>Investors</strong> - Individuals and institutions that provide capital by purchasing securities. These include retail investors, pension funds, insurance companies, mutual funds, hedge funds, and sovereign wealth funds.
+            </li>
+            <li>
+                <strong>Intermediaries</strong> - Financial institutions that facilitate transactions between issuers and investors. These include investment banks, brokers, dealers, and underwriters who help in the issuance, distribution, and trading of securities.
+            </li>
+            <li>
+                <strong>Regulators</strong> - Government agencies and self-regulatory organizations that oversee capital markets to ensure fair practices, transparency, and investor protection. Examples include the SEC in the US and the FCA in the UK.
+            </li>
+            <li>
+                <strong>Stock Exchanges</strong> - Organized marketplaces where securities are listed and traded according to standardized rules. They provide infrastructure for price discovery, liquidity, and transparent trading.
+            </li>
+            <li>
+                <strong>Rating Agencies</strong> - Organizations that assess the creditworthiness of issuers and their debt instruments, providing investors with information about the risk associated with different securities.
+            </li>
+        </ul>
+        
+        <p>The interaction among these participants creates a dynamic marketplace where long-term capital flows efficiently from those with surplus funds to those with productive investment opportunities, supporting economic growth and development.</p>
+    </section>
+
+    <section id="structure">
+        <h2><i class="fas fa-building"></i> Structure of Capital Market</h2>
+        <p>The capital market has a complex structure with various segments serving different needs. Its organization varies across countries but generally includes several key components:</p>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-project-diagram"></i> Key Segments</h3>
+            <ul>
+                <li>Primary Market</li>
+                <li>Secondary Market</li>
+                <li>Equity Market</li>
+                <li>Debt Market</li>
+                <li>Derivatives Market</li>
+                <li>Private Capital Market</li>
+            </ul>
+        </div>
+        
+        <ul>
+            <li>
+                <strong>Primary Market</strong> - Where new securities are issued and sold to investors for the first time. This includes initial public offerings (IPOs), rights issues, and private placements. The primary market enables issuers to raise fresh capital.
+            </li>
+            <li>
+                <strong>Secondary Market</strong> - Where previously issued securities are bought and sold among investors. This market provides liquidity to investors and helps in price discovery. Stock exchanges are the most visible component of the secondary market.
+            </li>
+            <li>
+                <strong>Equity Market</strong> - The market for trading ownership shares in companies. It includes both listed stocks traded on exchanges and unlisted stocks traded over-the-counter.
+            </li>
+            <li>
+                <strong>Debt Market</strong> - The market for trading fixed-income securities such as government bonds, corporate bonds, and debentures. It includes both government securities and corporate debt.
+            </li>
+            <li>
+                <strong>Derivatives Market</strong> - Where derivative instruments such as futures, options, and swaps are traded. These markets facilitate risk management and speculative activities.
+            </li>
+            <li>
+                <strong>Private Capital Market</strong> - Where transactions occur directly between parties without public offerings. This includes private equity, venture capital, and private placements.
+            </li>
+        </ul>
+        
+        <p>These segments are interconnected, with developments in one often affecting others. The structure is also influenced by regulatory frameworks, technological advancements, and market practices that vary across jurisdictions.</p>
+    </section>
+
+    <section id="difference">
+        <h2><i class="fas fa-balance-scale"></i> Difference Between Capital and Money Market</h2>
+        <p>While both capital and money markets are important components of the financial system, they serve different purposes and have distinct characteristics:</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Basis</th>
+                    <th>Capital Market</th>
+                    <th>Money Market</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Time Period</td>
+                    <td>Long-term (more than 1 year)</td>
+                    <td>Short-term (less than 1 year)</td>
+                </tr>
+                <tr>
+                    <td>Instruments</td>
+                    <td>Stocks, bonds, debentures</td>
+                    <td>Treasury bills, commercial paper, certificates of deposit, repos</td>
+                </tr>
+                <tr>
+                    <td>Risk</td>
+                    <td>Higher risk</td>
+                    <td>Lower risk</td>
+                </tr>
+                <tr>
+                    <td>Return</td>
+                    <td>Higher return potential</td>
+                    <td>Lower return potential</td>
+                </tr>
+                <tr>
+                    <td>Liquidity</td>
+                    <td>Less liquid</td>
+                    <td>More liquid</td>
+                </tr>
+                <tr>
+                    <td>Purpose</td>
+                    <td>Capital formation and investment</td>
+                    <td>Working capital and liquidity management</td>
+                </tr>
+                <tr>
+                    <td>Participants</td>
+                    <td>Retail investors, institutional investors, corporations</td>
+                    <td>Banks, financial institutions, corporations</td>
+                </tr>
+                <tr>
+                    <td>Regulation</td>
+                    <td>More regulated</td>
+                    <td>Less regulated</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p>The capital market focuses on long-term investment and capital formation, while the money market facilitates short-term financing and liquidity management. The capital market has broader participation, including individual retail investors, whereas the money market is primarily wholesale in nature, with large transactions between institutional participants.</p>
+        
+        <p>Despite these differences, the two markets are interconnected, with developments in one often affecting the other. For example, changes in long-term interest rates in the capital market can influence expectations about future short-term rates in the money market, affecting investment decisions and asset valuations across both markets.</p>
+    </section>
+
+    <section id="global">
+        <h2><i class="fas fa-globe"></i> Global Capital Market</h2>
+        <p>The global capital market encompasses the interconnected network of markets where long-term financial instruments are traded across national boundaries. As financial markets have become increasingly integrated, the global capital market has grown in importance for international investment, risk diversification, and capital allocation.</p>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-key"></i> Key Features</h3>
+            <ul>
+                <li>International Equity Markets</li>
+                <li>Global Bond Markets</li>
+                <li>Cross-border Listings</li>
+                <li>International Investment Flows</li>
+                <li>Global Financial Centers</li>
+            </ul>
+        </div>
+        
+        <ul>
+            <li>
+                <strong>International Equity Markets</strong> - Markets where shares of companies from different countries are traded. These include major stock exchanges like the NYSE, NASDAQ, London Stock Exchange, and Tokyo Stock Exchange, as well as emerging market exchanges.
+            </li>
+            <li>
+                <strong>Global Bond Markets</strong> - Markets for debt securities issued by governments, corporations, and international organizations across different currencies and jurisdictions. The Eurobond market is a significant component of the global bond market.
+            </li>
+            <li>
+                <strong>Cross-border Listings</strong> - Companies listing their securities on exchanges outside their home country to access international investors, enhance visibility, and increase liquidity. This includes American Depositary Receipts (ADRs) and Global Depositary Receipts (GDRs).
+            </li>
+            <li>
+                <strong>International Investment Flows</strong> - Movement of capital across national borders as investors seek diversification and higher returns. This includes foreign direct investment, portfolio investment, and international venture capital.
+            </li>
+            <li>
+                <strong>Global Financial Centers</strong> - Cities that serve as hubs for international financial activity, such as New York, London, Hong Kong, Singapore, and Tokyo, providing infrastructure, expertise, and regulatory environments conducive to global capital market operations.
+            </li>
+        </ul>
+        
+        <p>The global capital market plays a crucial role in international finance by facilitating cross-border capital flows, enabling multinational corporations to raise funds globally, and providing investors with opportunities for international diversification. However, it also creates channels for the transmission of financial stress across borders, as demonstrated during global financial crises when disruptions in one market quickly spread to markets worldwide.</p>
+    </section>
+
+    <section id="sri-lanka">
+        <h2><i class="fas fa-map-marked-alt"></i> Sri Lankan Capital Market</h2>
+        <p>The Sri Lankan capital market has evolved significantly over the years, playing an increasingly important role in the country's economic development. It provides a platform for companies to raise long-term capital and offers investment opportunities for both domestic and international investors.</p>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-landmark"></i> Structure of Sri Lankan Capital Market</h3>
+            <ul>
+                <li>Colombo Stock Exchange (CSE)</li>
+                <li>Government Securities Market</li>
+                <li>Corporate Debt Market</li>
+                <li>Unit Trust Market</li>
+                <li>Private Equity Market</li>
+            </ul>
+        </div>
+        
+        <h3>Key Components of Sri Lankan Capital Market:</h3>
+        
+        <ol>
+            <li>
+                <strong>Colombo Stock Exchange (CSE)</strong> - The primary stock exchange in Sri Lanka, established in 1985. It provides a platform for trading equity securities and corporate debt instruments. The CSE operates two main indices: the All Share Price Index (ASPI) and the S&P Sri Lanka 20 Index. It has made significant technological advancements, including the implementation of an automated trading system and a central depository system.
+            </li>
+            <li>
+                <strong>Government Securities Market</strong> - The market for trading long-term government securities, primarily Treasury bonds. These are issued by the Central Bank of Sri Lanka (CBSL) on behalf of the government to finance long-term development projects and manage public debt. The government securities market is a significant component of Sri Lanka's capital market, providing benchmark rates for other fixed-income securities.
+            </li>
+            <li>
+                <strong>Corporate Debt Market</strong> - The market for corporate bonds and debentures issued by companies to raise long-term debt capital. This segment has grown in recent years, with an increasing number of listed debentures on the CSE, providing companies with an alternative to bank financing.
+            </li>
+            <li>
+                <strong>Unit Trust Market</strong> - Comprises various mutual funds and unit trusts that pool investments from multiple investors to invest in diversified portfolios of securities. This segment has been growing, providing retail investors with access to professional fund management and diversification.
+            </li>
+            <li>
+                <strong>Private Equity Market</strong> - Though less developed compared to other segments, the private equity market in Sri Lanka has been evolving, with increasing interest from both domestic and international private equity firms in investing in Sri Lankan companies with growth potential.
+            </li>
+        </ol>
+        
+        <h3>Regulatory Framework:</h3>
+        
+        <p>The Sri Lankan capital market is regulated by several key institutions:</p>
+        
+        <ul>
+            <li>
+                <strong>Securities and Exchange Commission of Sri Lanka (SEC)</strong> - The primary regulatory authority responsible for maintaining fair, efficient, and transparent capital markets. The SEC licenses market intermediaries, regulates market conduct, and protects investor interests.
+            </li>
+            <li>
+                <strong>Central Bank of Sri Lanka (CBSL)</strong> - Regulates the government securities market and oversees the overall stability of the financial system, including aspects of the capital market.
+            </li>
+            <li>
+                <strong>Colombo Stock Exchange (CSE)</strong> - Acts as a self-regulatory organization, establishing listing requirements, trading rules, and monitoring compliance by listed companies and market participants.
+            </li>
+        </ul>
+        
+        <div class="example">
+            <strong>Example:</strong> A leading Sri Lankan conglomerate issues a 5-year corporate debenture on the CSE, raising LKR 2 billion at an annual interest rate of 13.5%. The issue is oversubscribed, demonstrating investor confidence in the company and the growing appetite for corporate debt instruments in the Sri Lankan capital market.
+        </div>
+        
+        <h3>Recent Developments and Challenges:</h3>
+        
+        <p>The Sri Lankan capital market has faced several challenges and developments in recent years:</p>
+        
+        <ul>
+            <li>
+                <strong>Economic Challenges</strong> - The economic crisis that intensified in 2022 significantly impacted the capital market, with market volatility, reduced foreign participation, and challenges in corporate performance affecting investor sentiment.
+            </li>
+            <li>
+                <strong>Digitalization</strong> - The market has been embracing digital transformation, with initiatives such as the introduction of a mobile trading app by the CSE and efforts to enhance market accessibility through technology.
+            </li>
+            <li>
+                <strong>Market Development Initiatives</strong> - Efforts to deepen and broaden the market, including the introduction of new products like Real Estate Investment Trusts (REITs) and the development of a derivatives market.
+            </li>
+            <li>
+                <strong>Foreign Investment Flows</strong> - Fluctuations in foreign investor participation, influenced by global economic conditions, domestic economic factors, and policy changes affecting capital flows.
+            </li>
+            <li>
+                <strong>Regulatory Reforms</strong> - Ongoing regulatory reforms aimed at enhancing market integrity, transparency, and investor protection, including updates to listing rules and disclosure requirements.
+            </li>
+        </ul>
+        
+        <p>Despite these challenges, the Sri Lankan capital market continues to evolve, with efforts focused on enhancing market depth, improving regulatory frameworks, and increasing participation from both domestic and international investors. The development of a robust capital market remains crucial for Sri Lanka's long-term economic growth and financial sector development.</p>
+    </section>
+
+    <section id="conclusion">
+        <h2><i class="fas fa-flag-checkered"></i> Conclusion</h2>
+        <p>The capital market serves as a vital component of the financial system, providing a platform for long-term investment, capital formation, and resource allocation. Its efficient functioning is essential for economic development, corporate growth, and the creation of wealth for investors.</p>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-lightbulb"></i> Key Takeaways</h3>
+            <ul>
+                <li>Capital markets facilitate long-term investment and capital formation</li>
+                <li>They offer a diverse range of instruments with varying risk-return profiles</li>
+                <li>Multiple participants interact to ensure efficient allocation of resources</li>
+                <li>Well-functioning capital markets contribute significantly to economic growth</li>
+                <li>Global integration has expanded investment opportunities and capital access</li>
+                <li>Country-specific capital markets, like Sri Lanka's, have unique structures and challenges</li>
+            </ul>
+        </div>
+        
+        <p>Understanding the capital market is essential for financial professionals, policymakers, businesses, and individual investors. The market's health is a barometer of economic vitality, with robust capital markets associated with higher rates of innovation, entrepreneurship, and economic growth.</p>
+        
+        <p>As financial markets continue to evolve with technological advancements, regulatory changes, and shifting economic conditions, the capital market will remain a cornerstone of the financial system, adapting to new challenges while continuing to fulfill its fundamental role in channeling savings into productive investments and supporting long-term economic development.</p>
+    </section>
+    
+    <section id="references" class="references">
+        <h2><i class="fas fa-book-open"></i> References</h2>
+        <ol>
+            <li>Central Bank of Sri Lanka. (n.d.). <em>Financial System</em>. Retrieved from <a href="https://www.cbsl.gov.lk/en/node/120" target="_blank">https://www.cbsl.gov.lk/en/node/120</a></li>
+            <li>Securities and Exchange Commission of Sri Lanka. (2023). <em>Capital Market Development in Sri Lanka</em>. Retrieved from <a href="https://www.sec.gov.lk" target="_blank">https://www.sec.gov.lk</a></li>
+            <li>Colombo Stock Exchange. (2023). <em>Market Reports</em>. Retrieved from <a href="https://www.cse.lk" target="_blank">https://www.cse.lk</a></li>
+            <li>International Monetary Fund. (2022). <em>Global Financial Stability Report</em>. Washington, D.C.: IMF.</li>
+            <li>Mishkin, F. S., & Eakins, S. G. (2021). <em>Financial Markets and Institutions</em> (10th ed.). Pearson.</li>
+            <li>Central Bank of Sri Lanka. (2022). <em>Annual Report 2021</em>. Colombo: CBSL.</li>
+            <li>Fabozzi, F. J., & Mann, S. V. (2022). <em>The Handbook of Fixed Income Securities</em> (9th ed.). McGraw-Hill Education.</li>
+            <li>World Bank. (2021). <em>Capital Market Development: Causes, Effects, and Sequencing</em>. World Bank Policy Research Working Paper.</li>
+            <li>Asian Development Bank. (2022). <em>Asian Economic Integration Report</em>. Manila: ADB.</li>
+        </ol>
+    </section>
+    
+    <div class="post-navigation">
+        <div class="prev-post">
+            <a href="#"><i class="fas fa-arrow-left"></i> Previous Post</a>
+        </div>
+        <div class="next-post">
+            <a href="#">Next Post <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</article>
 </main>
+
+<!-- Theme Toggle Button (Floating) -->
+<button class="theme-toggle-float" id="themeToggleFloat">
+    <i class="fas fa-moon"></i>
+</button>
 
 <a href="#" class="back-to-top" id="backToTop">
     <i class="fas fa-arrow-up"></i>
 </a>
 
 <footer>
-    <div class="footer-container">
-        <div class="copyright">
-            &copy; 2025 M Nethmina Perera. All rights reserved.
-        </div>
+<div class="footer-container">
+    <div class="copyright">
+        &copy; 2025 M Nethmina Perera. All rights reserved.
     </div>
+</div>
 </footer>
 
 <script>
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = themeToggle.querySelector('i');
-    const themeText = themeToggle.querySelector('span');
-    const htmlElement = document.documentElement;
-    
-    // Check for saved theme preference or use system preference
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    function setTheme(isDark) {
-        if (isDark) {
-            htmlElement.classList.add('dark-mode');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-            themeText.textContent = 'Light Mode';
-            localStorage.setItem('theme', 'dark');
-        } else {
-            htmlElement.classList.remove('dark-mode');
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-            themeText.textContent = 'Dark Mode';
-            localStorage.setItem('theme', 'light');
-        }
+// Theme toggle functionality
+const themeToggleFloat = document.getElementById('themeToggleFloat');
+const htmlElement = document.documentElement;
+
+// Check for saved theme preference or use system preference
+const savedTheme = localStorage.getItem('theme');
+const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+function setTheme(isDark) {
+    if (isDark) {
+        htmlElement.classList.remove('light-mode');
+        htmlElement.classList.add('dark-mode');
+        themeToggleFloat.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        htmlElement.classList.remove('dark-mode');
+        htmlElement.classList.add('light-mode');
+        themeToggleFloat.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', 'light');
     }
+}
+
+// Set initial theme
+if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
+    setTheme(true);
+} else {
+    setTheme(false);
+}
+
+// Toggle theme on button click
+themeToggleFloat.addEventListener('click', () => {
+    const isDarkMode = htmlElement.classList.contains('dark-mode');
+    setTheme(!isDarkMode);
+});
+
+// Mobile menu toggle
+const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+const navLinks = document.getElementById('navLinks');
+
+mobileMenuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
     
-    if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
-        setTheme(true);
+    if (navLinks.classList.contains('active')) {
+        mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
+    } else {
+        mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
     }
-    
-    themeToggle.addEventListener('click', () => {
-        setTheme(!htmlElement.classList.contains('dark-mode'));
-    });
-    
-    // Mobile menu toggle
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const navLinks = document.getElementById('navLinks');
-    
-    mobileMenuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        
-        if (navLinks.classList.contains('active')) {
-            mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
-        } else {
-            mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-    });
-    
-    // Back to top button functionality
-    const backToTopButton = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
-    });
-    
-    backToTopButton.addEventListener('click', (e) => {
+});
+
+// Back to top button functionality
+const backToTopButton = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+    } else {
+        backToTopButton.classList.remove('visible');
+    }
+});
+
+backToTopButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Smooth scrolling for table of contents links
+document.querySelectorAll('.toc a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    
-    // Smooth scrolling for table of contents links
-    document.querySelectorAll('.toc a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
         });
     });
+});
+
+// Progress bar
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+// Auto-detect device type and set appropriate styles
+function detectDeviceType() {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
+    const isTablet = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
     
-    // Progress bar
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        document.getElementById('progressBar').style.width = scrolled + '%';
-    });
-    
-    // Auto-detect device type and set appropriate styles
-    function detectDeviceType() {
-        const userAgent = navigator.userAgent.toLowerCase();
-        const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
-        const isTablet = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
-        
-        if (isMobile && !isTablet) {
-            document.body.classList.add('mobile-device');
-            document.body.classList.remove('tablet-device', 'desktop-device');
-        } else if (isTablet) {
-            document.body.classList.add('tablet-device');
-            document.body.classList.remove('mobile-device', 'desktop-device');
-        } else {
-            document.body.classList.add('desktop-device');
-            document.body.classList.remove('mobile-device', 'tablet-device');
-        }
+    if (isMobile && !isTablet) {
+        document.body.classList.add('mobile-device');
+        document.body.classList.remove('tablet-device', 'desktop-device');
+    } else if (isTablet) {
+        document.body.classList.add('tablet-device');
+        document.body.classList.remove('mobile-device', 'desktop-device');
+    } else {
+        document.body.classList.add('desktop-device');
+        document.body.classList.remove('mobile-device', 'tablet-device');
     }
-    
+}
+
+detectDeviceType();
+
+// Handle window resize
+window.addEventListener('resize', () => {
     detectDeviceType();
     
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        detectDeviceType();
-        
-        if (window.innerWidth > 768) {
-            navLinks.classList.remove('active');
-            mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-    });
+    if (window.innerWidth > 768) {
+        navLinks.classList.remove('active');
+        mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+});
 </script>
 </body>
 </html>
