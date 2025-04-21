@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en" class="light-mode">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forex Market: A Comprehensive Overview | My Portfolio</title>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Reset and base styles */
+:root {
+    --bg-primary: #1a202c;
+    --bg-secondary: #2d3748;
+    --text-primary: #e2e8f0;
+    --text-secondary: #a0aec0;
+    --accent-primary: #4299e1;
+    --accent-secondary: #3182ce;
+    --accent-highlight: #63b3ed;
+    --border-color: #4a5568;
+    --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    --header-bg: #2d3748;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --footer-bg: #1a202c;
+    --footer-text: #e2e8f0;
+    --toc-bg: #2d3748;
+    --example-bg: #3a4a5e;
+    --key-points-bg: #2c4a52;
+    --table-header-bg: #3182ce;
+    --table-header-text: #e2e8f0;
+    --table-row-even: #3a4a5e;
+    --table-row-hover: #2c4a52;
+    --code-bg: #2d3748;
+    --back-to-top-bg: #4299e1;
+    --back-to-top-hover: #3182ce;
+    --category-bg: #2c4a52;
+    --category-text: #63b3ed;
+    --comment-bg: #2d3748;
+    --comment-border: #4a5568;
+    --comment-highlight: #2c4a52;
+    --button-primary: #4299e1;
+    --button-hover: #3182ce;
+    --button-text: #1a202c;
+    --reference-bg: #2d3748;
+    --reference-border: #4a5568;
+}
+
+.light-mode {
+    --bg-primary: #f9f9f9;
+    --bg-secondary: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #555555;
+    --accent-primary: #3182ce;
+    --accent-secondary: #4299e1;
+    --accent-highlight: #63b3ed;
+    --border-color: #dddddd;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --header-bg: #ffffff;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --footer-bg: #1a365d;
+    --footer-text: #ffffff;
+    --toc-bg: #f0f8ff;
+    --example-bg: #f8f9fa;
+    --key-points-bg: #e6fffa;
+    --table-header-bg: #3182ce;
+    --table-header-text: #ffffff;
+    --table-row-even: #f2f2f2;
+    --table-row-hover: #e6fffa;
+    --code-bg: #f5f5f5;
+    --back-to-top-bg: #4299e1;
+    --back-to-top-hover: #3182ce;
+    --category-bg: #e6fffa;
+    --category-text: #3182ce;
+    --comment-bg: #f8f9fa;
+    --comment-border: #e2e8f0;
+    --comment-highlight: #e6fffa;
+    --button-primary: #4299e1;
+    --button-hover: #3182ce;
+    --button-text: #ffffff;
+    --reference-bg: #f8f9fa;
+    --reference-border: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header and Navigation */
+header {
+    background-color: var(--header-bg);
+    box-shadow: var(--header-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.logo a span {
+    color: var(--accent-highlight);
+}
+
+.logo a:hover {
+    color: var(--accent-secondary);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--accent-primary);
+}
+
+nav ul li a.active {
+    color: var(--accent-primary);
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-primary);
+}
+
+/* Mobile Menu */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Main Content */
+.blog-content {
+    max-width: 800px;
+    margin: 2rem auto 4rem;
+    padding: 0 1.5rem;
+}
+
+/* Article Header */
+.article-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.article-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+}
+
+.article-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.post-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.post-meta .date {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.post-meta .date i {
+    margin-right: 0.5rem;
+    color: var(--accent-secondary);
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.categories a {
+    background-color: var(--category-bg);
+    color: var(--category-text);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.categories a:hover {
+    background-color: var(--accent-secondary);
+    color: white;
+}
+
+/* Table of Contents */
+.toc {
+    background-color: var(--toc-bg);
+    border-left: 4px solid var(--accent-secondary);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.3s ease;
+    box-shadow: var(--card-shadow);
+}
+
+.toc h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--accent-primary);
+    display: flex;
+    align-items: center;
+}
+
+.toc h2 i {
+    margin-right: 0.5rem;
+    color: var(--accent-secondary);
+}
+
+.toc ul {
+    list-style: none;
+}
+
+.toc ul li {
+    margin-bottom: 0.5rem;
+}
+
+.toc ul li a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
+    padding: 0.2rem 0;
+}
+
+.toc ul li a:hover {
+    color: var(--accent-secondary);
+    transform: translateX(5px);
+}
+
+/* Sections */
+section {
+    margin-bottom: 3rem;
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-secondary);
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+section h2 i {
+    margin-right: 0.75rem;
+    color: var(--accent-secondary);
+}
+
+section h3 {
+    font-size: 1.3rem;
+    color: var(--accent-primary);
+    margin: 1.5rem 0 1rem;
+}
+
+section p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+/* Lists */
+section ul, section ol {
+    margin: 1rem 0 1.5rem 1.5rem;
+}
+
+section li {
+    margin-bottom: 0.75rem;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+section ul li {
+    list-style-type: none;
+    padding-left: 1.5rem;
+}
+
+section ul li::before {
+    content: '•';
+    color: var(--accent-secondary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+section ol li {
+    padding-left: 0.5rem;
+}
+
+section li strong {
+    color: var(--accent-primary);
+}
+
+/* Nested Lists */
+section li ul, section li ol {
+    margin-top: 0.75rem;
+}
+
+/* Examples and Emphasis */
+em {
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.example {
+    background-color: var(--example-bg);
+    border-left: 4px solid var(--accent-secondary);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 5px 5px 0;
+    font-style: italic;
+    transition: background-color 0.3s ease;
+}
+
+.example strong {
+    font-weight: 500;
+    color: var(--accent-primary);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    box-shadow: var(--card-shadow);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+thead {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
+    transition: background-color 0.3s ease;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    transition: border-color 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--table-row-even);
+    transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+    background-color: var(--table-row-hover);
+    transition: background-color 0.3s ease;
+}
+
+/* Key Points */
+.key-points {
+    background-color: var(--key-points-bg);
+    border-left: 4px solid var(--accent-secondary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.3s ease;
+    box-shadow: var(--card-shadow);
+}
+
+.key-points h3 {
+    color: var(--accent-primary);
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.key-points h3 i {
+    margin-right: 0.5rem;
+    color: var(--accent-secondary);
+}
+
+.key-points ul {
+    margin-bottom: 0;
+}
+
+/* Conclusion */
+#conclusion {
+    background-color: var(--toc-bg);
+    border-top: 4px solid var(--accent-secondary);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+/* References Section */
+.references {
+    margin-top: 3rem;
+    background-color: var(--reference-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.references h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.references h2 i {
+    margin-right: 0.75rem;
+    color: var(--accent-secondary);
+}
+
+.references ol {
+    margin-left: 1.5rem;
+}
+
+.references li {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.references a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.references a:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 3rem;
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comments-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.comments-section h2 i {
+    margin-right: 0.75rem;
+    color: var(--accent-secondary);
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 3rem 0;
+    transition: background-color 0.3s ease;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-highlight);
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--footer-text);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: var(--accent-highlight);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--accent-highlight);
+    color: var(--footer-bg);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--back-to-top-bg);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, transform 0.3s;
+    z-index: 99;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--back-to-top-hover);
+    transform: translateY(-5px);
+}
+
+.back-to-top i {
+    font-size: 1.2rem;
+}
+
+/* Theme Toggle Button (Floating) */
+.theme-toggle-float {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: var(--back-to-top-bg);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 99;
+    border: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.theme-toggle-float:hover {
+    background-color: var(--back-to-top-hover);
+    transform: translateY(-5px);
+}
+
+.theme-toggle-float i {
+    font-size: 1.2rem;
+}
+
+/* Progress Bar */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--accent-secondary);
+    width: 0%;
+}
+
+/* Post Navigation */
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.post-navigation a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s, transform 0.3s;
+    font-weight: 500;
+}
+
+.post-navigation a:hover {
+    color: var(--accent-primary);
+    transform: translateX(-5px);
+}
+
+.post-navigation a.next-post:hover {
+    transform: translateX(5px);
+}
+
+.prev-post i {
+    margin-right: 0.5rem;
+}
+
+.next-post i {
+    margin-left: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .article-header h1 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    nav ul {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--header-bg);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        box-shadow: var(--header-shadow);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+        z-index: 99;
+    }
+    
+    nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .post-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .back-to-top, .theme-toggle-float {
+        bottom: 1.5rem;
+    }
+    
+    .theme-toggle-float {
+        left: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .back-to-top, .theme-toggle-float {
+        bottom: 1rem;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .theme-toggle-float {
+        left: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .mobile-menu-toggle,
+    .theme-toggle-float,
+    .back-to-top,
+    .progress-container,
+    .post-navigation,
+    .comments-section,
+    footer {
+        display: none !important;
+    }
+    
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    .blog-content {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    section {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+        margin-bottom: 1.5rem;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+    
+    .toc {
+        break-after: page;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="../index.html">MHMN<span>Perera</span></a>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul id="navLinks">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../blog.html" class="active">Blog</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="blog-content">
+    <article>
+        <div class="article-header">
+            <h1>Forex Market: A Comprehensive Overview</h1>
+            <div class="post-meta">
+                <span class="date"><i class="fas fa-calendar-alt"></i> Published on: <time datetime="2025-04-21">April 21, 2025</time></span>
+                <span class="categories">
+                    <a href="#">Finance</a>
+                    <a href="#">Trading</a>
+                    <a href="#">Global Markets</a>
+                </span>
+            </div>
+        </div>
+
+        <div class="toc">
+            <h2><i class="fas fa-list"></i> Table of Contents</h2>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#meaning">Meaning and Definition</a></li>
+                <li><a href="#characteristics">Characteristics</a></li>
+                <li><a href="#importance">Scope/Importance</a></li>
+                <li><a href="#functions">Functions/Roles</a></li>
+                <li><a href="#instruments">Forex Market Instruments</a></li>
+                <li><a href="#participants">Key Participants</a></li>
+                <li><a href="#structure">Structure of Forex Market</a></li>
+                <li><a href="#difference">Difference Between Forex and Stock Market</a></li>
+                <li><a href="#global">Global Forex Market Trends</a></li>
+                <li><a href="#sri-lanka">Sri Lankan Forex Market</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+                <li><a href="#references">References</a></li>
+            </ul>
+        </div>
+
+        <section id="introduction">
+            <h2><i class="fas fa-info-circle"></i> Introduction</h2>
+            <p>The foreign exchange market, commonly known as the Forex or FX market, is the largest and most liquid financial market in the world. With an average daily trading volume exceeding $6.6 trillion, it dwarfs all other markets combined, including the stock and bond markets.</p>
+            <p>Unlike centralized exchanges such as stock markets, the Forex market operates as a global network of banks, financial institutions, and individual traders connected through electronic trading platforms. This decentralized structure allows for 24-hour trading, five days a week, across major financial centers around the world.</p>
+            
+            <div class="example">
+                <strong>Example:</strong> When a tourist exchanges their home currency for the local currency of their destination country, they are participating in the retail segment of the Forex market. Meanwhile, a multinational corporation might be simultaneously hedging currency risk for a large international transaction in the wholesale segment of the same market.
+            </div>
+        </section>
+
+        <section id="meaning">
+            <h2><i class="fas fa-book"></i> Meaning and Definition</h2>
+            <p>The Forex market is a global marketplace for exchanging national currencies against one another. It facilitates international trade and investment by enabling currency conversion. For example, it permits a business in the United States to import goods from the European Union and pay in euros, even though the business's income is in U.S. dollars.</p>
+            <p>At its core, Forex trading involves simultaneously buying one currency while selling another. These currency pairs are quoted in terms of how much of the quote currency (the second currency in the pair) is needed to purchase one unit of the base currency (the first currency in the pair).</p>
+            
+            <div class="example">
+                <strong>Example:</strong> In the EUR/USD currency pair, if the exchange rate is 1.20, it means that 1 euro can be exchanged for 1.20 U.S. dollars. When traders believe the euro will strengthen against the dollar, they buy the EUR/USD pair (going long), and when they believe the euro will weaken, they sell the pair (going short).
+            </div>
+            
+            <p>The Forex market is unique in its enormous trading volume, high liquidity, geographical dispersion, continuous operation (24 hours a day except weekends), variety of factors affecting exchange rates, low margins of relative profit compared with other markets, and the use of leverage to enhance profit and loss margins.</p>
+        </section>
+
+        <section id="characteristics">
+            <h2><i class="fas fa-fingerprint"></i> Characteristics of Forex Market</h2>
+            
+            <div class="key-points">
+                <h3><i class="fas fa-star"></i> Key Features</h3>
+                <ul>
+                    <li>Largest financial market in the world</li>
+                    <li>24-hour trading (5 days a week)</li>
+                    <li>High liquidity</li>
+                    <li>Low transaction costs</li>
+                    <li>Decentralized market structure</li>
+                    <li>Use of leverage</li>
+                </ul>
+            </div>
+            
+            <h3>Key Characteristics Explained:</h3>
+            <ol>
+                <li>
+                    <strong>Market Size and Liquidity</strong> - With daily trading volumes exceeding $6.6 trillion, the Forex market is the most liquid market globally, allowing for tight spreads and efficient execution of large orders without significant price slippage.
+                </li>
+                <li>
+                    <strong>24-Hour Market</strong> - The Forex market operates 24 hours a day, five days a week, following the sun around the globe through financial centers in London, New York, Tokyo, and Sydney. This continuous operation allows traders to respond to events as they happen.
+                </li>
+                <li>
+                    <strong>Decentralized Structure</strong> - Unlike stock exchanges, the Forex market has no central marketplace. Instead, it operates through a global network of banks, financial institutions, and electronic trading platforms.
+                </li>
+                <li>
+                    <strong>Leverage</strong> - Forex trading typically involves high leverage, allowing traders to control large positions with a relatively small amount of capital. While this amplifies potential profits, it also increases risk.
+                </li>
+                <li>
+                    <strong>Low Transaction Costs</strong> - The high competition among Forex brokers and the market's liquidity result in relatively low transaction costs, typically in the form of spreads rather than commissions.
+                </li>
+            </ol>
+            
+            <p><strong>Volatility:</strong> Exchange rates can be highly volatile, influenced by a wide range of economic, political, and psychological factors. This volatility creates trading opportunities but also increases risk, making risk management essential for Forex traders.</p>
+        </section>
+
+        <section id="importance">
+            <h2><i class="fas fa-chart-line"></i> Scope/Importance of Forex Market</h2>
+            <ul>
+                <li>
+                    <strong>Facilitating international trade</strong> - The Forex market enables businesses to convert currencies for international transactions, supporting global commerce.
+                </li>
+                <li>
+                    <strong>Enabling investment across borders</strong> - It allows investors to purchase foreign assets and repatriate returns, facilitating international capital flows.
+                </li>
+                <li>
+                    <strong>Supporting monetary policy</strong> - Central banks use the Forex market to implement monetary policy and manage their currency's value.
+                </li>
+                <li>
+                    <strong>Providing hedging opportunities</strong> - Businesses and investors use the Forex market to hedge against currency risk in international operations.
+                </li>
+                <li>
+                    <strong>Creating trading opportunities</strong> - The market's size, liquidity, and volatility create opportunities for traders to profit from currency movements.
+                </li>
+            </ul>
+            
+            <p>The Forex market serves as a barometer of a country's economic health, with currency values reflecting market perceptions of economic performance, political stability, and monetary policy. Exchange rates influence inflation, interest rates, and economic growth, making the Forex market a critical component of the global financial system.</p>
+        </section>
+
+        <section id="functions">
+            <h2><i class="fas fa-cogs"></i> Functions/Roles of Forex Market</h2>
+            
+            <div class="key-points">
+                <h3><i class="fas fa-tasks"></i> Primary Functions</h3>
+                <ul>
+                    <li>Transfer of purchasing power</li>
+                    <li>Provision of credit</li>
+                    <li>Minimizing foreign exchange risk</li>
+                    <li>Price discovery</li>
+                    <li>Supporting international trade</li>
+                    <li>Facilitating monetary policy</li>
+                </ul>
+            </div>
+            
+            <p>The Forex market performs several critical functions in the global economy:</p>
+            
+            <ul>
+                <li>
+                    <strong>Transfer of purchasing power</strong> - Enables the conversion of one currency to another, facilitating the transfer of purchasing power between countries.
+                </li>
+                <li>
+                    <strong>Provision of credit</strong> - Provides short-term credit for international trade through instruments like bills of exchange and letters of credit.
+                </li>
+                <li>
+                    <strong>Minimizing foreign exchange risk</strong> - Offers mechanisms for hedging against adverse currency movements through forwards, futures, options, and swaps.
+                </li>
+                <li>
+                    <strong>Price discovery</strong> - Determines the relative value of currencies based on supply and demand factors, providing important economic signals.
+                </li>
+                <li>
+                    <strong>Supporting international trade</strong> - Facilitates the payment and settlement of international transactions, enabling global commerce.
+                </li>
+                <li>
+                    <strong>Facilitating monetary policy</strong> - Provides a mechanism for central banks to influence their currency's value and implement monetary policy.
+                </li>
+            </ul>
+            
+            <p>The Forex market also plays a crucial role in maintaining global financial stability by providing liquidity for international transactions and enabling efficient allocation of capital across borders. It serves as a mechanism for adjusting international imbalances through exchange rate movements, helping to restore equilibrium in the global economy.</p>
+        </section>
+
+        <section id="instruments">
+            <h2><i class="fas fa-tools"></i> Forex Market Instruments</h2>
+            <p>Forex market instruments are financial products that enable participants to trade, hedge, or speculate on currency movements. These instruments vary in complexity, risk profile, and purpose, catering to different market participants' needs.</p>
+            
+            <div class="key-points">
+                <h3><i class="fas fa-file-invoice-dollar"></i> Key Instruments</h3>
+                <ul>
+                    <li>Spot Contracts</li>
+                    <li>Forward Contracts</li>
+                    <li>Futures Contracts</li>
+                    <li>Options</li>
+                    <li>Swaps</li>
+                    <li>Exchange-Traded Funds (ETFs)</li>
+                </ul>
+            </div>
+            
+            <ul>
+                <li>
+                    <strong>Spot Contracts</strong> - The most basic Forex instrument, involving the immediate exchange of currency pairs at the current market rate. Settlement typically occurs within two business days.
+                </li>
+                <li>
+                    <strong>Forward Contracts</strong> - Customized agreements between two parties to exchange currencies at a specified rate on a future date. These over-the-counter (OTC) instruments are commonly used by businesses to hedge against currency risk.
+                </li>
+                <li>
+                    <strong>Futures Contracts</strong> - Standardized agreements to buy or sell a specific amount of currency at a predetermined price on a future date. Unlike forwards, futures are traded on organized exchanges with standardized terms.
+                </li>
+                <li>
+                    <strong>Options</strong> - Contracts that give the holder the right, but not the obligation, to buy (call option) or sell (put option) a currency pair at a specified price (strike price) on or before a specific date.
+                </li>
+                <li>
+                    <strong>Swaps</strong> - Agreements to exchange cash flows in different currencies over a specified period. Currency swaps are often used by multinational corporations and financial institutions to manage long-term currency exposure.
+                </li>
+                <li>
+                    <strong>Exchange-Traded Funds (ETFs)</strong> - Investment funds traded on stock exchanges that track the performance of specific currencies or baskets of currencies, providing an alternative way to gain exposure to the Forex market.
+                </li>
+            </ul>
+            
+            <p>Each instrument serves specific needs in the market and offers different combinations of risk, return, and complexity. The choice of instrument depends on the specific requirements of the participant, including time horizon, risk tolerance, regulatory considerations, and trading objectives.</p>
+        </section>
+
+        <section id="participants">
+            <h2><i class="fas fa-users"></i> Key Participants in the Forex Market</h2>
+            <p>The Forex market involves various participants who interact to facilitate currency exchange and speculation. Each participant plays a specific role in ensuring the market functions efficiently.</p>
+            
+            <div class="key-points">
+                <h3><i class="fas fa-user-tie"></i> Major Participants</h3>
+                <ul>
+                    <li>Commercial Banks</li>
+                    <li>Central Banks</li>
+                    <li>Investment Managers and Hedge Funds</li>
+                    <li>Multinational Corporations</li>
+                    <li>Retail Forex Brokers and Traders</li>
+                    <li>Non-Bank Financial Institutions</li>
+                </ul>
+            </div>
+            
+            <ul>
+                <li>
+                    <strong>Commercial Banks</strong> - The primary participants in the interbank market, facilitating currency transactions for clients and trading for their own accounts. Large banks like JPMorgan Chase, Citibank, and Deutsche Bank dominate this segment.
+                </li>
+                <li>
+                    <strong>Central Banks</strong> - Implement monetary policy, manage foreign exchange reserves, and intervene in the market to influence their currency's value. Their actions can significantly impact exchange rates.
+                </li>
+                <li>
+                    <strong>Investment Managers and Hedge Funds</strong> - Manage large portfolios of assets, including currency positions, for clients or themselves. They may trade currencies for speculation, hedging, or diversification.
+                </li>
+                <li>
+                    <strong>Multinational Corporations</strong> - Engage in the Forex market to facilitate international trade and investment, manage currency risk, and optimize global cash management.
+                </li>
+                <li>
+                    <strong>Retail Forex Brokers and Traders</strong> - Provide access to the Forex market for individual traders. While retail traders represent a small portion of total volume, their participation has grown significantly with the advent of online trading platforms.
+                </li>
+                <li>
+                    <strong>Non-Bank Financial Institutions</strong> - Include insurance companies, pension funds, and other financial entities that participate in the Forex market for investment and risk management purposes.
+                </li>
+            </ul>
+            
+            <p>The interaction among these participants creates a dynamic marketplace where currencies are continuously valued and traded. The diverse motivations and time horizons of these participants contribute to the market's liquidity and efficiency, enabling price discovery and risk transfer.</p>
+        </section>
+
+        <section id="structure">
+            <h2><i class="fas fa-building"></i> Structure of Forex Market</h2>
+            <p>The Forex market has a hierarchical structure with multiple tiers of access and liquidity. Unlike centralized exchanges, it operates through a global network of participants connected by electronic trading platforms.</p>
+            
+            <div class="key-points">
+                <h3><i class="fas fa-project-diagram"></i> Key Segments</h3>
+                <ul>
+                    <li>Interbank Market</li>
+                    <li>Electronic Broking Services</li>
+                    <li>Electronic Trading Platforms</li>
+                    <li>Retail Forex Market</li>
+                    <li>Futures and Options Exchanges</li>
+                    <li>Over-the-Counter (OTC) Market</li>
+                </ul>
+            </div>
+            
+            <ul>
+                <li>
+                    <strong>Interbank Market</strong> - The core of the Forex market where large banks trade with each other. This tier offers the tightest spreads and highest liquidity but is accessible only to major financial institutions.
+                </li>
+                <li>
+                    <strong>Electronic Broking Services</strong> - Platforms like EBS and Reuters Dealing that connect banks and other large participants, facilitating anonymous trading and price discovery.
+                </li>
+                <li>
+                    <strong>Electronic Trading Platforms</strong> - Systems that connect various market participants, providing access to liquidity, price discovery, and trade execution. Examples include FXall, Currenex, and 360T.
+                </li>
+                <li>
+                    <strong>Retail Forex Market</strong> - The segment serving individual traders through online brokers. While offering easy access, this tier typically features wider spreads and less favorable pricing compared to the interbank market.
+                </li>
+                <li>
+                    <strong>Futures and Options Exchanges</strong> - Organized exchanges like the Chicago Mercantile Exchange (CME) where standardized currency derivatives are traded.
+                </li>
+                <li>
+                    <strong>Over-the-Counter (OTC) Market</strong> - Where customized derivatives like forwards and swaps are negotiated directly between counterparties, typically for hedging or speculative purposes.
+                </li>
+            </ul>
+            
+            <p>The Forex market operates 24 hours a day, five days a week, following the sun around the globe through major financial centers. Trading begins each day in Sydney, then moves to Tokyo, London, and New York before returning to Sydney for the next cycle. This continuous operation allows for immediate reaction to global events and ensures liquidity at all times.</p>
+        </section>
+
+        <section id="difference">
+            <h2><i class="fas fa-balance-scale"></i> Difference Between Forex and Stock Market</h2>
+            <p>While both Forex and stock markets are important components of the global financial system, they differ significantly in structure, operation, and characteristics:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Basis</th>
+                        <th>Forex Market</th>
+                        <th>Stock Market</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Market Structure</td>
+                        <td>Decentralized, over-the-counter market</td>
+                        <td>Centralized exchanges (NYSE, NASDAQ, etc.)</td>
+                    </tr>
+                    <tr>
+                        <td>Trading Hours</td>
+                        <td>24 hours a day, 5 days a week</td>
+                        <td>Limited to exchange hours (typically 6-8 hours per day)</td>
+                    </tr>
+                    <tr>
+                        <td>Volume and Liquidity</td>
+                        <td>$6.6 trillion daily volume, extremely liquid</td>
+                        <td>Much lower volume, liquidity varies by stock</td>
+                    </tr>
+                    <tr>
+                        <td>Number of Instruments</td>
+                        <td>Limited (major, minor, and exotic currency pairs)</td>
+                        <td>Thousands of individual stocks</td>
+                    </tr>
+                    <tr>
+                        <td>Leverage</td>
+                        <td>High leverage commonly available (up to 50:1 or more)</td>
+                        <td>Lower leverage (typically 2:1 to 4:1)</td>
+                    </tr>
+                    <tr>
+                        <td>Transaction Costs</td>
+                        <td>Typically spreads only, no commissions</td>
+                        <td>Often includes commissions and other fees</td>
+                    </tr>
+                    <tr>
+                        <td>Market Drivers</td>
+                        <td>Macroeconomic factors, interest rates, geopolitics</td>
+                        <td>Company performance, sector trends, broader market conditions</td>
+                    </tr>
+                    <tr>
+                        <td>Regulation</td>
+                        <td>Less regulated, varies by country</td>
+                        <td>Highly regulated with strict oversight</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>The Forex market focuses on currency exchange rates influenced by macroeconomic factors and central bank policies, while the stock market involves trading shares of individual companies based on their performance and prospects. The Forex market's continuous operation and high liquidity make it attractive for short-term traders, while the stock market offers opportunities for both short-term trading and long-term investment in specific companies or sectors.</p>
+            
+            <p>Despite these differences, the two markets are interconnected, with developments in one often affecting the other. For example, strong economic data might strengthen a country's currency in the Forex market while also boosting its stock market as investors anticipate improved corporate performance.</p>
+        </section>
+
+        <section id="global">
+            <h2><i class="fas fa-globe"></i> Global Forex Market Trends</h2>
+            <p>The global Forex market continues to evolve in response to technological advancements, regulatory changes, and shifting economic landscapes. Several key trends are shaping the future of currency trading worldwide.</p>
+            
+            <div class="key-points">
+                <h3><i class="fas fa-key"></i> Key Trends</h3>
+                <ul>
+                    <li>Technological Transformation</li>
+                    <li>Algorithmic and High-Frequency Trading</li>
+                    <li>Retail Trading Growth</li>
+                    <li>Regulatory Evolution</li>
+                    <li>Market Fragmentation</li>
+                </ul>
+            </div>
+            
+            <ul>
+                <li>
+                    <strong>Technological Transformation</strong> - Advanced trading platforms, artificial intelligence, and blockchain technology are revolutionizing how currencies are traded. Electronic execution has largely replaced voice trading, increasing efficiency and transparency.
+                </li>
+                <li>
+                    <strong>Algorithmic and High-Frequency Trading</strong> - Automated trading systems now account for a significant portion of Forex volume. These systems can execute trades in microseconds based on predefined criteria, enhancing liquidity but potentially increasing short-term volatility.
+                </li>
+                <li>
+                    <strong>Retail Trading Growth</strong> - Improved technology and lower barriers to entry have democratized Forex trading, allowing individual traders to participate in a market once dominated by institutions. Mobile trading apps have further accelerated this trend.
+                </li>
+                <li>
+                    <strong>Regulatory Evolution</strong> - Following the 2008 financial crisis and subsequent scandals, regulators worldwide have increased oversight of the Forex market. Measures include the FX Global Code of Conduct, enhanced transparency requirements, and stricter capital and leverage rules.
+                </li>
+                <li>
+                    <strong>Market Fragmentation</strong> - The proliferation of trading venues and platforms has led to market fragmentation, creating challenges for price discovery and best execution but also opportunities for arbitrage.
+                </li>
+            </ul>
+            
+            <p>The global Forex market is also witnessing changing currency dynamics, with traditional reserve currencies like the U.S. dollar facing challenges from emerging alternatives. The rise of digital currencies, including central bank digital currencies (CBDCs), represents another potential disruption to the traditional Forex landscape.</p>
+            
+            <p>Despite these changes, the fundamental role of the Forex market in facilitating international trade, investment, and economic adjustment remains unchanged. The market continues to adapt to new realities while maintaining its position as the world's largest and most liquid financial market.</p>
+        </section>
+
+        <section id="sri-lanka">
+            <h2><i class="fas fa-map-marked-alt"></i> Sri Lankan Forex Market</h2>
+            <p>The Sri Lankan foreign exchange market operates within the broader global Forex system but has unique characteristics shaped by the country's economic structure, regulatory framework, and historical development.</p>
+            
+            <div class="key-points">
+                <h3><i class="fas fa-landmark"></i> Structure of Sri Lankan Forex Market</h3>
+                <ul>
+                    <li>Interbank Market</li>
+                    <li>Authorized Dealers</li>
+                    <li>Central Bank Intervention</li>
+                    <li>Forward Market</li>
+                    <li>Remittance Market</li>
+                </ul>
+            </div>
+            
+            <h3>Key Components of Sri Lankan Forex Market:</h3>
+            
+            <ol>
+                <li>
+                    <strong>Interbank Market</strong> - The core of Sri Lanka's Forex market where commercial banks trade with each other. This market determines the reference rates for other segments and is the primary channel for liquidity distribution.
+                </li>
+                <li>
+                    <strong>Authorized Dealers</strong> - Commercial banks and specialized financial institutions licensed by the Central Bank of Sri Lanka (CBSL) to deal in foreign exchange. They serve as intermediaries between the interbank market and end-users like businesses and individuals.
+                </li>
+                <li>
+                    <strong>Central Bank Intervention</strong> - The CBSL actively participates in the market to manage the Sri Lankan rupee's value and ensure orderly market conditions. Interventions may involve direct buying or selling of foreign currency or indirect measures like policy rate adjustments.
+                </li>
+                <li>
+                    <strong>Forward Market</strong> - Allows businesses and investors to hedge against future exchange rate movements. This segment has grown in importance as Sri Lanka's international trade and investment links have expanded.
+                </li>
+                <li>
+                    <strong>Remittance Market</strong> - A significant component of Sri Lanka's Forex market, handling inward remittances from Sri Lankans working abroad. These flows represent a major source of foreign exchange for the country.
+                </li>
+            </ol>
+            
+            <h3>Role of the Central Bank of Sri Lanka:</h3>
+            
+            <p>The Central Bank of Sri Lanka (CBSL) plays a pivotal role in the Forex market through:</p>
+            
+            <ul>
+                <li>
+                    <strong>Exchange Rate Policy</strong> - The CBSL determines the exchange rate regime and implements policies to maintain currency stability. Sri Lanka has moved between various regimes, including fixed, managed float, and more flexible arrangements.
+                </li>
+                <li>
+                    <strong>Foreign Exchange Reserves Management</strong> - The CBSL manages the country's official foreign exchange reserves, which serve as a buffer against external shocks and support the value of the rupee.
+                </li>
+                <li>
+                    <strong>Market Regulation</strong> - The CBSL issues regulations governing Forex transactions, including capital controls, documentation requirements, and prudential limits on banks' foreign exchange positions.
+                </li>
+                <li>
+                    <strong>Market Development</strong> - The CBSL works to develop the Forex market's infrastructure, liquidity, and product range to better serve the needs of the Sri Lankan economy.
+                </li>
+            </ul>
+            
+            <div class="example">
+                <strong>Example:</strong> During periods of external pressure, the CBSL might intervene by selling U.S. dollars from its reserves to support the rupee's value, while simultaneously implementing policy measures like raising interest rates to attract foreign capital and discourage speculative currency outflows.
+            </div>
+            
+            <h3>Recent Developments and Challenges:</h3>
+            
+            <p>The Sri Lankan Forex market has faced significant challenges in recent years:</p>
+            
+            <ul>
+                <li>
+                    <strong>Economic Crisis Impact</strong> - The severe economic crisis that intensified in 2022 led to extreme pressure on the rupee, depletion of foreign exchange reserves, and disruptions in the normal functioning of the Forex market.
+                </li>
+                <li>
+                    <strong>Exchange Rate Volatility</strong> - The Sri Lankan rupee experienced substantial depreciation as the country faced balance of payments difficulties, leading to challenges for businesses and consumers.
+                </li>
+                <li>
+                    <strong>Foreign Exchange Shortages</strong> - Acute shortages of foreign currency hampered essential imports and created parallel market premiums, distorting price signals and resource allocation.
+                </li>
+                <li>
+                    <strong>Policy Reforms</strong> - As part of economic stabilization efforts, Sri Lanka has implemented significant reforms to its Forex market, including greater exchange rate flexibility and relaxation of certain controls.
+                </li>
+            </ul>
+            
+            <p>Despite these challenges, the Sri Lankan Forex market continues to evolve with ongoing reforms aimed at enhancing market efficiency, transparency, and resilience. The CBSL has been working on modernizing the market infrastructure, improving the regulatory framework, and developing hedging instruments to better serve the needs of the economy in an increasingly interconnected global financial system.</p>
+        </section>
+
+        <section id="conclusion">
+            <h2><i class="fas fa-flag-checkered"></i> Conclusion</h2>
+            <p>The Forex market stands as the world's largest and most liquid financial market, playing a crucial role in facilitating international trade, investment, and economic adjustment. Its continuous operation, global reach, and diverse participant base make it a fundamental component of the modern financial system.</p>
+            
+            <div class="key-points">
+                <h3><i class="fas fa-lightbulb"></i> Key Takeaways</h3>
+                <ul>
+                    <li>The Forex market facilitates currency exchange for international trade and investment</li>
+                    <li>Its decentralized structure enables 24-hour trading and high liquidity</li>
+                    <li>Various instruments serve different needs with varying risk-return profiles</li>
+                    <li>Multiple participants interact to ensure efficient price discovery and risk transfer</li>
+                    <li>Technological advances continue to transform market structure and accessibility</li>
+                    <li>Country-specific Forex markets, like Sri Lanka's, have unique structures and challenges</li>
+                </ul>
+            </div>
+            
+            <p>Understanding the Forex market is essential for financial professionals, policymakers, businesses engaged in international trade, and individual investors. Exchange rates impact everything from the cost of imported goods to the returns on foreign investments, making currency movements relevant to a wide range of economic decisions.</p>
+            
+            <p>As the global economy continues to evolve with technological advancements, changing trade patterns, and shifting economic power, the Forex market will remain at the center of international finance. Its ability to adapt to new realities while maintaining its core functions of price discovery, liquidity provision, and risk transfer ensures its continued relevance in an increasingly interconnected world.</p>
+        </section>
+        
+        <section id="references" class="references">
+            <h2><i class="fas fa-book-open"></i> References</h2>
+            <ol>
+                <li>Bank for International Settlements. (2022). <em>Triennial Central Bank Survey of Foreign Exchange and OTC Derivatives Markets</em>. Retrieved from <a href="https://www.bis.org/statistics/rpfx22.htm" target="_blank">https://www.bis.org/statistics/rpfx22.htm</a></li>
+                <li>Central Bank of Sri Lanka. (2023). <em>Annual Report 2022</em>. Colombo: CBSL.</li>
+                <li>Galati, G., & Melvin, M. (2021). <em>Why has FX trading surged? Explaining the 2004 triennial survey</em>. BIS Quarterly Review.</li>
+                <li>International Monetary Fund. (2023). <em>Annual Report on Exchange Arrangements and Exchange Restrictions</em>. Washington, D.C.: IMF.</li>
+                <li>King, M. R., Osler, C. L., & Rime, D. (2022). <em>Foreign Exchange Market Structure, Players, and Evolution</em>. Handbook of Exchange Rates.</li>
+                <li>Levinson, M. (2021). <em>Guide to Financial Markets</em> (8th ed.). The Economist in association with Profile Books Ltd.</li>
+                <li>Madura, J. (2020). <em>International Financial Management</em> (14th ed.). Cengage Learning.</li>
+                <li>Mishkin, F. S., & Eakins, S. G. (2021). <em>Financial Markets and Institutions</em> (10th ed.). Pearson.</li>
+            </ol>
+        </section>
+        
+        <div class="post-navigation">
+            <div class="prev-post">
+                <a href="money-market.html"><i class="fas fa-arrow-left"></i> Previous Post: Money Market</a>
+            </div>
+            <div class="next-post">
+                <a href="#">Next Post <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </article>
+</main>
+
+<!-- Theme Toggle Button (Floating) -->
+<button class="theme-toggle-float" id="themeToggleFloat">
+    <i class="fas fa-moon"></i>
+</button>
+
+<a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>
+    <div class="footer-container">
+        <div class="copyright">
+            &copy; 2025 M Nethmina Perera. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+// Theme toggle functionality
+const themeToggleFloat = document.getElementById('themeToggleFloat');
+const htmlElement = document.documentElement;
+
+// Check for saved theme preference or use system preference
+const savedTheme = localStorage.getItem('theme');
+const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+function setTheme(isDark) {
+    if (isDark) {
+        htmlElement.classList.remove('light-mode');
+        htmlElement.classList.add('dark-mode');
+        themeToggleFloat.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        htmlElement.classList.remove('dark-mode');
+        htmlElement.classList.add('light-mode');
+        themeToggleFloat.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+// Set initial theme
+if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
+    setTheme(true);
+} else {
+    setTheme(false);
+}
+
+// Toggle theme on button click
+themeToggleFloat.addEventListener('click', () => {
+    const isDarkMode = htmlElement.classList.contains('dark-mode');
+    setTheme(!isDarkMode);
+});
+
+// Mobile menu toggle
+const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+const navLinks = document.getElementById('navLinks');
+
+mobileMenuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    
+    if (navLinks.classList.contains('active')) {
+        mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
+    } else {
+        mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+});
+
+// Back to top button functionality
+const backToTopButton = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+    } else {
+        backToTopButton.classList.remove('visible');
+    }
+});
+
+backToTopButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Smooth scrolling for table of contents links
+document.querySelectorAll('.toc a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Progress bar
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+// Auto-detect device type and set appropriate styles
+function detectDeviceType() {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
+    const isTablet = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
+    
+    if (isMobile && !isTablet) {
+        document.body.classList.add('mobile-device');
+        document.body.classList.remove('tablet-device', 'desktop-device');
+    } else if (isTablet) {
+        document.body.classList.add('tablet-device');
+        document.body.classList.remove('mobile-device', 'desktop-device');
+    } else {
+        document.body.classList.add('desktop-device');
+        document.body.classList.remove('mobile-device', 'tablet-device');
+    }
+}
+
+detectDeviceType();
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    detectDeviceType();
+    
+    if (window.innerWidth > 768) {
+        navLinks.classList.remove('active');
+        mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+});
+</script>
+</body>
+</html>
