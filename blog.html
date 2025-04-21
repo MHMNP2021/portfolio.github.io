@@ -327,6 +327,10 @@
             animation-delay: 0.4s;
         }
 
+        .blog-post:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
         .blog-post:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
@@ -926,14 +930,44 @@
                     <button class="filter-btn" data-filter="data-science">Data Science</button>
                     <button class="filter-btn" data-filter="statistics">Statistics</button>
                     <button class="filter-btn" data-filter="finance">Finance</button>
+                    <button class="filter-btn" data-filter="trading">Trading</button>
                 </div>
                 
                 <!-- Blog Posts -->
                 <div class="blog-posts" id="blogPosts">
-                    <!-- Blog Post 1 -->
+                    <!-- Blog Post 1 - Forex Market (New) -->
+                    <article class="blog-post" data-tags="all economic finance trading">
+                        <div class="post-image">
+                            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="  alt="Forex Market">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-date">
+                                <i class="far fa-calendar-alt"></i> April 21, 2025
+                            </div>
+                            <h2><a href="blog/forex-market.html">Forex Market: A Comprehensive Overview</a></h2>
+                            <div class="post-tags">
+                                <span class="tag">Finance</span>
+                                <span class="tag">Trading</span>
+                                <span class="tag">Global Markets</span>
+                            </div>
+                            <p>
+                                Explore the world's largest financial market with daily trading volumes exceeding $6.6 trillion. Learn about currency pairs, market participants, and how the Forex market impacts global economics.
+                            </p>
+                            <div class="post-footer">
+                                <a href="blog/forex-market.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <div class="social-share">
+                                    <a href="#" class="share-btn"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="share-btn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="share-btn"><i class="far fa-copy"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 2 -->
                     <article class="blog-post" data-tags="all data-science statistics">
                         <div class="post-image">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Multiple  alt="Multiple Linear Regression">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Multiple Linear Regression">
                         </div>
                         <div class="post-content">
                             <div class="post-date">
@@ -958,7 +992,7 @@
                         </div>
                     </article>
                     
-                    <!-- Blog Post 2 -->
+                    <!-- Blog Post 3 -->
                     <article class="blog-post" data-tags="all economic finance">
                         <div class="post-image">
                             <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Capital Market">
@@ -986,7 +1020,7 @@
                         </div>
                     </article>
 
-                    <!-- Blog Post 3 -->
+                    <!-- Blog Post 4 -->
                     <article class="blog-post" data-tags="all economic finance">
                         <div class="post-image">
                             <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Money Market">
@@ -1067,9 +1101,10 @@
                 <div class="latest-posts">
                     <h3>Latest Blog Posts</h3>
                     <ul>
-                        <li><a href="blog/multiple-linear-regression.html"><i class="fas fa-chevron-right"></i> Multiple Linear Regression: Implementation in R and Python</a></li>
-                        <li><a href="blog/capital-market.html"><i class="fas fa-chevron-right"></i> Capital Market: A Comprehensive Overview</a></li>
+                        <li><a href="blog/forex-market.html"><i class="fas fa-chevron-right"></i> Forex Market: A Comprehensive Overview</a></li>
                         <li><a href="blog/money-market.html"><i class="fas fa-chevron-right"></i> Money Market: A Comprehensive Overview</a></li>
+                        <li><a href="blog/capital-market.html"><i class="fas fa-chevron-right"></i> Capital Market: A Comprehensive Overview</a></li>
+                        <li><a href="blog/multiple-linear-regression.html"><i class="fas fa-chevron-right"></i> Multiple Linear Regression: Implementation in R and Python</a></li>
                     </ul>
                 </div>
             </div>
