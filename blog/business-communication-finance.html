@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en" class="light-mode">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mastering Business Communication in Finance | My Portfolio</title>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Reset and base styles */
+:root {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #e2e8f0;
+    --text-secondary: #a0aec0;
+    --accent-primary: #4299e1;
+    --accent-secondary: #3182ce;
+    --accent-highlight: #63b3ed;
+    --border-color: #333333;
+    --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    --header-bg: #1e1e1e;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    --footer-bg: #0a0a0a;
+    --footer-text: #e2e8f0;
+    --toc-bg: #1e1e1e;
+    --example-bg: #2a2a2a;
+    --key-points-bg: #2a2a2a;
+    --table-header-bg: #3182ce;
+    --table-header-text: #e2e8f0;
+    --table-row-even: #2a2a2a;
+    --table-row-hover: #333333;
+    --code-bg: #2a2a2a;
+    --back-to-top-bg: #4299e1;
+    --back-to-top-hover: #3182ce;
+    --category-bg: #2a2a2a;
+    --category-text: #63b3ed;
+    --comment-bg: #1e1e1e;
+    --comment-border: #333333;
+    --comment-highlight: #2a2a2a;
+    --button-primary: #4299e1;
+    --button-hover: #3182ce;
+    --button-text: #ffffff;
+    --reference-bg: #1e1e1e;
+    --reference-border: #333333;
+}
+
+.light-mode {
+    --bg-primary: #f9f9f9;
+    --bg-secondary: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #555555;
+    --accent-primary: #3182ce;
+    --accent-secondary: #4299e1;
+    --accent-highlight: #63b3ed;
+    --border-color: #dddddd;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --header-bg: #ffffff;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --footer-bg: #1a365d;
+    --footer-text: #ffffff;
+    --toc-bg: #f0f8ff;
+    --example-bg: #f8f9fa;
+    --key-points-bg: #e6fffa;
+    --table-header-bg: #3182ce;
+    --table-header-text: #ffffff;
+    --table-row-even: #f2f2f2;
+    --table-row-hover: #e6fffa;
+    --code-bg: #f5f5f5;
+    --back-to-top-bg: #4299e1;
+    --back-to-top-hover: #3182ce;
+    --category-bg: #e6fffa;
+    --category-text: #3182ce;
+    --comment-bg: #f8f9fa;
+    --comment-border: #e2e8f0;
+    --comment-highlight: #e6fffa;
+    --button-primary: #4299e1;
+    --button-hover: #3182ce;
+    --button-text: #ffffff;
+    --reference-bg: #f8f9fa;
+    --reference-border: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header and Navigation */
+header {
+    background-color: var(--header-bg);
+    box-shadow: var(--header-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.logo a span {
+    color: var(--accent-highlight);
+}
+
+.logo a:hover {
+    color: var(--accent-secondary);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--accent-primary);
+}
+
+nav ul li a.active {
+    color: var(--accent-primary);
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-primary);
+}
+
+/* Mobile Menu */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Main Content */
+.blog-content {
+    max-width: 800px;
+    margin: 2rem auto 4rem;
+    padding: 0 1.5rem;
+}
+
+/* Article Header */
+.article-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.article-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+}
+
+.article-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.post-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.post-meta .date {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.post-meta .date i {
+    margin-right: 0.5rem;
+    color: var(--accent-secondary);
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.categories a {
+    background-color: var(--category-bg);
+    color: var(--category-text);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.categories a:hover {
+    background-color: var(--accent-secondary);
+    color: white;
+}
+
+/* Table of Contents */
+.toc {
+    background-color: var(--toc-bg);
+    border-left: 4px solid var(--accent-secondary);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.3s ease;
+    box-shadow: var(--card-shadow);
+}
+
+.toc h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--accent-primary);
+    display: flex;
+    align-items: center;
+}
+
+.toc h2 i {
+    margin-right: 0.5rem;
+    color: var(--accent-secondary);
+}
+
+.toc ul {
+    list-style: none;
+}
+
+.toc ul li {
+    margin-bottom: 0.5rem;
+}
+
+.toc ul li a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
+    padding: 0.2rem 0;
+}
+
+.toc ul li a:hover {
+    color: var(--accent-secondary);
+    transform: translateX(5px);
+}
+
+/* Sections */
+section {
+    margin-bottom: 3rem;
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-secondary);
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+section h2 i {
+    margin-right: 0.75rem;
+    color: var(--accent-secondary);
+}
+
+section h3 {
+    font-size: 1.3rem;
+    color: var(--accent-primary);
+    margin: 1.5rem 0 1rem;
+}
+
+section p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+/* Lists */
+section ul, section ol {
+    margin: 1rem 0 1.5rem 1.5rem;
+}
+
+section li {
+    margin-bottom: 0.75rem;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+section ul li {
+    list-style-type: none;
+    padding-left: 1.5rem;
+}
+
+section ul li::before {
+    content: '•';
+    color: var(--accent-secondary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+section ol li {
+    padding-left: 0.5rem;
+}
+
+section li strong {
+    color: var(--accent-primary);
+}
+
+/* Nested Lists */
+section li ul, section li ol {
+    margin-top: 0.75rem;
+}
+
+/* Examples and Emphasis */
+em {
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.example {
+    background-color: var(--example-bg);
+    border-left: 4px solid var(--accent-secondary);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 5px 5px 0;
+    font-style: italic;
+    transition: background-color 0.3s ease;
+}
+
+.example strong {
+    font-weight: 500;
+    color: var(--accent-primary);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    box-shadow: var(--card-shadow);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+thead {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
+    transition: background-color 0.3s ease;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    transition: border-color 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--table-row-even);
+    transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+    background-color: var(--table-row-hover);
+    transition: background-color 0.3s ease;
+}
+
+/* Key Points */
+.key-points {
+    background-color: var(--key-points-bg);
+    border-left: 4px solid var(--accent-secondary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.3s ease;
+    box-shadow: var(--card-shadow);
+}
+
+.key-points h3 {
+    color: var(--accent-primary);
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.key-points h3 i {
+    margin-right: 0.5rem;
+    color: var(--accent-secondary);
+}
+
+.key-points ul {
+    margin-bottom: 0;
+}
+
+/* Conclusion */
+#conclusion {
+    background-color: var(--toc-bg);
+    border-top: 4px solid var(--accent-secondary);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+/* References Section */
+.references {
+    margin-top: 3rem;
+    background-color: var(--reference-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.references h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.references h2 i {
+    margin-right: 0.75rem;
+    color: var(--accent-secondary);
+}
+
+.references ol {
+    margin-left: 1.5rem;
+}
+
+.references li {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.references a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.references a:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 3rem;
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comments-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.comments-section h2 i {
+    margin-right: 0.75rem;
+    color: var(--accent-secondary);
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 3rem 0;
+    transition: background-color 0.3s ease;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-highlight);
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--footer-text);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: var(--accent-highlight);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--accent-highlight);
+    color: var(--footer-bg);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--back-to-top-bg);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, transform 0.3s;
+    z-index: 99;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--back-to-top-hover);
+    transform: translateY(-5px);
+}
+
+.back-to-top i {
+    font-size: 1.2rem;
+}
+
+/* Theme Toggle Button (Floating) */
+.theme-toggle-float {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: var(--back-to-top-bg);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 99;
+    border: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.theme-toggle-float:hover {
+    background-color: var(--back-to-top-hover);
+    transform: translateY(-5px);
+}
+
+.theme-toggle-float i {
+    font-size: 1.2rem;
+}
+
+/* Progress Bar */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--accent-secondary);
+    width: 0%;
+}
+
+/* Post Navigation */
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.post-navigation a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s, transform 0.3s;
+    font-weight: 500;
+}
+
+.post-navigation a:hover {
+    color: var(--accent-primary);
+    transform: translateX(-5px);
+}
+
+.post-navigation a.next-post:hover {
+    transform: translateX(5px);
+}
+
+.prev-post i {
+    margin-right: 0.5rem;
+}
+
+.next-post i {
+    margin-left: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .article-header h1 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    nav ul {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--header-bg);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        box-shadow: var(--header-shadow);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+        z-index: 99;
+    }
+    
+    nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .post-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .back-to-top, .theme-toggle-float {
+        bottom: 1.5rem;
+    }
+    
+    .theme-toggle-float {
+        left: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .back-to-top, .theme-toggle-float {
+        bottom: 1rem;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .theme-toggle-float {
+        left: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .mobile-menu-toggle,
+    .theme-toggle-float,
+    .back-to-top,
+    .progress-container,
+    .post-navigation,
+    .comments-section,
+    footer {
+        display: none !important;
+    }
+    
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    .blog-content {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    section {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+        margin-bottom: 1.5rem;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+    
+    .toc {
+        break-after: page;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="progress-container">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<header>
+<nav>
+    <div class="logo">
+        <a href="../index.html">MHMN<span>Perera</span></a>
+    </div>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    <ul id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../blog.html" class="active">Blog</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+</nav>
+</header>
+
+<main class="blog-content">
+<article>
+    <div class="article-header">
+        <h1>Mastering Business Communication in Finance</h1>
+        <div class="post-meta">
+            <span class="date"><i class="fas fa-calendar-alt"></i> Published on: <time datetime="2025-05-20">May 20, 2025</time></span>
+            <span class="categories">
+                <a href="#">Finance</a>
+                <a href="#">Communication</a>
+                <a href="#">Business</a>
+            </span>
+        </div>
+    </div>
+
+    <div class="toc">
+        <h2><i class="fas fa-list"></i> Table of Contents</h2>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#why-communication-matters">Why Communication Matters in Finance</a></li>
+            <li><a href="#key-contexts">Key Communication Contexts</a></li>
+            <li><a href="#written-communication">Written Communication Excellence</a></li>
+            <li><a href="#verbal-communication">Verbal Communication Strategies</a></li>
+            <li><a href="#data-visualization">Financial Data Visualization</a></li>
+            <li><a href="#digital-tools">Digital Tools for Modern Finance Communication</a></li>
+            <li><a href="#common-pitfalls">Common Pitfalls to Avoid</a></li>
+            <li><a href="#financial-storytelling">Financial Storytelling</a></li>
+            <li><a href="#cross-cultural">Cross-Cultural Financial Communication</a></li>
+            <li><a href="#crisis-communication">Communication During Financial Crisis</a></li>
+            <li><a href="#measuring-effectiveness">Measuring Communication Effectiveness</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#references">References</a></li>
+        </ul>
+    </div>
+
+    <section id="introduction">
+        <h2><i class="fas fa-info-circle"></i> Introduction</h2>
+        <p>Business communication in the financial sector requires a unique blend of technical expertise, clarity, and relationship management skills. Financial professionals often possess strong technical skills but may underestimate how critical communication is to their success.</p>
+        
+        <p>Effective communication can be the difference between a successful financial professional and an exceptional one. It bridges the gap between complex financial concepts and practical understanding, enabling better decision-making and stronger client relationships.</p>
+        
+        <div class="example">
+            <strong>Example:</strong> A financial advisor might have exceptional market knowledge and portfolio management skills, but without the ability to clearly explain investment strategies and risks to clients in terms they understand, their technical expertise may not translate into client trust and retention.
+        </div>
+    </section>
+
+    <section id="why-communication-matters">
+        <h2><i class="fas fa-question-circle"></i> Why Communication Matters in Finance</h2>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-star"></i> Key Reasons</h3>
+            <ul>
+                <li>Builds trust and credibility with clients and stakeholders</li>
+                <li>Translates complex financial concepts into actionable insights</li>
+                <li>Manages expectations and reduces surprises</li>
+                <li>Demonstrates your value beyond technical expertise</li>
+                <li>Ensures regulatory compliance and risk management</li>
+            </ul>
+        </div>
+        
+        <p>Effective communication in finance:</p>
+        
+        <ul>
+            <li>
+                <strong>Builds trust and credibility</strong> - Financial decisions involve risk and uncertainty; clear communication establishes the confidence needed for clients and stakeholders to follow your recommendations.
+            </li>
+            <li>
+                <strong>Translates complexity into clarity</strong> - Financial concepts, models, and regulations are inherently complex; the ability to simplify without oversimplifying is invaluable.
+            </li>
+            <li>
+                <strong>Manages expectations and reduces surprises</strong> - Regular, transparent communication helps prepare stakeholders for both positive and negative outcomes.
+            </li>
+            <li>
+                <strong>Demonstrates value</strong> - Your technical financial expertise only matters if you can effectively communicate its impact and implications.
+            </li>
+            <li>
+                <strong>Ensures regulatory compliance</strong> - Clear documentation and communication help maintain compliance with financial regulations and reduce legal risks.
+            </li>
+        </ul>
+        
+        <div class="example">
+            <strong>Example:</strong> During market volatility, financial advisors who proactively communicate with clients about market conditions, portfolio impacts, and strategic adjustments typically retain more clients than those who remain silent until clients reach out in panic.
+        </div>
+    </section>
+
+    <section id="key-contexts">
+        <h2><i class="fas fa-users"></i> Key Communication Contexts</h2>
+        
+        <h3>Client Communications</h3>
+        <p>Financial professionals must adjust their communication approach based on the client's financial literacy level:</p>
+        
+        <ul>
+            <li>
+                <strong>Financially sophisticated clients:</strong> Focus on technical details, competitive analysis, and performance metrics, but still avoid jargon.
+            </li>
+            <li>
+                <strong>Less financially literate clients:</strong> Use analogies, visual aids, and real-world examples to explain concepts.
+            </li>
+            <li>
+                <strong>All clients:</strong> Practice empathetic listening to understand emotional factors affecting financial decisions.
+            </li>
+        </ul>
+        
+        <p>Key techniques:</p>
+        <ul>
+            <li>Confirm understanding with questions like "How does this approach align with your goals?"</li>
+            <li>Provide written summaries after important discussions</li>
+            <li>Use visual aids to explain portfolio allocation or risk concepts</li>
+            <li>Set clear expectations about communication frequency and mediums</li>
+        </ul>
+        
+        <h3>Team Communications</h3>
+        <p>Within financial teams, effective communication ensures:</p>
+        
+        <ul>
+            <li>Proper risk management through information sharing</li>
+            <li>Coordination on complex financial analyses</li>
+            <li>Knowledge transfer between junior and senior team members</li>
+            <li>Alignment on client strategy and messaging</li>
+        </ul>
+        
+        <p>Best practices include:</p>
+        <ul>
+            <li>Regular structured meetings with clear agendas</li>
+            <li>Documentation of key decisions and assumptions</li>
+            <li>Collaborative tools for sharing financial models</li>
+            <li>Clear delineation of responsibilities</li>
+        </ul>
+        
+        <h3>Regulatory Communications</h3>
+        <p>Finance has unique requirements for:</p>
+        
+        <ul>
+            <li>Precise documentation meeting regulatory standards</li>
+            <li>Clear disclosure of risks and limitations</li>
+            <li>Consistent record-keeping of communications</li>
+            <li>Adherence to specific language requirements</li>
+            <li>Proper approval workflows for external communications</li>
+        </ul>
+        
+        <div class="example">
+            <strong>Example:</strong> A wealth management firm implements a tiered communication strategy where high-net-worth clients receive quarterly in-person portfolio reviews with detailed analysis, while clients with smaller portfolios receive standardized digital reports with clear explanations of key metrics and performance indicators.
+        </div>
+    </section>
+
+    <section id="written-communication">
+        <h2><i class="fas fa-pen-fancy"></i> Written Communication Excellence</h2>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-file-alt"></i> Key Written Communication Types</h3>
+            <ul>
+                <li>Reports and Analysis</li>
+                <li>Email Communication</li>
+                <li>Financial Documents</li>
+                <li>Client Summaries</li>
+                <li>Regulatory Filings</li>
+            </ul>
+        </div>
+        
+        <p>Written financial communication must balance precision with readability:</p>
+        
+        <h3>Reports and Analysis</h3>
+        <ul>
+            <li>Begin with an executive summary highlighting key findings</li>
+            <li>Use consistent formatting for financial data</li>
+            <li>Provide context for numbers and ratios</li>
+            <li>Include appropriate caveats and assumptions</li>
+            <li>Structure information from most to least important</li>
+        </ul>
+        
+        <h3>Email Communication</h3>
+        <ul>
+            <li>Use specific, informative subject lines</li>
+            <li>State purpose and required action in the first paragraph</li>
+            <li>Maintain professional tone even in internal communications</li>
+            <li>Be mindful of compliance requirements for electronic communication</li>
+            <li>Consider what should be communicated via email versus more secure channels</li>
+        </ul>
+        
+        <h3>Financial Documents</h3>
+        <ul>
+            <li>Follow industry standards for formatting</li>
+            <li>Maintain consistent terminology</li>
+            <li>Include a glossary for technical terms when appropriate</li>
+            <li>Use headers, footers, and version control</li>
+            <li>Consider the document's legal implications</li>
+        </ul>
+        
+        <div class="example">
+            <strong>Example:</strong> A financial analyst prepares a quarterly performance report that begins with a one-page executive summary highlighting key metrics, major changes from the previous quarter, and actionable recommendations. The detailed analysis follows with clearly labeled sections, consistent data presentation formats, and contextual explanations for significant variances.
+        </div>
+    </section>
+
+    <section id="verbal-communication">
+        <h2><i class="fas fa-comments"></i> Verbal Communication Strategies</h2>
+        
+        <p>Effective verbal communication in finance involves:</p>
+        
+        <h3>Client Meetings</h3>
+        <ul>
+            <li>Prepare an agenda with clear objectives</li>
+            <li>Begin with relationship-building before diving into numbers</li>
+            <li>Use the "tell, show, tell" method: preview key points, present the details, summarize</li>
+            <li>Allow time for questions and address concerns directly</li>
+            <li>End with clear next steps and action items</li>
+        </ul>
+        
+        <h3>Presentations</h3>
+        <ul>
+            <li>Start with the conclusion/"so what" for busy executives</li>
+            <li>Make data visual and meaningful</li>
+            <li>Anticipate questions and prepare supporting slides</li>
+            <li>Practice explaining complex concepts simply</li>
+            <li>Focus on implications and actions, not just data</li>
+        </ul>
+        
+        <h3>Difficult Conversations</h3>
+        <ul>
+            <li>Prepare thoroughly with facts and figures</li>
+            <li>Choose appropriate timing and private setting</li>
+            <li>Be direct but empathetic</li>
+            <li>Present options and recommendations, not just problems</li>
+            <li>Document the conversation appropriately afterward</li>
+        </ul>
+        
+        <div class="example">
+            <strong>Example:</strong> When discussing underperforming investments with a client, a financial advisor begins by acknowledging the client's concerns, presents the performance data in context of broader market trends, explains the factors contributing to underperformance, and then offers specific recommendations for adjustments, ending with a clear timeline for implementation and next review.
+        </div>
+    </section>
+
+    <section id="data-visualization">
+        <h2><i class="fas fa-chart-bar"></i> Financial Data Visualization</h2>
+        
+        <p>Financial data visualization requires specific approaches:</p>
+        
+        <h3>Choose the Right Chart Type</h3>
+        <ul>
+            <li><strong>Time series:</strong> Line charts for performance over time</li>
+            <li><strong>Composition:</strong> Pie charts for portfolio allocation</li>
+            <li><strong>Comparison:</strong> Bar charts for benchmark analysis</li>
+            <li><strong>Distribution:</strong> Histograms for risk analysis</li>
+            <li><strong>Correlation:</strong> Scatter plots for relationship analysis</li>
+        </ul>
+        
+        <h3>Design Principles for Financial Data</h3>
+        <ul>
+            <li>Use consistent color coding (red for negative, green for positive)</li>
+            <li>Include appropriate benchmarks for context</li>
+            <li>Label data directly when possible</li>
+            <li>Use logarithmic scales for data with wide ranges</li>
+            <li>Annotate significant events or anomalies</li>
+        </ul>
+        
+        <h3>Common Pitfalls</h3>
+        <ul>
+            <li>Cherry-picking timeframes or data points</li>
+            <li>Using misleading scales or truncated axes</li>
+            <li>Creating unnecessary complexity</li>
+            <li>Failing to explain the implications of the visualization</li>
+            <li>Overusing 3D effects that distort perception</li>
+        </ul>
+        
+        <div class="example">
+            <strong>Example:</strong> Instead of presenting a client with a table of monthly returns, a financial advisor creates a line chart showing portfolio performance against a relevant benchmark over a 5-year period, with annotations for major market events and portfolio adjustments, clearly demonstrating how strategic decisions affected performance during different market conditions.
+        </div>
+    </section>
+
+    <section id="digital-tools">
+        <h2><i class="fas fa-laptop"></i> Digital Tools for Modern Finance Communication</h2>
+        
+        <p>The modern financial professional should be skilled with:</p>
+        
+        <ul>
+            <li>
+                <strong>Video conferencing platforms</strong> with screen sharing capabilities for remote client meetings and team collaboration
+            </li>
+            <li>
+                <strong>Secure document sharing and digital signature tools</strong> for efficient and compliant document exchange
+            </li>
+            <li>
+                <strong>Financial dashboard software</strong> for real-time updates and interactive data presentation
+            </li>
+            <li>
+                <strong>Compliance-approved messaging platforms</strong> for secure client communications
+            </li>
+            <li>
+                <strong>Customer relationship management (CRM) systems</strong> for tracking client interactions and preferences
+            </li>
+            <li>
+                <strong>Collaborative financial modeling tools</strong> for team-based analysis and scenario planning
+            </li>
+        </ul>
+        
+        <div class="example">
+            <strong>Example:</strong> A financial advisory firm implements a secure client portal that combines document sharing, interactive performance dashboards, scheduled video meetings, and compliant messaging in one platform, significantly improving client engagement and satisfaction while maintaining regulatory compliance.
+        </div>
+    </section>
+
+    <section id="common-pitfalls">
+        <h2><i class="fas fa-exclamation-triangle"></i> Common Pitfalls to Avoid</h2>
+        
+        <p>Avoid these frequent communication mistakes in finance:</p>
+        
+        <ul>
+            <li>
+                <strong>Overusing jargon and technical terms</strong> - Even financially literate clients may not understand industry-specific terminology
+            </li>
+            <li>
+                <strong>Focusing on features rather than benefits</strong> - Clients care more about outcomes than technical details of financial products
+            </li>
+            <li>
+                <strong>Information overload without clear prioritization</strong> - Too much data without hierarchy overwhelms recipients
+            </li>
+            <li>
+                <strong>Ignoring emotional aspects of financial decisions</strong> - Financial choices have both rational and emotional components
+            </li>
+            <li>
+                <strong>Being overly technical without practical implications</strong> - Always connect analysis to actionable insights
+            </li>
+            <li>
+                <strong>Failing to confirm understanding</strong> - Don't assume clients comprehend complex concepts after a single explanation
+            </li>
+            <li>
+                <strong>Not documenting conversations properly</strong> - Thorough documentation is essential for compliance and continuity
+            </li>
+            <li>
+                <strong>Communicating only when there's good news</strong> - Transparent communication during challenges builds long-term trust
+            </li>
+        </ul>
+        
+        <div class="example">
+            <strong>Example:</strong> A portfolio manager sends clients a 30-page quarterly report filled with technical analysis and industry jargon without an executive summary or highlighted action items. Most clients either don't read it or misinterpret the information, leading to confusion and unnecessary follow-up calls.
+        </div>
+    </section>
+
+    <section id="financial-storytelling">
+        <h2><i class="fas fa-book-open"></i> Financial Storytelling</h2>
+        
+        <p>The best financial communicators go beyond presenting data to telling a compelling story:</p>
+        
+        <h3>Elements of Financial Storytelling</h3>
+        <ul>
+            <li><strong>Context:</strong> What's happening in the broader market/industry?</li>
+            <li><strong>Conflict:</strong> What challenge or opportunity exists?</li>
+            <li><strong>Characters:</strong> Who are the key stakeholders?</li>
+            <li><strong>Numbers as plot points:</strong> How do the figures tell the story?</li>
+            <li><strong>Resolution:</strong> What actions should be taken?</li>
+        </ul>
+        
+        <h3>Example Structure</h3>
+        <ul>
+            <li><strong>Situation:</strong> "The current market volatility has created significant headwinds..."</li>
+            <li><strong>Complication:</strong> "Our current allocation leaves us overexposed to..."</li>
+            <li><strong>Resolution:</strong> "By adjusting our strategy to focus on..."</li>
+            <li><strong>Implementation:</strong> "The specific steps we recommend are..."</li>
+        </ul>
+        
+        <div class="example">
+            <strong>Example:</strong> Instead of simply presenting declining revenue figures, a CFO tells the story of how changing consumer preferences, new market entrants, and supply chain disruptions (context) created revenue challenges (conflict), affecting shareholders and employees (characters), as shown by the quarterly results (plot points), leading to a proposed strategic pivot with specific investment and cost-cutting measures (resolution).
+        </div>
+    </section>
+
+    <section id="cross-cultural">
+        <h2><i class="fas fa-globe"></i> Cross-Cultural Financial Communication</h2>
+        
+        <p>In an increasingly global financial marketplace:</p>
+        
+        <h3>Be aware of different attitudes toward:</h3>
+        <ul>
+            <li>Risk tolerance and uncertainty</li>
+            <li>Time horizons for investments</li>
+            <li>Directness in communication</li>
+            <li>Hierarchy and decision-making processes</li>
+            <li>Relationship building versus transaction focus</li>
+        </ul>
+        
+        <h3>Adapt your approach by:</h3>
+        <ul>
+            <li>Researching cultural norms before important meetings</li>
+            <li>Being mindful of different negotiation styles</li>
+            <li>Adjusting communication directness based on cultural context</li>
+            <li>Considering how numbers and data are perceived across cultures</li>
+            <li>Respecting local business protocols and etiquette</li>
+        </ul>
+        
+        <div class="example">
+            <strong>Example:</strong> A financial advisor working with clients from East Asian cultures might spend more time building relationships before discussing specific investment strategies, use less direct language when discussing risks, and recognize that silence during meetings may indicate thoughtful consideration rather than agreement or disagreement.
+        </div>
+    </section>
+
+    <section id="crisis-communication">
+        <h2><i class="fas fa-exclamation-circle"></i> Communication During Financial Crisis</h2>
+        
+        <p>Special considerations for turbulent periods:</p>
+        
+        <ul>
+            <li>
+                <strong>Increase communication frequency</strong> when markets are volatile
+            </li>
+            <li>
+                <strong>Focus on long-term context</strong> rather than short-term fluctuations
+            </li>
+            <li>
+                <strong>Acknowledge uncertainty honestly</strong> without creating panic
+            </li>
+            <li>
+                <strong>Emphasize your process and discipline</strong> rather than promising outcomes
+            </li>
+            <li>
+                <strong>Revisit risk tolerance discussions</strong> with clients
+            </li>
+            <li>
+                <strong>Prepare communication templates</strong> for common crisis scenarios
+            </li>
+            <li>
+                <strong>Coordinate messaging</strong> across team members for consistency
+            </li>
+        </ul>
+        
+        <div class="example">
+            <strong>Example:</strong> During a market correction, a wealth management firm implements its crisis communication plan, sending clients a special market update within 24 hours, following up with personalized emails from advisors within 48 hours, and scheduling brief check-in calls with particularly concerned clients within the week, all while maintaining consistent messaging about long-term strategy and historical market recovery patterns.
+        </div>
+    </section>
+
+    <section id="measuring-effectiveness">
+        <h2><i class="fas fa-chart-line"></i> Measuring Communication Effectiveness</h2>
+        
+        <p>Track your impact through:</p>
+        
+        <ul>
+            <li>
+                <strong>Client retention rates</strong> - Effective communication typically leads to higher retention
+            </li>
+            <li>
+                <strong>Referral business</strong> - Satisfied clients who understand your value are more likely to refer others
+            </li>
+            <li>
+                <strong>Client comprehension tests</strong> - Informal assessments of how well clients understand key concepts
+            </li>
+            <li>
+                <strong>Decision implementation rates</strong> - How often clients follow through on recommendations
+            </li>
+            <li>
+                <strong>Client feedback surveys</strong> - Structured assessment of communication effectiveness
+            </li>
+            <li>
+                <strong>Peer and supervisor assessments</strong> - Feedback from colleagues on communication skills
+            </li>
+            <li>
+                <strong>Communication efficiency metrics</strong> - Time spent clarifying misunderstandings or repeating information
+            </li>
+        </ul>
+        
+        <div class="example">
+            <strong>Example:</strong> A financial planning firm implements quarterly client satisfaction surveys that specifically measure communication effectiveness across different channels (in-person meetings, written reports, emails, phone calls). The results are tracked over time and used to identify training needs and communication process improvements.
+        </div>
+    </section>
+
+    <section id="conclusion">
+        <h2><i class="fas fa-flag-checkered"></i> Conclusion</h2>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-lightbulb"></i> Key Takeaways</h3>
+            <ul>
+                <li>Effective communication is as important as technical financial expertise</li>
+                <li>Adapt your approach to different audiences and contexts</li>
+                <li>Balance precision with clarity in all communications</li>
+                <li>Use visual elements to enhance understanding of complex data</li>
+                <li>Leverage digital tools while maintaining compliance</li>
+                <li>Develop financial storytelling skills to create meaningful narratives</li>
+                <li>Measure and continuously improve your communication effectiveness</li>
+            </ul>
+        </div>
+        
+        <p>Mastering business communication in finance is not just about conveying information—it's about building trust, demonstrating value, and enabling better financial decisions. In an increasingly complex and competitive financial landscape, the ability to communicate effectively can be your most powerful differentiator.</p>
+        
+        <p>By developing a comprehensive communication strategy that addresses various contexts, leverages appropriate tools, and avoids common pitfalls, financial professionals can significantly enhance their effectiveness and success. Remember that communication is not a soft skill—it's a core competency for anyone working in finance.</p>
+        
+        <p>As you continue to develop your financial communication skills, focus on both the technical aspects of clarity and precision as well as the human elements of empathy and relationship building. The most successful financial professionals are those who can translate complex financial concepts into meaningful insights that drive action and build lasting client relationships.</p>
+    </section>
+
+    <section id="references" class="references">
+        <h2><i class="fas fa-book-open"></i> References</h2>
+        <ol>
+            <li>Harvard Business Review. (2023). <em>Effective Communication in Financial Services</em>. Harvard Business Publishing.</li>
+            <li>Knapp, M. L., & Hall, J. A. (2022). <em>Nonverbal Communication in Human Interaction</em> (9th ed.). Cengage Learning.</li>
+            <li>CFA Institute. (2024). <em>Communicating with Clients: A Guide for Financial Professionals</em>. CFA Institute Research Foundation.</li>
+            <li>Few, S. (2023). <em>Information Dashboard Design: The Effective Visual Communication of Data</em> (3rd ed.). Analytics Press.</li>
+            <li>Financial Industry Regulatory Authority. (2024). <em>Communications with the Public</em>. FINRA Regulatory Notice 24-01.</li>
+            <li>Duarte, N. (2022). <em>DataStory: Explain Data and Inspire Action Through Story</em>. Ideapress Publishing.</li>
+            <li>Journal of Financial Planning. (2025). <em>Special Issue: Communication Strategies for Financial Advisors</em>. Financial Planning Association.</li>
+            <li>Meyer, E. (2022). <em>The Culture Map: Breaking Through the Invisible Boundaries of Global Business</em> (2nd ed.). PublicAffairs.</li>
+            <li>Association for Financial Professionals. (2024). <em>Crisis Communication Playbook for Treasury and Finance</em>. AFP Publications.</li>
+        </ol>
+    </section>
+
+    <div class="post-navigation">
+        <div class="prev-post">
+            <a href="#"><i class="fas fa-arrow-left"></i> Previous Post</a>
+        </div>
+        <div class="next-post">
+            <a href="#">Next Post <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</article>
+</main>
+
+<!-- Theme Toggle Button (Floating) -->
+<button class="theme-toggle-float" id="themeToggleFloat">
+<i class="fas fa-moon"></i>
+</button>
+
+<a href="#" class="back-to-top" id="backToTop">
+<i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>
+<div class="footer-container">
+<div class="copyright">
+    &copy; 2025 M Nethmina Perera. All rights reserved.
+</div>
+</div>
+</footer>
+
+<script>
+// Theme toggle functionality
+const themeToggleFloat = document.getElementById('themeToggleFloat');
+const htmlElement = document.documentElement;
+
+// Check for saved theme preference or use system preference
+const savedTheme = localStorage.getItem('theme');
+const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+function setTheme(isDark) {
+if (isDark) {
+    htmlElement.classList.remove('light-mode');
+    htmlElement.classList.add('dark-mode');
+    themeToggleFloat.innerHTML = '<i class="fas fa-sun"></i>';
+    localStorage.setItem('theme', 'dark');
+} else {
+    htmlElement.classList.remove('dark-mode');
+    htmlElement.classList.add('light-mode');
+    themeToggleFloat.innerHTML = '<i class="fas fa-moon"></i>';
+    localStorage.setItem('theme', 'light');
+}
+}
+
+// Set initial theme
+if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
+setTheme(true);
+} else {
+setTheme(false);
+}
+
+// Toggle theme on button click
+themeToggleFloat.addEventListener('click', () => {
+const isDarkMode = htmlElement.classList.contains('dark-mode');
+setTheme(!isDarkMode);
+});
+
+// Mobile menu toggle
+const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+const navLinks = document.getElementById('navLinks');
+
+mobileMenuToggle.addEventListener('click', () => {
+navLinks.classList.toggle('active');
+
+if (navLinks.classList.contains('active')) {
+    mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
+} else {
+    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+}
+});
+
+// Back to top button functionality
+const backToTopButton = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+if (window.pageYOffset > 300) {
+    backToTopButton.classList.add('visible');
+} else {
+    backToTopButton.classList.remove('visible');
+}
+});
+
+backToTopButton.addEventListener('click', (e) => {
+e.preventDefault();
+window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Smooth scrolling for table of contents links
+document.querySelectorAll('.toc a').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+    });
+});
+});
+
+// Progress bar
+window.addEventListener('scroll', () => {
+const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+const scrolled = (winScroll / height) * 100;
+document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+// Auto-detect device type and set appropriate styles
+function detectDeviceType() {
+const userAgent = navigator.userAgent.toLowerCase();
+const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
+const isTablet = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
+
+if (isMobile && !isTablet) {
+    document.body.classList.add('mobile-device');
+    document.body.classList.remove('tablet-device', 'desktop-device');
+} else if (isTablet) {
+    document.body.classList.add('tablet-device');
+    document.body.classList.remove('mobile-device', 'desktop-device');
+} else {
+    document.body.classList.add('desktop-device');
+    document.body.classList.remove('mobile-device', 'tablet-device');
+}
+}
+
+detectDeviceType();
+
+// Handle window resize
+window.addEventListener('resize', () => {
+detectDeviceType();
+
+if (window.innerWidth > 768) {
+    navLinks.classList.remove('active');
+    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+}
+});
+</script>
+</body>
+</html>
