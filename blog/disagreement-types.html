@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en" class="light-mode">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Types of Disagreement in Corporate Sector and Society | My Portfolio</title>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Reset and base styles */
+:root {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #e2e8f0;
+    --text-secondary: #a0aec0;
+    --accent-primary: #4299e1;
+    --accent-secondary: #3182ce;
+    --accent-highlight: #63b3ed;
+    --border-color: #333333;
+    --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    --header-bg: #1e1e1e;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    --footer-bg: #0a0a0a;
+    --footer-text: #e2e8f0;
+    --toc-bg: #1e1e1e;
+    --example-bg: #2a2a2a;
+    --key-points-bg: #2a2a2a;
+    --table-header-bg: #3182ce;
+    --table-header-text: #e2e8f0;
+    --table-row-even: #2a2a2a;
+    --table-row-hover: #333333;
+    --code-bg: #2a2a2a;
+    --back-to-top-bg: #4299e1;
+    --back-to-top-hover: #3182ce;
+    --category-bg: #2a2a2a;
+    --category-text: #63b3ed;
+    --comment-bg: #1e1e1e;
+    --comment-border: #333333;
+    --comment-highlight: #2a2a2a;
+    --button-primary: #4299e1;
+    --button-hover: #3182ce;
+    --button-text: #ffffff;
+    --reference-bg: #1e1e1e;
+    --reference-border: #333333;
+}
+
+.light-mode {
+    --bg-primary: #f9f9f9;
+    --bg-secondary: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #555555;
+    --accent-primary: #3182ce;
+    --accent-secondary: #4299e1;
+    --accent-highlight: #63b3ed;
+    --border-color: #dddddd;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --header-bg: #ffffff;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --footer-bg: #1a365d;
+    --footer-text: #ffffff;
+    --toc-bg: #f0f8ff;
+    --example-bg: #f8f9fa;
+    --key-points-bg: #e6fffa;
+    --table-header-bg: #3182ce;
+    --table-header-text: #ffffff;
+    --table-row-even: #f2f2f2;
+    --table-row-hover: #e6fffa;
+    --code-bg: #f5f5f5;
+    --back-to-top-bg: #4299e1;
+    --back-to-top-hover: #3182ce;
+    --category-bg: #e6fffa;
+    --category-text: #3182ce;
+    --comment-bg: #f8f9fa;
+    --comment-border: #e2e8f0;
+    --comment-highlight: #e6fffa;
+    --button-primary: #4299e1;
+    --button-hover: #3182ce;
+    --button-text: #ffffff;
+    --reference-bg: #f8f9fa;
+    --reference-border: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header and Navigation */
+header {
+    background-color: var(--header-bg);
+    box-shadow: var(--header-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.logo a span {
+    color: var(--accent-highlight);
+}
+
+.logo a:hover {
+    color: var(--accent-secondary);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--accent-primary);
+}
+
+nav ul li a.active {
+    color: var(--accent-primary);
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-primary);
+}
+
+/* Mobile Menu */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Main Content */
+.blog-content {
+    max-width: 800px;
+    margin: 2rem auto 4rem;
+    padding: 0 1.5rem;
+}
+
+/* Article Header */
+.article-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.article-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+}
+
+.article-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.post-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.post-meta .date {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.post-meta .date i {
+    margin-right: 0.5rem;
+    color: var(--accent-secondary);
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.categories a {
+    background-color: var(--category-bg);
+    color: var(--category-text);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.categories a:hover {
+    background-color: var(--accent-secondary);
+    color: white;
+}
+
+/* Table of Contents */
+.toc {
+    background-color: var(--toc-bg);
+    border-left: 4px solid var(--accent-secondary);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.3s ease;
+    box-shadow: var(--card-shadow);
+}
+
+.toc h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--accent-primary);
+    display: flex;
+    align-items: center;
+}
+
+.toc h2 i {
+    margin-right: 0.5rem;
+    color: var(--accent-secondary);
+}
+
+.toc ul {
+    list-style: none;
+}
+
+.toc ul li {
+    margin-bottom: 0.5rem;
+}
+
+.toc ul li a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
+    padding: 0.2rem 0;
+}
+
+.toc ul li a:hover {
+    color: var(--accent-secondary);
+    transform: translateX(5px);
+}
+
+/* Sections */
+section {
+    margin-bottom: 3rem;
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-secondary);
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+section h2 i {
+    margin-right: 0.75rem;
+    color: var(--accent-secondary);
+}
+
+section h3 {
+    font-size: 1.3rem;
+    color: var(--accent-primary);
+    margin: 1.5rem 0 1rem;
+}
+
+section p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+/* Lists */
+section ul, section ol {
+    margin: 1rem 0 1.5rem 1.5rem;
+}
+
+section li {
+    margin-bottom: 0.75rem;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+section ul li {
+    list-style-type: none;
+    padding-left: 1.5rem;
+}
+
+section ul li::before {
+    content: '•';
+    color: var(--accent-secondary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+section ol li {
+    padding-left: 0.5rem;
+}
+
+section li strong {
+    color: var(--accent-primary);
+}
+
+/* Nested Lists */
+section li ul, section li ol {
+    margin-top: 0.75rem;
+}
+
+/* Examples and Emphasis */
+em {
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.example {
+    background-color: var(--example-bg);
+    border-left: 4px solid var(--accent-secondary);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 5px 5px 0;
+    font-style: italic;
+    transition: background-color 0.3s ease;
+}
+
+.example strong {
+    font-weight: 500;
+    color: var(--accent-primary);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    box-shadow: var(--card-shadow);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+thead {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
+    transition: background-color 0.3s ease;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    transition: border-color 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--table-row-even);
+    transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+    background-color: var(--table-row-hover);
+    transition: background-color 0.3s ease;
+}
+
+/* Key Points */
+.key-points {
+    background-color: var(--key-points-bg);
+    border-left: 4px solid var(--accent-secondary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.3s ease;
+    box-shadow: var(--card-shadow);
+}
+
+.key-points h3 {
+    color: var(--accent-primary);
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.key-points h3 i {
+    margin-right: 0.5rem;
+    color: var(--accent-secondary);
+}
+
+.key-points ul {
+    margin-bottom: 0;
+}
+
+/* Conclusion */
+#conclusion {
+    background-color: var(--toc-bg);
+    border-top: 4px solid var(--accent-secondary);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+/* References Section */
+.references {
+    margin-top: 3rem;
+    background-color: var(--reference-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.references h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.references h2 i {
+    margin-right: 0.75rem;
+    color: var(--accent-secondary);
+}
+
+.references ol {
+    margin-left: 1.5rem;
+}
+
+.references li {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.references a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.references a:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 3rem;
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comments-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.comments-section h2 i {
+    margin-right: 0.75rem;
+    color: var(--accent-secondary);
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 3rem 0;
+    transition: background-color 0.3s ease;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-highlight);
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--footer-text);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: var(--accent-highlight);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--accent-highlight);
+    color: var(--footer-bg);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--back-to-top-bg);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, transform 0.3s;
+    z-index: 99;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--back-to-top-hover);
+    transform: translateY(-5px);
+}
+
+.back-to-top i {
+    font-size: 1.2rem;
+}
+
+/* Theme Toggle Button (Floating) */
+.theme-toggle-float {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: var(--back-to-top-bg);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 99;
+    border: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.theme-toggle-float:hover {
+    background-color: var(--back-to-top-hover);
+    transform: translateY(-5px);
+}
+
+.theme-toggle-float i {
+    font-size: 1.2rem;
+}
+
+/* Progress Bar */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--accent-secondary);
+    width: 0%;
+}
+
+/* Post Navigation */
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.post-navigation a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s, transform 0.3s;
+    font-weight: 500;
+}
+
+.post-navigation a:hover {
+    color: var(--accent-primary);
+    transform: translateX(-5px);
+}
+
+.post-navigation a.next-post:hover {
+    transform: translateX(5px);
+}
+
+.prev-post i {
+    margin-right: 0.5rem;
+}
+
+.next-post i {
+    margin-left: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .article-header h1 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    nav ul {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--header-bg);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        box-shadow: var(--header-shadow);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+        z-index: 99;
+    }
+    
+    nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .post-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .back-to-top, .theme-toggle-float {
+        bottom: 1.5rem;
+    }
+    
+    .theme-toggle-float {
+        left: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .back-to-top, .theme-toggle-float {
+        bottom: 1rem;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .theme-toggle-float {
+        left: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .mobile-menu-toggle,
+    .theme-toggle-float,
+    .back-to-top,
+    .progress-container,
+    .post-navigation,
+    .comments-section,
+    footer {
+        display: none !important;
+    }
+    
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    .blog-content {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    section {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+        margin-bottom: 1.5rem;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+    
+    .toc {
+        break-after: page;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="progress-container">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<header>
+<nav>
+    <div class="logo">
+        <a href="../index.html">MHMN<span>Perera</span></a>
+    </div>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    <ul id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../blog.html" class="active">Blog</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+</nav>
+</header>
+
+<main class="blog-content">
+<article>
+    <div class="article-header">
+        <h1>Types of Disagreement in Corporate Sector and Society</h1>
+        <div class="post-meta">
+            <span class="date"><i class="fas fa-calendar-alt"></i> Published on: <time datetime="2025-01-27">January 27, 2025</time></span>
+            <span class="categories">
+                <a href="#">Business</a>
+                <a href="#">Psychology</a>
+                <a href="#">Management</a>
+            </span>
+        </div>
+    </div>
+
+    <div class="toc">
+        <h2><i class="fas fa-list"></i> Table of Contents</h2>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#emotional">Emotionally Driven Disagreement</a></li>
+            <li><a href="#fact-based">Fact-Based Disagreement</a></li>
+            <li><a href="#bias-based">Bias-Based Disagreement</a></li>
+            <li><a href="#communication">Lack of Communication/Understanding</a></li>
+            <li><a href="#fear-based">Fear-Based Disagreement</a></li>
+            <li><a href="#comparison">Comparison of Disagreement Types</a></li>
+            <li><a href="#resolution">Resolution Strategies</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#references">References</a></li>
+        </ul>
+    </div>
+
+    <section id="introduction">
+        <h2><i class="fas fa-info-circle"></i> Introduction</h2>
+        <p>Disagreements are an inevitable part of human interaction, particularly in complex environments such as corporate sectors and broader society. Understanding the different types of disagreements and their underlying causes is crucial for effective conflict resolution, improved communication, and organizational success.</p>
+
+        <p>In both corporate environments and society at large, disagreements can arise from various sources and manifest in different ways. These conflicts, while often viewed negatively, can actually serve as catalysts for innovation, improved decision-making, and organizational growth when properly managed.</p>
+        
+        <div class="example">
+            <strong>Example:</strong> During a board meeting, executives disagree on a new product launch strategy. One group argues based on market research data (fact-based), while another responds with concerns about past failures (fear-based), and a third reacts emotionally to criticism of their previous decisions (emotionally driven).
+        </div>
+
+        <p>This comprehensive analysis explores five primary types of disagreements that commonly occur in corporate settings and society, providing insights into their characteristics, causes, and potential resolution strategies.</p>
+    </section>
+
+    <section id="emotional">
+        <h2><i class="fas fa-heart"></i> Emotionally Driven Disagreement</h2>
+        <p>Emotionally driven disagreements occur when personal feelings, ego, or emotional responses override rational thinking and objective analysis. These conflicts are often characterized by heightened emotions, personal attacks, and a focus on winning rather than finding solutions.</p>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-star"></i> Key Characteristics</h3>
+            <ul>
+                <li>High emotional intensity and personal investment</li>
+                <li>Focus on personal relationships rather than issues</li>
+                <li>Tendency to escalate quickly</li>
+                <li>Difficulty in finding common ground</li>
+                <li>Often involves past grievances or personal history</li>
+                <li>Resistance to logical arguments or evidence</li>
+            </ul>
+        </div>
+        
+        <h3>Common Triggers in Corporate Settings:</h3>
+        <ul>
+            <li>
+                <strong>Personal Recognition</strong> - Disputes over credit for achievements, promotions, or public acknowledgment of contributions.
+            </li>
+            <li>
+                <strong>Power Struggles</strong> - Conflicts arising from competition for authority, control, or influence within the organization.
+            </li>
+            <li>
+                <strong>Past Conflicts</strong> - Unresolved issues from previous disagreements that continue to influence current interactions.
+            </li>
+            <li>
+                <strong>Perceived Slights</strong> - Reactions to real or imagined disrespect, exclusion, or unfair treatment.
+            </li>
+            <li>
+                <strong>Identity Threats</strong> - Challenges to professional competence, expertise, or personal values.
+            </li>
+        </ul>
+
+        <div class="example">
+            <strong>Corporate Example:</strong> A marketing manager becomes defensive and argumentative when their campaign strategy is questioned during a meeting. Instead of addressing the specific concerns raised, they take the feedback as a personal attack on their competence and respond with emotional outbursts, making it difficult to have a productive discussion about improving the campaign.
+        </div>
+
+        <h3>Impact on Organizations:</h3>
+        <p>Emotionally driven disagreements can significantly harm organizational culture, team dynamics, and productivity. They often lead to:</p>
+        <ul>
+            <li>Decreased team morale and collaboration</li>
+            <li>Reduced innovation due to fear of emotional reactions</li>
+            <li>Increased turnover and absenteeism</li>
+            <li>Poor decision-making quality</li>
+            <li>Damaged professional relationships</li>
+        </ul>
+
+        <h3>Resolution Approaches:</h3>
+        <ul>
+            <li>
+                <strong>Emotional Intelligence Training</strong> - Developing self-awareness and emotional regulation skills among team members.
+            </li>
+            <li>
+                <strong>Cooling-off Periods</strong> - Allowing time for emotions to settle before continuing discussions.
+            </li>
+            <li>
+                <strong>Neutral Facilitation</strong> - Using trained mediators to guide conversations and maintain focus on issues rather than personalities.
+            </li>
+            <li>
+                <strong>Structured Communication</strong> - Implementing protocols that separate emotional expression from problem-solving discussions.
+            </li>
+        </ul>
+    </section>
+
+    <section id="fact-based">
+        <h2><i class="fas fa-chart-bar"></i> Fact-Based Disagreement</h2>
+        <p>Fact-based disagreements arise from differences in data interpretation, conflicting information sources, or varying analytical methodologies. These disagreements are generally more constructive as they focus on objective information rather than personal opinions or emotions.</p>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-database"></i> Key Characteristics</h3>
+            <ul>
+                <li>Focus on data, evidence, and verifiable information</li>
+                <li>Rational and logical argumentation</li>
+                <li>Willingness to change positions based on new evidence</li>
+                <li>Emphasis on methodology and analysis</li>
+                <li>Generally less personal and emotional</li>
+                <li>Potential for objective resolution</li>
+            </ul>
+        </div>
+        
+        <h3>Common Sources in Corporate Environments:</h3>
+        <ul>
+            <li>
+                <strong>Data Interpretation</strong> - Different conclusions drawn from the same dataset due to varying analytical approaches or assumptions.
+            </li>
+            <li>
+                <strong>Market Research</strong> - Conflicting findings from different research studies or methodologies regarding market conditions, customer preferences, or competitive landscape.
+            </li>
+            <li>
+                <strong>Financial Analysis</strong> - Disagreements over financial projections, budget allocations, or investment returns based on different modeling approaches.
+            </li>
+            <li>
+                <strong>Performance Metrics</strong> - Disputes over which key performance indicators (KPIs) best measure success or how to interpret performance data.
+            </li>
+            <li>
+                <strong>Technical Specifications</strong> - Conflicts over technical requirements, system capabilities, or implementation approaches based on different technical assessments.
+            </li>
+        </ul>
+
+        <div class="example">
+            <strong>Corporate Example:</strong> Two departments disagree on the optimal pricing strategy for a new product. The marketing team presents customer survey data showing price sensitivity, while the finance team provides cost analysis indicating minimum pricing requirements. Both sides present valid data, but reach different conclusions about the best approach.
+        </div>
+
+        <h3>Benefits of Fact-Based Disagreements:</h3>
+        <p>When properly managed, fact-based disagreements can lead to significant organizational benefits:</p>
+        <ul>
+            <li>
+                <strong>Improved Decision Quality</strong> - Thorough examination of data leads to more informed and robust decisions.
+            </li>
+            <li>
+                <strong>Innovation and Learning</strong> - Different perspectives on data can reveal new insights and opportunities.
+            </li>
+            <li>
+                <strong>Risk Mitigation</strong> - Challenging assumptions and data helps identify potential risks and blind spots.
+            </li>
+            <li>
+                <strong>Organizational Learning</strong> - The process of resolving fact-based disagreements builds analytical capabilities.
+            </li>
+        </ul>
+
+        <h3>Resolution Strategies:</h3>
+        <ul>
+            <li>
+                <strong>Data Verification</strong> - Establishing the accuracy and reliability of information sources.
+            </li>
+            <li>
+                <strong>Methodology Review</strong> - Examining and comparing analytical approaches to identify strengths and limitations.
+            </li>
+            <li>
+                <strong>Expert Consultation</strong> - Bringing in external experts or additional internal expertise to provide independent analysis.
+            </li>
+            <li>
+                <strong>Pilot Testing</strong> - Conducting small-scale tests or experiments to gather additional data.
+            </li>
+            <li>
+                <strong>Scenario Analysis</strong> - Exploring different scenarios and their implications to understand the range of possible outcomes.
+            </li>
+        </ul>
+    </section>
+
+    <section id="bias-based">
+        <h2><i class="fas fa-eye"></i> Bias-Based Disagreement</h2>
+        <p>Bias-based disagreements stem from unconscious prejudices, preconceived notions, or systematic errors in thinking that influence how individuals interpret information and make decisions. These biases can be cognitive, cultural, or experiential in nature.</p>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-brain"></i> Key Characteristics</h3>
+            <ul>
+                <li>Unconscious influence on decision-making</li>
+                <li>Selective attention to supporting evidence</li>
+                <li>Resistance to contradictory information</li>
+                <li>Often rooted in past experiences or cultural background</li>
+                <li>Difficult to recognize in oneself</li>
+                <li>Can appear rational on the surface</li>
+            </ul>
+        </div>
+        
+        <h3>Common Types of Bias in Corporate Settings:</h3>
+        <ul>
+            <li>
+                <strong>Confirmation Bias</strong> - Tendency to search for, interpret, and recall information that confirms pre-existing beliefs while ignoring contradictory evidence.
+            </li>
+            <li>
+                <strong>Anchoring Bias</strong> - Over-reliance on the first piece of information encountered when making decisions, leading to insufficient adjustment based on new information.
+            </li>
+            <li>
+                <strong>Availability Heuristic</strong> - Overestimating the likelihood of events based on how easily examples come to mind, often influenced by recent or memorable experiences.
+            </li>
+            <li>
+                <strong>Groupthink</strong> - Pressure for harmony within a group leading to irrational or dysfunctional decision-making and suppression of dissenting views.
+            </li>
+            <li>
+                <strong>Status Quo Bias</strong> - Preference for maintaining current state of affairs and resistance to change, even when change might be beneficial.
+            </li>
+            <li>
+                <strong>Attribution Bias</strong> - Tendency to attribute successes to internal factors and failures to external factors, or vice versa when evaluating others.
+            </li>
+        </ul>
+
+        <div class="example">
+            <strong>Corporate Example:</strong> A hiring committee consistently favors candidates from prestigious universities (prestige bias) while overlooking equally qualified candidates from lesser-known institutions. This bias leads to disagreements when some members advocate for diverse hiring practices while others unconsciously maintain their preference for "elite" backgrounds.
+        </div>
+
+        <h3>Impact on Organizational Decision-Making:</h3>
+        <p>Bias-based disagreements can significantly impact organizational effectiveness:</p>
+        <ul>
+            <li>
+                <strong>Suboptimal Decisions</strong> - Biased thinking can lead to poor strategic choices and missed opportunities.
+            </li>
+            <li>
+                <strong>Reduced Diversity</strong> - Unconscious biases can limit diversity in hiring, promotion, and team composition.
+            </li>
+            <li>
+                <strong>Innovation Barriers</strong> - Bias toward familiar approaches can stifle creativity and innovation.
+            </li>
+            <li>
+                <strong>Risk Blindness</strong> - Certain biases can prevent recognition of potential risks or threats.
+            </li>
+            <li>
+                <strong>Cultural Conflicts</strong> - Cultural biases can create tension in diverse, global organizations.
+            </li>
+        </ul>
+
+        <h3>Identification and Mitigation Strategies:</h3>
+        <ul>
+            <li>
+                <strong>Bias Awareness Training</strong> - Educating employees about common cognitive biases and their impact on decision-making.
+            </li>
+            <li>
+                <strong>Structured Decision Processes</strong> - Implementing systematic approaches that force consideration of multiple perspectives and alternatives.
+            </li>
+            <li>
+                <strong>Devil's Advocate Roles</strong> - Assigning team members to challenge assumptions and present alternative viewpoints.
+            </li>
+            <li>
+                <strong>Diverse Teams</strong> - Creating teams with varied backgrounds, experiences, and perspectives to counteract individual biases.
+            </li>
+            <li>
+                <strong>External Perspectives</strong> - Seeking input from outside consultants or advisors who are not subject to internal biases.
+            </li>
+            <li>
+                <strong>Data-Driven Approaches</strong> - Emphasizing objective data and metrics to counteract subjective biases.
+            </li>
+        </ul>
+    </section>
+
+    <section id="communication">
+        <h2><i class="fas fa-comments"></i> Lack of Communication/Understanding</h2>
+        <p>Disagreements arising from communication failures or misunderstandings are among the most common and preventable conflicts in organizations. These occur when information is not effectively shared, received, or interpreted, leading to confusion, assumptions, and conflicting actions.</p>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-exclamation-triangle"></i> Key Characteristics</h3>
+            <ul>
+                <li>Misaligned expectations and assumptions</li>
+                <li>Information gaps or asymmetries</li>
+                <li>Different interpretations of the same message</li>
+                <li>Lack of clarity in roles and responsibilities</li>
+                <li>Insufficient feedback mechanisms</li>
+                <li>Cultural or language barriers</li>
+            </ul>
+        </div>
+        
+        <h3>Common Communication Breakdowns:</h3>
+        <ul>
+            <li>
+                <strong>Unclear Objectives</strong> - Vague or ambiguous goal-setting that leads to different interpretations of what needs to be accomplished.
+            </li>
+            <li>
+                <strong>Information Silos</strong> - Departments or teams operating with incomplete information due to poor information sharing across organizational boundaries.
+            </li>
+            <li>
+                <strong>Assumption-Based Communication</strong> - Assuming others have the same understanding or context without explicit verification.
+            </li>
+            <li>
+                <strong>Channel Mismatches</strong> - Using inappropriate communication channels for the type or urgency of information being shared.
+            </li>
+            <li>
+                <strong>Feedback Gaps</strong> - Lack of mechanisms to confirm understanding or provide clarification when needed.
+            </li>
+            <li>
+                <strong>Cultural Misunderstandings</strong> - Different cultural norms around communication styles, directness, and hierarchy affecting message interpretation.
+            </li>
+        </ul>
+
+        <div class="example">
+            <strong>Corporate Example:</strong> A project manager sends an email stating that a deliverable is "due soon" without specifying an exact date. Team members interpret this differently - some assume it means within a week, others think it means by month-end. This leads to conflicts when the actual deadline arrives and some team members are unprepared.
+        </div>
+
+        <h3>Organizational Impact:</h3>
+        <p>Communication-based disagreements can have far-reaching consequences:</p>
+        <ul>
+            <li>
+                <strong>Project Delays</strong> - Misunderstandings about timelines, requirements, or responsibilities can cause significant delays.
+            </li>
+            <li>
+                <strong>Resource Waste</strong> - Duplicated efforts or work in wrong directions due to unclear communication.
+            </li>
+            <li>
+                <strong>Quality Issues</strong> - Misunderstood requirements leading to deliverables that don't meet expectations.
+            </li>
+            <li>
+                <strong>Team Frustration</strong> - Repeated miscommunications can lead to decreased morale and trust.
+            </li>
+            <li>
+                <strong>Customer Dissatisfaction</strong> - External communication failures can damage customer relationships.
+            </li>
+        </ul>
+
+        <h3>Prevention and Resolution Strategies:</h3>
+        <ul>
+            <li>
+                <strong>Clear Communication Protocols</strong> - Establishing standardized processes for different types of communication.
+            </li>
+            <li>
+                <strong>Active Listening Training</strong> - Developing skills to ensure messages are properly received and understood.
+            </li>
+            <li>
+                <strong>Confirmation Mechanisms</strong> - Implementing systems to verify understanding and provide feedback.
+            </li>
+            <li>
+                <strong>Documentation Standards</strong> - Creating clear, accessible records of decisions, requirements, and agreements.
+            </li>
+            <li>
+                <strong>Regular Check-ins</strong> - Scheduling frequent communication touchpoints to identify and address misunderstandings early.
+            </li>
+            <li>
+                <strong>Cultural Competency</strong> - Training teams to work effectively across cultural and linguistic differences.
+            </li>
+            <li>
+                <strong>Technology Solutions</strong> - Utilizing collaboration tools and platforms that facilitate clear, trackable communication.
+            </li>
+        </ul>
+
+        <h3>Best Practices for Effective Communication:</h3>
+        <ul>
+            <li>
+                <strong>Specificity</strong> - Using precise language and avoiding ambiguous terms or phrases.
+            </li>
+            <li>
+                <strong>Context Setting</strong> - Providing sufficient background information for proper understanding.
+            </li>
+            <li>
+                <strong>Multi-Channel Approach</strong> - Using multiple communication methods for important messages.
+            </li>
+            <li>
+                <strong>Feedback Loops</strong> - Creating opportunities for questions, clarification, and confirmation.
+            </li>
+            <li>
+                <strong>Visual Aids</strong> - Using diagrams, charts, and other visual tools to enhance understanding.
+            </li>
+        </ul>
+    </section>
+
+    <section id="fear-based">
+        <h2><i class="fas fa-shield-alt"></i> Fear-Based Disagreement</h2>
+        <p>Fear-based disagreements arise from concerns about potential negative consequences, risks, or threats to security, status, or well-being. These conflicts are often characterized by risk aversion, resistance to change, and protective behaviors that may not align with organizational goals.</p>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-exclamation-circle"></i> Key Characteristics</h3>
+            <ul>
+                <li>Risk aversion and conservative decision-making</li>
+                <li>Focus on potential negative outcomes</li>
+                <li>Resistance to change or innovation</li>
+                <li>Protective and defensive behaviors</li>
+                <li>Emphasis on maintaining status quo</li>
+                <li>Often based on past negative experiences</li>
+            </ul>
+        </div>
+        
+        <h3>Common Fear-Based Concerns in Organizations:</h3>
+        <ul>
+            <li>
+                <strong>Job Security</strong> - Fear of layoffs, restructuring, or role elimination leading to resistance to organizational changes or new technologies.
+            </li>
+            <li>
+                <strong>Performance Failure</strong> - Concern about not meeting expectations, making mistakes, or being held accountable for poor outcomes.
+            </li>
+            <li>
+                <strong>Financial Risk</strong> - Worry about budget overruns, investment losses, or financial instability affecting decision-making.
+            </li>
+            <li>
+                <strong>Reputation Damage</strong> - Fear of negative publicity, loss of credibility, or damage to personal or organizational reputation.
+            </li>
+            <li>
+                <strong>Competitive Threats</strong> - Anxiety about market competition, losing market share, or being outpaced by competitors.
+            </li>
+            <li>
+                <strong>Regulatory Compliance</strong> - Concern about legal violations, regulatory penalties, or compliance failures.
+            </li>
+            <li>
+                <strong>Technology Disruption</strong> - Fear of being replaced by automation or becoming obsolete due to technological advancement.
+            </li>
+        </ul>
+
+        <div class="example">
+            <strong>Corporate Example:</strong> A senior manager opposes the implementation of a new customer relationship management (CRM) system, arguing it's too risky and expensive. However, the underlying fear is that the new system will reveal inefficiencies in their department and potentially threaten their position. This fear-based resistance prevents the organization from improving its customer service capabilities.
+        </div>
+
+        <h3>Manifestations of Fear-Based Disagreement:</h3>
+        <ul>
+            <li>
+                <strong>Excessive Risk Analysis</strong> - Over-analyzing potential risks while minimizing potential benefits.
+            </li>
+            <li>
+                <strong>Paralysis by Analysis</strong> - Endless deliberation and study to avoid making decisions that might have negative consequences.
+            </li>
+            <li>
+                <strong>Blame Avoidance</strong> - Focusing on avoiding responsibility rather than achieving positive outcomes.
+            </li>
+            <li>
+                <strong>Information Hoarding</strong> - Withholding information to maintain control or avoid exposure to criticism.
+            </li>
+            <li>
+                <strong>Coalition Building</strong> - Forming alliances with others who share similar fears to resist change.
+            </li>
+        </ul>
+
+        <h3>Impact on Organizational Performance:</h3>
+        <p>Fear-based disagreements can significantly hinder organizational progress:</p>
+        <ul>
+            <li>
+                <strong>Innovation Stagnation</strong> - Fear of failure can prevent experimentation and innovation.
+            </li>
+            <li>
+                <strong>Missed Opportunities</strong> - Excessive caution can lead to missed market opportunities or competitive advantages.
+            </li>
+            <li>
+                <strong>Slow Decision-Making</strong> - Fear-driven analysis can significantly slow down decision processes.
+            </li>
+            <li>
+                <strong>Reduced Agility</strong> - Organizations become less responsive to market changes and customer needs.
+            </li>
+            <li>
+                <strong>Employee Disengagement</strong> - Fear-based cultures can reduce employee motivation and creativity.
+            </li>
+        </ul>
+
+        <h3>Addressing Fear-Based Disagreements:</h3>
+        <ul>
+            <li>
+                <strong>Psychological Safety</strong> - Creating an environment where people feel safe to express concerns and take calculated risks.
+            </li>
+            <li>
+                <strong>Risk Assessment Frameworks</strong> - Implementing structured approaches to evaluate and manage risks objectively.
+            </li>
+            <li>
+                <strong>Success Stories</strong> - Sharing examples of successful changes and innovations to build confidence.
+            </li>
+            <li>
+                <strong>Gradual Implementation</strong> - Using pilot programs and phased approaches to reduce perceived risks.
+            </li>
+            <li>
+                <strong>Support Systems</strong> - Providing training, resources, and support to help people adapt to changes.
+            </li>
+            <li>
+                <strong>Transparent Communication</strong> - Openly discussing fears and concerns while providing realistic assessments of risks and benefits.
+            </li>
+            <li>
+                <strong>Failure Tolerance</strong> - Establishing cultures that view failures as learning opportunities rather than career-ending events.
+            </li>
+        </ul>
+    </section>
+
+    <section id="comparison">
+        <h2><i class="fas fa-balance-scale"></i> Comparison of Disagreement Types</h2>
+        <p>Understanding the differences between various types of disagreements is crucial for selecting appropriate resolution strategies and managing conflicts effectively. Each type requires different approaches and interventions.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Aspect</th>
+                    <th>Emotional</th>
+                    <th>Fact-Based</th>
+                    <th>Bias-Based</th>
+                    <th>Communication</th>
+                    <th>Fear-Based</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Primary Driver</strong></td>
+                    <td>Personal feelings and ego</td>
+                    <td>Data interpretation differences</td>
+                    <td>Unconscious prejudices</td>
+                    <td>Information gaps</td>
+                    <td>Risk and threat concerns</td>
+                </tr>
+                <tr>
+                    <td><strong>Rationality Level</strong></td>
+                    <td>Low</td>
+                    <td>High</td>
+                    <td>Appears rational</td>
+                    <td>Variable</td>
+                    <td>Moderate</td>
+                </tr>
+                <tr>
+                    <td><strong>Resolution Difficulty</strong></td>
+                    <td>High</td>
+                    <td>Moderate</td>
+                    <td>High</td>
+                    <td>Low to Moderate</td>
+                    <td>Moderate to High</td>
+                </tr>
+                <tr>
+                    <td><strong>Time to Resolve</strong></td>
+                    <td>Long</td>
+                    <td>Short to Moderate</td>
+                    <td>Long</td>
+                    <td>Short</td>
+                    <td>Moderate</td>
+                </tr>
+                <tr>
+                    <td><strong>Escalation Risk</strong></td>
+                    <td>Very High</td>
+                    <td>Low</td>
+                    <td>Moderate</td>
+                    <td>Low</td>
+                    <td>Moderate</td>
+                </tr>
+                <tr>
+                    <td><strong>Organizational Impact</strong></td>
+                    <td>Highly negative</td>
+                    <td>Can be positive</td>
+                    <td>Negative</td>
+                    <td>Negative</td>
+                    <td>Limiting</td>
+                </tr>
+                <tr>
+                    <td><strong>Prevention Strategy</strong></td>
+                    <td>Emotional intelligence training</td>
+                    <td>Better data systems</td>
+                    <td>Bias awareness training</td>
+                    <td>Communication protocols</td>
+                    <td>Psychological safety</td>
+                </tr>
+                <tr>
+                    <td><strong>Resolution Approach</strong></td>
+                    <td>Mediation and cooling off</td>
+                    <td>Data analysis and testing</td>
+                    <td>Structured decision processes</td>
+                    <td>Clarification and documentation</td>
+                    <td>Risk assessment and support</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>Key Insights from the Comparison:</h3>
+        <ul>
+            <li>
+                <strong>Complexity Varies</strong> - Some disagreements (communication-based) are relatively straightforward to resolve, while others (emotional and bias-based) require more sophisticated interventions.
+            </li>
+            <li>
+                <strong>Prevention is Key</strong> - Most types of disagreements can be significantly reduced through proactive measures and organizational design.
+            </li>
+            <li>
+                <strong>Multiple Types Often Coexist</strong> - Real-world disagreements frequently involve elements of multiple types, requiring comprehensive resolution strategies.
+            </li>
+            <li>
+                <strong>Organizational Culture Matters</strong> - The organizational environment significantly influences both the frequency and intensity of different types of disagreements.
+            </li>
+        </ul>
+    </section>
+
+    <section id="resolution">
+        <h2><i class="fas fa-handshake"></i> Resolution Strategies</h2>
+        <p>Effective resolution of disagreements requires a systematic approach that addresses the underlying causes while maintaining relationships and organizational effectiveness. Different types of disagreements require tailored strategies for optimal outcomes.</p>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-tools"></i> Universal Resolution Principles</h3>
+            <ul>
+                <li>Early identification and intervention</li>
+                <li>Focus on interests rather than positions</li>
+                <li>Separate people from problems</li>
+                <li>Generate multiple options before deciding</li>
+                <li>Use objective criteria for evaluation</li>
+                <li>Maintain respect and professionalism</li>
+            </ul>
+        </div>
+        
+        <h3>Comprehensive Resolution Framework:</h3>
+        
+        <h4>1. Assessment Phase</h4>
+        <ul>
+            <li>
+                <strong>Identify the Type</strong> - Determine which type(s) of disagreement are present and their relative importance.
+            </li>
+            <li>
+                <strong>Analyze Stakeholders</strong> - Understand who is involved, their interests, and their influence on the situation.
+            </li>
+            <li>
+                <strong>Evaluate Impact</strong> - Assess the current and potential future impact on the organization and individuals.
+            </li>
+            <li>
+                <strong>Resource Assessment</strong> - Determine what resources (time, people, expertise) are available for resolution.
+            </li>
+        </ul>
+
+        <h4>2. Intervention Selection</h4>
+        <ul>
+            <li>
+                <strong>Match Strategy to Type</strong> - Select resolution approaches that are appropriate for the specific type of disagreement.
+            </li>
+            <li>
+                <strong>Consider Urgency</strong> - Balance the need for quick resolution with the time required for effective intervention.
+            </li>
+            <li>
+                <strong>Stakeholder Preferences</strong> - Consider the communication styles and preferences of those involved.
+            </li>
+            <li>
+                <strong>Organizational Context</strong> - Align resolution strategies with organizational culture and values.
+            </li>
+        </ul>
+
+        <h4>3. Implementation</h4>
+        <ul>
+            <li>
+                <strong>Create Safe Spaces</strong> - Establish environments where all parties can express their views without fear of retaliation.
+            </li>
+            <li>
+                <strong>Facilitate Dialogue</strong> - Use skilled facilitators to guide conversations and maintain focus on resolution.
+            </li>
+            <li>
+                <strong>Address Root Causes</strong> - Go beyond surface issues to address underlying causes of disagreement.
+            </li>
+            <li>
+                <strong>Build Understanding</strong> - Help parties understand each other's perspectives and motivations.
+            </li>
+        </ul>
+
+        <h4>4. Follow-up and Prevention</h4>
+        <ul>
+            <li>
+                <strong>Monitor Progress</strong> - Track the effectiveness of resolution efforts and make adjustments as needed.
+            </li>
+            <li>
+                <strong>Document Lessons</strong> - Capture insights and best practices for future reference.
+            </li>
+            <li>
+                <strong>Strengthen Systems</strong> - Improve organizational processes and structures to prevent similar disagreements.
+            </li>
+            <li>
+                <strong>Build Capabilities</strong> - Develop organizational and individual skills for better conflict management.
+            </li>
+        </ul>
+
+        <div class="example">
+            <strong>Integrated Example:</strong> A product development team experiences multiple types of disagreement about a new feature. The resolution process involves: (1) Data analysis sessions to address fact-based disagreements about market demand, (2) Bias awareness workshops to address unconscious preferences for familiar technologies, (3) Clear communication protocols to prevent misunderstandings, (4) Risk assessment frameworks to address fear-based concerns, and (5) Team-building activities to address emotional tensions.
+        </div>
+
+        <h3>Organizational Capabilities for Effective Resolution:</h3>
+        <ul>
+            <li>
+                <strong>Conflict Management Training</strong> - Developing skills across the organization for identifying and addressing disagreements.
+            </li>
+            <li>
+                <strong>Mediation Resources</strong> - Having trained internal mediators or access to external mediation services.
+            </li>
+            <li>
+                <strong>Decision-Making Frameworks</strong> - Clear processes for making decisions when disagreements cannot be fully resolved.
+            </li>
+            <li>
+                <strong>Communication Infrastructure</strong> - Systems and tools that facilitate effective communication and information sharing.
+            </li>
+            <li>
+                <strong>Cultural Support</strong> - Organizational values and norms that support constructive disagreement and resolution.
+            </li>
+        </ul>
+    </section>
+
+    <section id="conclusion">
+        <h2><i class="fas fa-flag-checkered"></i> Conclusion</h2>
+        <p>Understanding the five types of disagreement - emotionally driven, fact-based, bias-based, communication-related, and fear-based - is essential for effective leadership and organizational management. Each type presents unique challenges and opportunities, requiring tailored approaches for resolution and prevention.</p>
+        
+        <div class="key-points">
+            <h3><i class="fas fa-lightbulb"></i> Key Takeaways</h3>
+            <ul>
+                <li>Disagreements are inevitable but can be constructive when properly managed</li>
+                <li>Different types of disagreements require different resolution strategies</li>
+                <li>Prevention through organizational design is more effective than reactive resolution</li>
+                <li>Emotional intelligence and communication skills are crucial for all types</li>
+                <li>Fact-based disagreements can actually improve decision-making quality</li>
+                <li>Bias awareness and structured processes help mitigate unconscious influences</li>
+            </ul>
+        </div>
+        
+        <p>Organizations that develop sophisticated capabilities for managing disagreements gain significant competitive advantages. They make better decisions, innovate more effectively, and maintain higher levels of employee engagement and satisfaction.</p>
+        
+        <p>The key to success lies not in avoiding disagreements, but in creating systems, cultures, and capabilities that channel disagreements toward constructive outcomes. This requires ongoing investment in training, processes, and organizational development, but the returns in terms of improved performance and workplace satisfaction are substantial.</p>
+
+        <p>As organizations become increasingly complex and diverse, the ability to navigate different types of disagreements will become even more critical. Leaders who understand these dynamics and can effectively facilitate resolution will be better positioned to drive organizational success in an increasingly challenging business environment.</p>
+    </section>
+
+    <section id="references" class="references">
+        <h2><i class="fas fa-book-open"></i> References</h2>
+        <ol>
+            <li>Fisher, R., Ury, W., & Patton, B. (2011). <em>Getting to Yes: Negotiating Agreement Without Giving In</em> (3rd ed.). Penguin Books.</li>
+            <li>Kahneman, D. (2011). <em>Thinking, Fast and Slow</em>. Farrar, Straus and Giroux.</li>
+            <li>Heath, C., & Heath, D. (2010). <em>Switch: How to Change Things When Change Is Hard</em>. Broadway Books.</li>
+            <li>Edmondson, A. (2019). <em>The Fearless Organization: Creating Psychological Safety for Learning, Innovation, and Growth</em>. Wiley.</li>
+            <li>Stone, D., Patton, B., & Heen, S. (2010). <em>Difficult Conversations: How to Discuss What Matters Most</em>. Penguin Books.</li>
+            <li>Cialdini, R. B. (2021). <em>Influence: The Psychology of Persuasion</em> (Revised ed.). Harper Business.</li>
+            <li>Goleman, D. (2020). <em>Emotional Intelligence: Why It Matters More Than IQ</em> (25th Anniversary ed.). Bantam Books.</li>
+            <li>Lencioni, P. (2002). <em>The Five Dysfunctions of a Team: A Leadership Fable</em>. Jossey-Bass.</li>
+            <li>Harvard Business Review. (2019). <em>HBR Guide to Dealing with Conflict</em>. Harvard Business Review Press.</li>
+            <li>Tversky, A., & Kahneman, D. (1974). Judgment under uncertainty: Heuristics and biases. <em>Science</em>, 185(4157), 1124-1131.</li>
+        </ol>
+    </section>
+
+    <div class="post-navigation">
+        <div class="prev-post">
+            <a href="#"><i class="fas fa-arrow-left"></i> Previous Post</a>
+        </div>
+        <div class="next-post">
+            <a href="#">Next Post <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</article>
+</main>
+
+<!-- Theme Toggle Button (Floating) -->
+<button class="theme-toggle-float" id="themeToggleFloat">
+<i class="fas fa-moon"></i>
+</button>
+
+<a href="#" class="back-to-top" id="backToTop">
+<i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>
+<div class="footer-container">
+<div class="copyright">
+    &copy; 2025 M Nethmina Perera. All rights reserved.
+</div>
+</div>
+</footer>
+
+<script>
+// Theme toggle functionality
+const themeToggleFloat = document.getElementById('themeToggleFloat');
+const htmlElement = document.documentElement;
+
+// Check for saved theme preference or use system preference
+const savedTheme = localStorage.getItem('theme');
+const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+function setTheme(isDark) {
+if (isDark) {
+    htmlElement.classList.remove('light-mode');
+    htmlElement.classList.add('dark-mode');
+    themeToggleFloat.innerHTML = '<i class="fas fa-sun"></i>';
+    localStorage.setItem('theme', 'dark');
+} else {
+    htmlElement.classList.remove('dark-mode');
+    htmlElement.classList.add('light-mode');
+    themeToggleFloat.innerHTML = '<i class="fas fa-moon"></i>';
+    localStorage.setItem('theme', 'light');
+}
+}
+
+// Set initial theme
+if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
+setTheme(true);
+} else {
+setTheme(false);
+}
+
+// Toggle theme on button click
+themeToggleFloat.addEventListener('click', () => {
+const isDarkMode = htmlElement.classList.contains('dark-mode');
+setTheme(!isDarkMode);
+});
+
+// Mobile menu toggle
+const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+const navLinks = document.getElementById('navLinks');
+
+mobileMenuToggle.addEventListener('click', () => {
+navLinks.classList.toggle('active');
+
+if (navLinks.classList.contains('active')) {
+    mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
+} else {
+    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+}
+});
+
+// Back to top button functionality
+const backToTopButton = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+if (window.pageYOffset > 300) {
+    backToTopButton.classList.add('visible');
+} else {
+    backToTopButton.classList.remove('visible');
+}
+});
+
+backToTopButton.addEventListener('click', (e) => {
+e.preventDefault();
+window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Smooth scrolling for table of contents links
+document.querySelectorAll('.toc a').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+    });
+});
+});
+
+// Progress bar
+window.addEventListener('scroll', () => {
+const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+const scrolled = (winScroll / height) * 100;
+document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+// Auto-detect device type and set appropriate styles
+function detectDeviceType() {
+const userAgent = navigator.userAgent.toLowerCase();
+const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
+const isTablet = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
+
+if (isMobile && !isTablet) {
+    document.body.classList.add('mobile-device');
+    document.body.classList.remove('tablet-device', 'desktop-device');
+} else if (isTablet) {
+    document.body.classList.add('tablet-device');
+    document.body.classList.remove('mobile-device', 'desktop-device');
+} else {
+    document.body.classList.add('desktop-device');
+    document.body.classList.remove('mobile-device', 'tablet-device');
+}
+}
+
+detectDeviceType();
+
+// Handle window resize
+window.addEventListener('resize', () => {
+detectDeviceType();
+
+if (window.innerWidth > 768) {
+    navLinks.classList.remove('active');
+    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+}
+});
+</script>
+</body>
+</html>
